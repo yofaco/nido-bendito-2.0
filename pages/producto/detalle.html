@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto | Nido Bendito</title>
+    <meta name="description" content="Detalles completos del producto, fotos y características.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../../assets/css/style.css">
+</head>
+<body>
+    <main class="main-content">
+        <div class="container">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../tienda.html">Tienda</a></li>
+                    <li id="breadcrumbCategory"><a href="#">Categoría</a></li>
+                    <li aria-current="page" id="breadcrumbProduct">Producto</li>
+                </ol>
+            </nav>
+
+            <div id="productDetailContainer" class="product-detail-container">
+                
+                <div class="loading-state">
+                    <div class="loading-spinner"></div>
+                    <p>Cargando detalles del producto...</p>
+                </div>
+
+            </div>
+            
+            <section class="related-products-section">
+                <h2>Productos Relacionados</h2>
+                <div id="relatedProductsGrid" class="product-grid grid-view">
+                    </div>
+            </section>
+        </div>
+    </main>
+    
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/products-loader.js"></script>
+    <script>
+        /**
+         * Lógica de carga para la página de detalle.
+         * Utiliza ProductsLoader para buscar el producto por su slug en la URL.
+         */
+        
+        document.addEventListener('DOMContentLoaded', async () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productSlug = urlParams.get('product');
+
+            if (!productSlug) {
+                displayNotFound();
+                return;
+            }
+
+            // Asegurar que ProductsLoader esté inicializado
+            await productsLoader.waitForInitialization();
+
+            const product = productsLoader.getProductBySlug(productSlug);
+
+            if (product) {
+                renderProductDetail(product);
+                renderRelatedProducts(product);
+                updateMetadata(product);
+            } else {
+                displayNotFound();
+            }
+        });
+
+        /**
+         * Renderiza la estructura HTML del producto.
+         * @param {object} product - Objeto del producto.
+         */
+        function renderProductDetail(product) {
+            const container = document.getElementById('productDetailContainer');
+            
+            // 1. Obtener URL de imagen principal y alternativas
+            const primaryImage = product.images.find(img => img.is_primary) || product.images[0];
+            const altImages = product.images.filter(img => !img.is_primary);
+
+            // 2. Determinar estado de stock
+            const isOutOfStock = product.inventory.stock <= 0;
+            const stockStatus = isOutOfStock 
+                ? '<span class="stock-badge out-of-stock"><i class="fas fa-times-circle"></i> Agotado</span>' 
+                : '<span class="stock-badge in-stock"><i class="fas fa-check-circle"></i> Disponible</span>';
+            
+            // 3. Renderizar características
+            const featuresList = product.features.map(f => `<li><i class="fas fa-check-circle"></i> ${f}</li>`).join('');
+
+            // 4. Renderizar imágenes alternativas
+            const altImagesHtml = altImages.map(img => `
+                <img 
+                    src="../../${img.url}" 
+                    alt="${img.alt}" 
+                    data-full-img="../../${img.url}"
+                    onclick="changePrimaryImage(this)"
+                    loading="lazy"
+                    width="80"
+                    height="80"
+                >
+            `).join('');
+
+            // 5. Contenido HTML principal
+            container.innerHTML = `
+                <div class="product-gallery">
+                    <div class="primary-image">
+                        <img 
+                            src="../../${primaryImage.url}" 
+                            alt="${primaryImage.alt}" 
+                            id="primaryProductImage"
+                            width="500"
+                            height="500"
+                        >
+                    </div>
+                    <div class="alt-images">
+                        ${altImagesHtml}
+                    </div>
+                </div>
+
+                <div class="product-info">
+                    <h1 class="product-name">${product.name}</h1>
+                    <p class="product-short-desc">${product.short_description}</p>
+                    
+                    <div class="product-meta">
+                        <div class="product-price">
+                            <span class="current-price">${product.currency}${parseFloat(product.price).toFixed(2)}</span>
+                            ${product.compare_price > product.price 
+                                ? `<span class="compare-price">${product.currency}${parseFloat(product.compare_price).toFixed(2)}</span>` 
+                                : ''}
+                        </div>
+                        ${stockStatus}
+                    </div>
+
+                    <div class="product-actions">
+                        <div class="quantity-control">
+                            <button class="btn btn-qty" onclick="changeQuantity(-1)"><i class="fas fa-minus"></i></button>
+                            <input type="number" id="productQuantity" value="1" min="1" max="${product.inventory.stock > 0 ? product.inventory.stock : 1}" ${isOutOfStock ? 'disabled' : ''}>
+                            <button class="btn btn-qty" onclick="changeQuantity(1)"><i class="fas fa-plus"></i></button>
+                        </div>
+                        
+                        <button 
+                            class="btn btn-primary btn-large" 
+                            id="addToCartBtn"
+                            onclick="window.cartManager.addToCart('${product.id}')"
+                            ${isOutOfStock ? 'disabled' : ''}
+                        >
+                            ${isOutOfStock ? 'Agotado' : '<i class="fas fa-shopping-cart"></i> Agregar al Carrito'}
+                        </button>
+                    </div>
+
+                    <div class="product-description-tabs">
+                        <h3 class="tab-title active" onclick="openTab(event, 'description')">Descripción</h3>
+                        <div id="description" class="tab-content active">
+                            <p>${product.description}</p>
+                        </div>
+
+                        <h3 class="tab-title" onclick="openTab(event, 'features')">Características</h3>
+                        <div id="features" class="tab-content">
+                            <ul class="features-list">${featuresList}</ul>
+                        </div>
+                        
+                        <h3 class="tab-title" onclick="openTab(event, 'shipping')">Envío</h3>
+                        <div id="shipping" class="tab-content">
+                            <p><strong>Envío:</strong> ${product.shipping.requires_shipping ? 'Sí' : 'No'}</p>
+                            <p><strong>Dimensiones Aprox:</strong> ${product.shipping.dimensions}</p>
+                            <p>Consulta nuestra <a href="../envio.html">política de envíos</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Actualizar Breadcrumb
+            const category = productsLoader.getCategoryById(product.category);
+            document.getElementById('breadcrumbCategory').innerHTML = `<a href="../tienda.html?categoria=${category.slug}">${category.name}</a>`;
+            document.getElementById('breadcrumbProduct').textContent = product.name;
+        }
+
+        /**
+         * Muestra un mensaje de producto no encontrado.
+         */
+        function displayNotFound() {
+            const container = document.getElementById('productDetailContainer');
+            container.innerHTML = `
+                <div class="not-found">
+                    <i class="fas fa-sad-tear fa-5x"></i>
+                    <h2>Producto No Encontrado</h2>
+                    <p>Lo sentimos, el artículo que buscas no está disponible o la URL es incorrecta.</p>
+                    <a href="../tienda.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Volver a la Tienda</a>
+                </div>
+            `;
+            document.getElementById('breadcrumbProduct').textContent = 'Error';
+            // Ocultar sección de relacionados
+            document.querySelector('.related-products-section').style.display = 'none';
+        }
+        
+        /**
+         * Cambia la imagen principal al hacer clic en una miniatura.
+         */
+        function changePrimaryImage(imgElement) {
+            const primaryImage = document.getElementById('primaryProductImage');
+            primaryImage.src = imgElement.dataset.fullImg;
+            primaryImage.alt = imgElement.alt;
+        }
+
+        /**
+         * Controla la cantidad en el input.
+         */
+        function changeQuantity(delta) {
+            const input = document.getElementById('productQuantity');
+            let quantity = parseInt(input.value);
+            let max = parseInt(input.max);
+
+            quantity = Math.max(1, Math.min(max, quantity + delta));
+            input.value = quantity;
+        }
+        
+        /**
+         * Renderiza productos relacionados (misma categoría, excluyendo el actual).
+         */
+        function renderRelatedProducts(currentProduct) {
+            const related = productsLoader.getProductsByCategory(currentProduct.category)
+                .filter(p => p.id !== currentProduct.id)
+                .slice(0, 4); // Mostrar hasta 4 relacionados
+            
+            const grid = document.getElementById('relatedProductsGrid');
+            grid.innerHTML = ''; // Limpiar el contenedor
+            
+            if (related.length === 0) {
+                document.querySelector('.related-products-section').style.display = 'none';
+                return;
+            }
+
+            related.forEach(product => {
+                // ProductsLoader tiene un método para crear la tarjeta basado en el template
+                grid.insertAdjacentHTML('beforeend', productsLoader.createProductCard(product));
+            });
+        }
+        
+        /**
+         * Actualiza el título y meta descripción de la página.
+         */
+        function updateMetadata(product) {
+            const metaTitle = product.seo.meta_title || `${product.name} | Nido Bendito`;
+            const metaDescription = product.seo.meta_description || product.short_description;
+
+            document.title = metaTitle;
+            document.querySelector('meta[name="description"]').content = metaDescription;
+        }
+
+        /**
+         * Función para el manejo de pestañas (Descripción, Características, Envío).
+         */
+        function openTab(evt, tabName) {
+            // Declarar todas las variables
+            var i, tabcontent, tabtitles;
+
+            // Obtener todos los elementos con class="tab-content" y ocultarlos
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove('active');
+            }
+
+            // Obtener todos los elementos con class="tab-title" y remover la clase "active"
+            tabtitles = document.getElementsByClassName("tab-title");
+            for (i = 0; i < tabtitles.length; i++) {
+                tabtitles[i].classList.remove('active');
+            }
+
+            // Mostrar el contenido de la pestaña actual, y añadir "active" a la pestaña que abrió
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
