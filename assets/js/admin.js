@@ -6,9 +6,9 @@
 
 // ===== CONFIGURACIÓN Y ESTADO GLOBAL =====
 const APP_CONFIG = {
-    dataPath: '../data/',
+    dataPath: '../../data/',
     imagesPath: '../assets/images/products/',
-    adminImagesPath: 'data/images/',
+    adminImagesPath: '../../data/images/',
     maxImages: 5,
     supportedFormats: ['image/jpeg', 'image/png', 'image/webp']
 };

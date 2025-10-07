@@ -13,8 +13,8 @@ class GitHubAutoUpload {
                 products: 'data/products.json',
                 categories: 'data/categories.json'
             },
-            imageSources: 'data/images/', // Imágenes en admin
-            imageTargets: 'assets/images/products/' // Imágenes en sitio web
+            imageSources: '../data/images/', // Imágenes en admin
+            imageTargets: '../assets/images/products/' // Imágenes en sitio web
         };
         
         this.state = {
