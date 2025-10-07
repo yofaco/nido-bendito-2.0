@@ -1,0 +1,13 @@
+{
+  "eslint.validate": ["javascript", "html"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "sonarlint.ls.javaHome": "",
+  "htmlhint.options": {
+    "tag-pair": true,
+    "attr-lowercase": true,
+    "doctype-first": true,
+    "id-unique": true
+  },
+  "webhint.hints": ["accessibility", "performance", "pwa", "compatibility"]
+}
