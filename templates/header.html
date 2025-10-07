@@ -1,0 +1,662 @@
+<!-- Header Template - Nido Bendito -->
+<header class="main-header" id="main-header">
+    <div class="container header-content">
+        <!-- Top Navigation -->
+        <nav class="top-nav" aria-label="Navegación secundaria">
+            <ul>
+                <li><a href="../pages/envio.html" class="top-nav-link">Envío</a></li>
+                <li><a href="../pages/nosotros.html" class="top-nav-link">Nosotros</a></li>
+                <li><a href="../pages/historias.html" class="top-nav-link">Historias</a></li>
+            </ul>
+        </nav>
+
+        <!-- Logo -->
+        <div class="logo">
+            <a href="../pages/index.html" class="logo-link" aria-label="Nido Bendito - Inicio">
+                <h1 class="logo-text">Nido Bendito</h1>
+            </a>
+        </div>
+
+        <!-- Header Icons -->
+        <div class="header-icons">
+            <!-- Search -->
+            <div class="search-container">
+                <button class="search-toggle" id="searchToggle" aria-label="Abrir búsqueda">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="search-dropdown" id="searchDropdown">
+                    <form class="search-form" id="searchForm" role="search">
+                        <input 
+                            type="search" 
+                            id="headerSearch" 
+                            class="search-input" 
+                            placeholder="Buscar productos..." 
+                            aria-label="Buscar productos"
+                        >
+                        <button type="submit" class="search-submit" aria-label="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <div class="search-results" id="searchResults" aria-live="polite"></div>
+                </div>
+            </div>
+
+            <!-- Cart -->
+            <div class="cart-container">
+                <a href="../pages/carrito.html" class="cart-link" aria-label="Carrito de compras">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+
+            <!-- User Account -->
+            <div class="account-container">
+                <button class="account-toggle" id="accountToggle" aria-label="Menú de cuenta">
+                    <i class="fas fa-user"></i>
+                </button>
+                <div class="account-dropdown" id="accountDropdown">
+                    <div class="account-menu">
+                        <a href="../pages/cuenta.html" class="account-link">
+                            <i class="fas fa-user-circle"></i>
+                            Mi Cuenta
+                        </a>
+                        <a href="../pages/pedidos.html" class="account-link">
+                            <i class="fas fa-box"></i>
+                            Mis Pedidos
+                        </a>
+                        <a href="../pages/favoritos.html" class="account-link">
+                            <i class="fas fa-heart"></i>
+                            Favoritos
+                        </a>
+                        <div class="account-divider"></div>
+                        <button class="account-link logout-btn" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Cerrar Sesión
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menú móvil" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav" aria-label="Navegación principal">
+        <div class="container main-nav-container">
+            <ul class="nav-links">
+                <li><a href="../pages/index.html" class="nav-link">Nuevo en</a></li>
+                <li><a href="../pages/tienda.html" class="nav-link active">Tienda</a></li>
+            </ul>
+            
+            <!-- Category Filters for Desktop -->
+            <div class="category-filters-desktop">
+                <ul class="category-filters-list">
+                    <li><a href="../pages/tienda.html?categoria=all" data-category="all" class="category-filter-link active">Todos</a></li>
+                    <li><a href="../pages/tienda.html?categoria=living-room" data-category="living-room" class="category-filter-link">Living Room</a></li>
+                    <li><a href="../pages/tienda.html?categoria=dining-kitchen" data-category="dining-kitchen" class="category-filter-link">Dining & Kitchen</a></li>
+                    <li><a href="../pages/tienda.html?categoria=wall-decor" data-category="wall-decor" class="category-filter-link">Wall Decor</a></li>
+                    <li><a href="../pages/tienda.html?categoria=bedroom" data-category="bedroom" class="category-filter-link">Bedroom</a></li>
+                    <li><a href="../pages/tienda.html?categoria=pillows-decor" data-category="pillows-decor" class="category-filter-link">Pillows & Decor</a></li>
+                    <li><a href="../pages/tienda.html?categoria=lighting" data-category="lighting" class="category-filter-link">Lighting</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <h3>Menú</h3>
+                <button class="mobile-nav-close" id="mobileNavClose" aria-label="Cerrar menú">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <nav class="mobile-nav-links" aria-label="Navegación móvil">
+                <div class="mobile-nav-section">
+                    <h4>Navegación</h4>
+                    <a href="../pages/index.html" class="mobile-nav-link">
+                        <i class="fas fa-home"></i>
+                        Inicio
+                    </a>
+                    <a href="../pages/tienda.html" class="mobile-nav-link">
+                        <i class="fas fa-store"></i>
+                        Tienda
+                    </a>
+                    <a href="../pages/nosotros.html" class="mobile-nav-link">
+                        <i class="fas fa-users"></i>
+                        Nosotros
+                    </a>
+                    <a href="../pages/historias.html" class="mobile-nav-link">
+                        <i class="fas fa-book"></i>
+                        Historias
+                    </a>
+                    <a href="../pages/envio.html" class="mobile-nav-link">
+                        <i class="fas fa-shipping-fast"></i>
+                        Envío
+                    </a>
+                </div>
+
+                <div class="mobile-nav-section">
+                    <h4>Categorías</h4>
+                    <a href="../pages/tienda.html?categoria=all" class="mobile-nav-link" data-category="all">
+                        Todos los productos
+                    </a>
+                    <a href="../pages/tienda.html?categoria=living-room" class="mobile-nav-link" data-category="living-room">
+                        Living Room
+                    </a>
+                    <a href="../pages/tienda.html?categoria=dining-kitchen" class="mobile-nav-link" data-category="dining-kitchen">
+                        Dining & Kitchen
+                    </a>
+                    <a href="../pages/tienda.html?categoria=wall-decor" class="mobile-nav-link" data-category="wall-decor">
+                        Wall Decor
+                    </a>
+                    <a href="../pages/tienda.html?categoria=bedroom" class="mobile-nav-link" data-category="bedroom">
+                        Bedroom
+                    </a>
+                    <a href="../pages/tienda.html?categoria=pillows-decor" class="mobile-nav-link" data-category="pillows-decor">
+                        Pillows & Decor
+                    </a>
+                    <a href="../pages/tienda.html?categoria=lighting" class="mobile-nav-link" data-category="lighting">
+                        Lighting
+                    </a>
+                </div>
+
+                <div class="mobile-nav-section">
+                    <h4>Cuenta</h4>
+                    <a href="../pages/cuenta.html" class="mobile-nav-link">
+                        <i class="fas fa-user"></i>
+                        Mi Cuenta
+                    </a>
+                    <a href="../pages/pedidos.html" class="mobile-nav-link">
+                        <i class="fas fa-box"></i>
+                        Mis Pedidos
+                    </a>
+                    <a href="../pages/favoritos.html" class="mobile-nav-link">
+                        <i class="fas fa-heart"></i>
+                        Favoritos
+                    </a>
+                    <a href="../pages/carrito.html" class="mobile-nav-link">
+                        <i class="fas fa-shopping-cart"></i>
+                        Carrito
+                        <span class="mobile-cart-count" id="mobileCartCount">0</span>
+                    </a>
+                </div>
+            </nav>
+
+            <div class="mobile-nav-footer">
+                <div class="mobile-contact-info">
+                    <p><strong>¿Necesitas ayuda?</strong></p>
+                    <a href="mailto:hola@nidobendito.com" class="mobile-contact-link">
+                        <i class="fas fa-envelope"></i>
+                        hola@nidobendito.com
+                    </a>
+                    <a href="tel:+50212345678" class="mobile-contact-link">
+                        <i class="fas fa-phone"></i>
+                        +502 1234-5678
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-overlay-content">
+            <button class="search-overlay-close" id="searchOverlayClose" aria-label="Cerrar búsqueda">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <form class="search-overlay-form" id="searchOverlayForm">
+                <div class="search-input-container">
+                    <input 
+                        type="search" 
+                        id="overlaySearch" 
+                        class="search-overlay-input" 
+                        placeholder="¿Qué estás buscando?" 
+                        autocomplete="off"
+                        aria-label="Buscar productos"
+                    >
+                    <button type="submit" class="search-overlay-submit" aria-label="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+
+            <div class="search-overlay-results" id="searchOverlayResults">
+                <div class="search-suggestions">
+                    <h4>Sugerencias populares</h4>
+                    <div class="suggestion-tags">
+                        <button class="suggestion-tag" data-search="vela">Velas aromáticas</button>
+                        <button class="suggestion-tag" data-search="jarrón">Jarrones</button>
+                        <button class="suggestion-tag" data-search="cojín">Cojines</button>
+                        <button class="suggestion-tag" data-search="espejo">Espejos</button>
+                    </div>
+                </div>
+
+                <div class="recent-searches" id="recentSearches">
+                    <h4>Búsquedas recientes</h4>
+                    <div class="recent-searches-list" id="recentSearchesList">
+                        <!-- Las búsquedas recientes se cargarán aquí -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Header JavaScript -->
+<script>
+class HeaderManager {
+    constructor() {
+        this.selectors = {
+            searchToggle: '#searchToggle',
+            searchDropdown: '#searchDropdown',
+            searchForm: '#searchForm',
+            headerSearch: '#headerSearch',
+            searchResults: '#searchResults',
+            accountToggle: '#accountToggle',
+            accountDropdown: '#accountDropdown',
+            mobileMenuToggle: '#mobileMenuToggle',
+            mobileNav: '#mobileNav',
+            mobileNavClose: '#mobileNavClose',
+            searchOverlay: '#searchOverlay',
+            searchOverlayClose: '#searchOverlayClose',
+            searchOverlayForm: '#searchOverlayForm',
+            overlaySearch: '#overlaySearch',
+            searchOverlayResults: '#searchOverlayResults',
+            cartCount: '#cartCount',
+            mobileCartCount: '#mobileCartCount'
+        };
+
+        this.state = {
+            isSearchOpen: false,
+            isAccountOpen: false,
+            isMobileNavOpen: false,
+            isSearchOverlayOpen: false,
+            recentSearches: JSON.parse(localStorage.getItem('nidoBenditoRecentSearches') || '[]')
+        };
+
+        this.init();
+    }
+
+    init() {
+        this.setupEventListeners();
+        this.updateCartCount();
+        this.loadRecentSearches();
+    }
+
+    setupEventListeners() {
+        // Search functionality
+        document.querySelector(this.selectors.searchToggle)?.addEventListener('click', () => this.toggleSearch());
+        document.querySelector(this.selectors.searchForm)?.addEventListener('submit', (e) => this.handleSearch(e));
+        document.querySelector(this.selectors.headerSearch)?.addEventListener('input', (e) => this.handleSearchInput(e));
+
+        // Account dropdown
+        document.querySelector(this.selectors.accountToggle)?.addEventListener('click', () => this.toggleAccount());
+
+        // Mobile navigation
+        document.querySelector(this.selectors.mobileMenuToggle)?.addEventListener('click', () => this.toggleMobileNav());
+        document.querySelector(this.selectors.mobileNavClose)?.addEventListener('click', () => this.closeMobileNav());
+
+        // Search overlay
+        document.querySelector(this.selectors.searchToggle)?.addEventListener('click', () => this.openSearchOverlay());
+        document.querySelector(this.selectors.searchOverlayClose)?.addEventListener('click', () => this.closeSearchOverlay());
+        document.querySelector(this.selectors.searchOverlayForm)?.addEventListener('submit', (e) => this.handleOverlaySearch(e));
+        document.querySelector(this.selectors.overlaySearch)?.addEventListener('input', (e) => this.handleOverlaySearchInput(e));
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => this.handleClickOutside(e));
+
+        // Category filter links
+        this.setupCategoryFilters();
+
+        // Suggestion tags
+        this.setupSuggestionTags();
+    }
+
+    toggleSearch() {
+        this.state.isSearchOpen = !this.state.isSearchOpen;
+        const dropdown = document.querySelector(this.selectors.searchDropdown);
+        
+        if (dropdown) {
+            dropdown.classList.toggle('active', this.state.isSearchOpen);
+            
+            if (this.state.isSearchOpen) {
+                document.querySelector(this.selectors.headerSearch)?.focus();
+            }
+        }
+    }
+
+    toggleAccount() {
+        this.state.isAccountOpen = !this.state.isAccountOpen;
+        const dropdown = document.querySelector(this.selectors.accountDropdown);
+        
+        if (dropdown) {
+            dropdown.classList.toggle('active', this.state.isAccountOpen);
+        }
+    }
+
+    toggleMobileNav() {
+        this.state.isMobileNavOpen = !this.state.isMobileNavOpen;
+        const mobileNav = document.querySelector(this.selectors.mobileNav);
+        const toggle = document.querySelector(this.selectors.mobileMenuToggle);
+        
+        if (mobileNav && toggle) {
+            mobileNav.classList.toggle('active', this.state.isMobileNavOpen);
+            toggle.setAttribute('aria-expanded', this.state.isMobileNavOpen);
+            document.body.style.overflow = this.state.isMobileNavOpen ? 'hidden' : '';
+        }
+    }
+
+    closeMobileNav() {
+        this.state.isMobileNavOpen = false;
+        const mobileNav = document.querySelector(this.selectors.mobileNav);
+        const toggle = document.querySelector(this.selectors.mobileMenuToggle);
+        
+        if (mobileNav && toggle) {
+            mobileNav.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+    }
+
+    openSearchOverlay() {
+        this.state.isSearchOverlayOpen = true;
+        const overlay = document.querySelector(this.selectors.searchOverlay);
+        
+        if (overlay) {
+            overlay.classList.add('active');
+            document.querySelector(this.selectors.overlaySearch)?.focus();
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    closeSearchOverlay() {
+        this.state.isSearchOverlayOpen = false;
+        const overlay = document.querySelector(this.selectors.searchOverlay);
+        
+        if (overlay) {
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    handleSearch(e) {
+        e.preventDefault();
+        const searchTerm = document.querySelector(this.selectors.headerSearch)?.value.trim();
+        
+        if (searchTerm) {
+            this.performSearch(searchTerm);
+            this.addToRecentSearches(searchTerm);
+        }
+    }
+
+    handleOverlaySearch(e) {
+        e.preventDefault();
+        const searchTerm = document.querySelector(this.selectors.overlaySearch)?.value.trim();
+        
+        if (searchTerm) {
+            this.performSearch(searchTerm);
+            this.addToRecentSearches(searchTerm);
+            this.closeSearchOverlay();
+        }
+    }
+
+    handleSearchInput(e) {
+        const searchTerm = e.target.value.trim();
+        
+        if (searchTerm.length > 2) {
+            this.showSearchSuggestions(searchTerm);
+        } else {
+            this.hideSearchResults();
+        }
+    }
+
+    handleOverlaySearchInput(e) {
+        const searchTerm = e.target.value.trim();
+        
+        if (searchTerm.length > 2) {
+            this.showOverlaySearchResults(searchTerm);
+        } else {
+            this.showSearchSuggestions();
+        }
+    }
+
+    performSearch(searchTerm) {
+        // Redirigir a la página de tienda con el término de búsqueda
+        window.location.href = `../pages/tienda.html?busqueda=${encodeURIComponent(searchTerm)}`;
+    }
+
+    showSearchSuggestions(searchTerm = '') {
+        if (!searchTerm) {
+            this.showDefaultSuggestions();
+            return;
+        }
+
+        // Integrar con ProductsLoader si está disponible
+        if (window.productsLoader) {
+            const results = window.productsLoader.searchProducts(searchTerm).slice(0, 5);
+            this.displaySearchResults(results, searchTerm);
+        }
+    }
+
+    showOverlaySearchResults(searchTerm) {
+        if (window.productsLoader) {
+            const results = window.productsLoader.searchProducts(searchTerm).slice(0, 8);
+            this.displayOverlayResults(results, searchTerm);
+        }
+    }
+
+    displaySearchResults(products, searchTerm) {
+        const resultsContainer = document.querySelector(this.selectors.searchResults);
+        
+        if (!resultsContainer) return;
+
+        if (products.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="search-no-results">
+                    <p>No se encontraron productos para "${searchTerm}"</p>
+                </div>
+            `;
+        } else {
+            resultsContainer.innerHTML = products.map(product => `
+                <a href="../pages/producto/detalle.html?product=${product.slug}" class="search-result-item">
+                    <img src="${product.images?.[0]?.url || '../assets/images/placeholder-product.jpg'}" alt="${product.name}">
+                    <div class="search-result-info">
+                        <h4>${product.name}</h4>
+                        <p class="search-result-price">Q${product.price}</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        resultsContainer.classList.add('active');
+    }
+
+    displayOverlayResults(products, searchTerm) {
+        const resultsContainer = document.querySelector(this.selectors.searchOverlayResults);
+        
+        if (!resultsContainer) return;
+
+        if (products.length === 0) {
+            resultsContainer.innerHTML = `
+                <div class="search-overlay-no-results">
+                    <i class="fas fa-search"></i>
+                    <h3>No se encontraron resultados</h3>
+                    <p>Intenta con otras palabras clave</p>
+                </div>
+            `;
+        } else {
+            resultsContainer.innerHTML = `
+                <div class="search-overlay-results-list">
+                    <h4>Resultados para "${searchTerm}"</h4>
+                    ${products.map(product => `
+                        <a href="../pages/producto/detalle.html?product=${product.slug}" class="search-overlay-result-item">
+                            <img src="${product.images?.[0]?.url || '../assets/images/placeholder-product.jpg'}" alt="${product.name}">
+                            <div class="search-overlay-result-info">
+                                <h5>${product.name}</h5>
+                                <p class="search-overlay-result-price">Q${product.price}</p>
+                                <p class="search-overlay-result-category">${window.productsLoader?.getCategoryName(product.category) || ''}</p>
+                            </div>
+                        </a>
+                    `).join('')}
+                </div>
+            `;
+        }
+    }
+
+    showDefaultSuggestions() {
+        const resultsContainer = document.querySelector(this.selectors.searchOverlayResults);
+        
+        if (resultsContainer) {
+            resultsContainer.innerHTML = `
+                <div class="search-suggestions">
+                    <h4>Sugerencias populares</h4>
+                    <div class="suggestion-tags">
+                        <button class="suggestion-tag" data-search="vela">Velas aromáticas</button>
+                        <button class="suggestion-tag" data-search="jarrón">Jarrones</button>
+                        <button class="suggestion-tag" data-search="cojín">Cojines</button>
+                        <button class="suggestion-tag" data-search="espejo">Espejos</button>
+                    </div>
+                </div>
+                <div class="recent-searches">
+                    <h4>Búsquedas recientes</h4>
+                    <div class="recent-searches-list" id="recentSearchesList">
+                        ${this.state.recentSearches.map(search => `
+                            <button class="recent-search-item" data-search="${search}">
+                                <i class="fas fa-clock"></i>
+                                ${search}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    hideSearchResults() {
+        const resultsContainer = document.querySelector(this.selectors.searchResults);
+        if (resultsContainer) {
+            resultsContainer.classList.remove('active');
+        }
+    }
+
+    setupCategoryFilters() {
+        // Filtros de categoría en desktop
+        const categoryLinks = document.querySelectorAll('.category-filter-link');
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const category = link.dataset.category;
+                this.handleCategoryFilter(category);
+            });
+        });
+
+        // Filtros de categoría en móvil
+        const mobileCategoryLinks = document.querySelectorAll('.mobile-nav-link[data-category]');
+        mobileCategoryLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const category = link.dataset.category;
+                this.handleCategoryFilter(category);
+                this.closeMobileNav();
+            });
+        });
+    }
+
+    handleCategoryFilter(categoryId) {
+        // Actualizar enlaces activos
+        document.querySelectorAll('.category-filter-link').forEach(link => {
+            link.classList.toggle('active', link.dataset.category === categoryId);
+        });
+
+        document.querySelectorAll('.mobile-nav-link[data-category]').forEach(link => {
+            link.classList.toggle('active', link.dataset.category === categoryId);
+        });
+
+        // Redirigir a la tienda con el filtro aplicado
+        if (categoryId === 'all') {
+            window.location.href = '../pages/tienda.html';
+        } else {
+            window.location.href = `../pages/tienda.html?categoria=${categoryId}`;
+        }
+    }
+
+    setupSuggestionTags() {
+        document.addEventListener('click', (e) => {
+            if (e.target.classList.contains('suggestion-tag') || e.target.classList.contains('recent-search-item')) {
+                const searchTerm = e.target.dataset.search;
+                document.querySelector(this.selectors.overlaySearch).value = searchTerm;
+                this.handleOverlaySearch(new Event('submit'));
+            }
+        });
+    }
+
+    addToRecentSearches(searchTerm) {
+        // Evitar duplicados
+        this.state.recentSearches = this.state.recentSearches.filter(s => s !== searchTerm);
+        
+        // Agregar al inicio
+        this.state.recentSearches.unshift(searchTerm);
+        
+        // Mantener solo las últimas 5 búsquedas
+        this.state.recentSearches = this.state.recentSearches.slice(0, 5);
+        
+        // Guardar en localStorage
+        localStorage.setItem('nidoBenditoRecentSearches', JSON.stringify(this.state.recentSearches));
+        
+        // Actualizar la UI
+        this.loadRecentSearches();
+    }
+
+    loadRecentSearches() {
+        const recentSearchesList = document.getElementById('recentSearchesList');
+        if (recentSearchesList && this.state.recentSearches.length > 0) {
+            recentSearchesList.innerHTML = this.state.recentSearches.map(search => `
+                <button class="recent-search-item" data-search="${search}">
+                    <i class="fas fa-clock"></i>
+                    ${search}
+                </button>
+            `).join('');
+        }
+    }
+
+    updateCartCount() {
+        // Integrar con el sistema de carrito cuando esté disponible
+        const cartCount = localStorage.getItem('nidoBenditoCartCount') || '0';
+        
+        document.querySelectorAll(this.selectors.cartCount).forEach(el => {
+            el.textContent = cartCount;
+        });
+        
+        document.querySelectorAll(this.selectors.mobileCartCount).forEach(el => {
+            el.textContent = cartCount;
+        });
+    }
+
+    handleClickOutside(e) {
+        // Cerrar dropdowns cuando se hace clic fuera
+        if (!e.target.closest('.search-container') && this.state.isSearchOpen) {
+            this.state.isSearchOpen = false;
+            document.querySelector(this.selectors.searchDropdown)?.classList.remove('active');
+        }
+
+        if (!e.target.closest('.account-container') && this.state.isAccountOpen) {
+            this.state.isAccountOpen = false;
+            document.querySelector(this.selectors.accountDropdown)?.classList.remove('active');
+        }
+    }
+}
+
+// Inicializar el header cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    window.headerManager = new HeaderManager();
+});
+</script>

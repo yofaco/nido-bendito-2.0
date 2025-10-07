@@ -1,0 +1,849 @@
+<!-- templates/product-card.html -->
+<!-- Template para tarjetas de producto - Versión HTML estática -->
+<!-- Se integra con el componente JavaScript product-card.js -->
+
+<template id="product-card-template">
+    <article class="product-card" data-product-id="{{id}}" data-category="{{category}}">
+        <a href="../pages/producto/detalle.html?product={{slug}}" class="product-link" aria-label="Ver detalles de {{name}}">
+            <div class="product-image">
+                <img 
+                    src="{{primaryImage.url}}" 
+                    alt="{{primaryImage.alt}}" 
+                    loading="lazy"
+                    width="400"
+                    height="400"
+                >
+                <div class="product-badges">
+                    {{#if new}}
+                    <span class="product-badge new">Nuevo</span>
+                    {{/if}}
+                    {{#if featured}}
+                    <span class="product-badge featured">Destacado</span>
+                    {{/if}}
+                    {{#if best_seller}}
+                    <span class="product-badge best-seller">Más Vendido</span>
+                    {{/if}}
+                </div>
+                
+                <!-- Overlay de acciones rápidas -->
+                <div class="product-overlay">
+                    <button class="quick-view-btn" data-product="{{slug}}" aria-label="Vista rápida de {{name}}">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                    <button class="wishlist-btn" data-product="{{id}}" aria-label="Agregar {{name}} a favoritos">
+                        <i class="far fa-heart"></i>
+                    </button>
+                </div>
+            </div>
+        </a>
+        
+        <div class="product-info">
+            <span class="product-category">{{categoryName}}</span>
+            <h3 class="product-name">
+                <a href="../pages/producto/detalle.html?product={{slug}}">{{name}}</a>
+            </h3>
+            
+            <p class="product-short-description">{{short_description}}</p>
+            
+            <div class="product-pricing">
+                <span class="product-price">Q{{price}}</span>
+                {{#if compare_price}}
+                <span class="product-compare-price">Q{{compare_price}}</span>
+                {{/if}}
+            </div>
+            
+            <div class="product-meta">
+                <div class="stock-status {{stockStatusClass}}">
+                    {{stockStatusText}}
+                </div>
+                {{#if rating}}
+                <div class="product-rating">
+                    {{{ratingStars}}}
+                    <span class="rating-count">({{review_count}})</span>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+        
+        <div class="product-actions">
+            <button class="btn-order-whatsapp" data-product="{{name}}" data-price="Q{{price}}">
+                <i class="fab fa-whatsapp"></i>
+                Pedir por WhatsApp
+            </button>
+            <a href="../pages/producto/detalle.html?product={{slug}}" class="btn-view-details">
+                Ver detalles
+            </a>
+        </div>
+    </article>
+</template>
+
+<!-- Versión alternativa para lista -->
+<template id="product-card-list-template">
+    <article class="product-card list-view" data-product-id="{{id}}" data-category="{{category}}">
+        <div class="product-card-content">
+            <a href="../pages/producto/detalle.html?product={{slug}}" class="product-image-link">
+                <div class="product-image">
+                    <img 
+                        src="{{primaryImage.url}}" 
+                        alt="{{primaryImage.alt}}" 
+                        loading="lazy"
+                        width="200"
+                        height="200"
+                    >
+                    <div class="product-badges">
+                        {{#if new}}
+                        <span class="product-badge new">Nuevo</span>
+                        {{/if}}
+                        {{#if featured}}
+                        <span class="product-badge featured">Destacado</span>
+                        {{/if}}
+                    </div>
+                </div>
+            </a>
+            
+            <div class="product-details">
+                <div class="product-header">
+                    <span class="product-category">{{categoryName}}</span>
+                    <h3 class="product-name">
+                        <a href="../pages/producto/detalle.html?product={{slug}}">{{name}}</a>
+                    </h3>
+                </div>
+                
+                <p class="product-description">{{description}}</p>
+                
+                <div class="product-features">
+                    <ul>
+                        {{#each features}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+                
+                <div class="product-footer">
+                    <div class="product-pricing">
+                        <span class="product-price">Q{{price}}</span>
+                        {{#if compare_price}}
+                        <span class="product-compare-price">Q{{compare_price}}</span>
+                        {{/if}}
+                    </div>
+                    
+                    <div class="product-meta">
+                        <div class="stock-status {{stockStatusClass}}">
+                            {{stockStatusText}}
+                        </div>
+                        {{#if rating}}
+                        <div class="product-rating">
+                            {{{ratingStars}}}
+                            <span class="rating-count">({{review_count}})</span>
+                        </div>
+                        {{/if}}
+                    </div>
+                    
+                    <div class="product-actions">
+                        <button class="btn-order-whatsapp" data-product="{{name}}" data-price="Q{{price}}">
+                            <i class="fab fa-whatsapp"></i>
+                            Pedir por WhatsApp
+                        </button>
+                        <a href="../pages/producto/detalle.html?product={{slug}}" class="btn-view-details">
+                            Ver detalles
+                        </a>
+                        <button class="wishlist-btn" data-product="{{id}}" aria-label="Agregar a favoritos">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</template>
+
+<!-- CSS para las tarjetas de producto -->
+<style>
+/* Variables CSS consistentes */
+:root {
+    --primary-color: #E0A06B;
+    --primary-dark: #c98a5a;
+    --dark-brown: #332B25;
+    --medium-brown: #8B817A;
+    --light-beige: #FCFBF7;
+    --light-gray: #E8E8E8;
+    --white: #FFFFFF;
+    --success-color: #27AE60;
+    --warning-color: #F2994A;
+    --error-color: #EB5757;
+    --whatsapp-green: #25D366;
+    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.15);
+    --border-radius: 8px;
+}
+
+/* Tarjeta de producto base */
+.product-card {
+    background: var(--white);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Enlace de producto */
+.product-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Imagen del producto */
+.product-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1;
+    background: var(--light-beige);
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.05);
+}
+
+/* Overlay de acciones */
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(51, 43, 37, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.quick-view-btn,
+.wishlist-btn {
+    background: var(--white);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--dark-brown);
+    font-size: 1.1em;
+}
+
+.quick-view-btn:hover,
+.wishlist-btn:hover {
+    background: var(--primary-color);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+/* Badges del producto */
+.product-badges {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 2;
+}
+
+.product-badge {
+    padding: 6px 10px;
+    border-radius: 12px;
+    font-size: 0.7em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    line-height: 1;
+}
+
+.product-badge.new {
+    background: var(--primary-color);
+    color: var(--white);
+}
+
+.product-badge.featured {
+    background: var(--success-color);
+    color: var(--white);
+}
+
+.product-badge.best-seller {
+    background: var(--warning-color);
+    color: var(--white);
+}
+
+/* Información del producto */
+.product-info {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.product-category {
+    font-size: 0.8em;
+    color: var(--medium-brown);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.product-name {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--dark-brown);
+    line-height: 1.3;
+    margin: 0;
+}
+
+.product-name a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.product-name a:hover {
+    color: var(--primary-color);
+}
+
+.product-short-description {
+    font-size: 0.9em;
+    color: var(--medium-brown);
+    line-height: 1.4;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Precios */
+.product-pricing {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.product-price {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--dark-brown);
+}
+
+.product-compare-price {
+    font-size: 0.9em;
+    color: var(--medium-brown);
+    text-decoration: line-through;
+}
+
+/* Meta información */
+.product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.stock-status {
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-size: 0.7em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stock-status.in-stock {
+    background: rgba(39, 174, 96, 0.1);
+    color: var(--success-color);
+}
+
+.stock-status.low-stock {
+    background: rgba(242, 153, 74, 0.1);
+    color: var(--warning-color);
+}
+
+.stock-status.out-of-stock {
+    background: rgba(235, 87, 87, 0.1);
+    color: var(--error-color);
+}
+
+/* Rating */
+.product-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8em;
+}
+
+.product-rating i {
+    color: var(--primary-color);
+    font-size: 0.9em;
+}
+
+.rating-count {
+    color: var(--medium-brown);
+}
+
+/* Acciones del producto */
+.product-actions {
+    padding: 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-order-whatsapp {
+    background: var(--whatsapp-green);
+    color: var(--white);
+    border: none;
+    padding: 12px 16px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 0.9em;
+}
+
+.btn-order-whatsapp:hover {
+    background: #1DA851;
+    transform: translateY(-1px);
+}
+
+.btn-view-details {
+    background: transparent;
+    color: var(--dark-brown);
+    border: 1px solid var(--light-gray);
+    padding: 10px 16px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+}
+
+.btn-view-details:hover {
+    background: var(--light-beige);
+    border-color: var(--medium-brown);
+}
+
+/* Vista de lista */
+.product-card.list-view {
+    height: auto;
+}
+
+.product-card.list-view .product-card-content {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 24px;
+    padding: 24px;
+}
+
+.product-card.list-view .product-image {
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.product-card.list-view .product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.product-card.list-view .product-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.product-card.list-view .product-description {
+    color: var(--medium-brown);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.product-card.list-view .product-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 4px;
+}
+
+.product-card.list-view .product-features li {
+    font-size: 0.85em;
+    color: var(--medium-brown);
+    position: relative;
+    padding-left: 12px;
+}
+
+.product-card.list-view .product-features li::before {
+    content: '•';
+    color: var(--primary-color);
+    position: absolute;
+    left: 0;
+}
+
+.product-card.list-view .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid var(--light-gray);
+}
+
+.product-card.list-view .product-actions {
+    padding: 0;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.product-card.list-view .btn-order-whatsapp,
+.product-card.list-view .btn-view-details {
+    padding: 8px 16px;
+    white-space: nowrap;
+}
+
+.product-card.list-view .wishlist-btn {
+    background: transparent;
+    border: 1px solid var(--light-gray);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--medium-brown);
+}
+
+.product-card.list-view .wishlist-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Estados de carga */
+.product-card.loading {
+    pointer-events: none;
+}
+
+.product-card.loading .product-image {
+    background: var(--light-gray);
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.product-card.loading .product-info > * {
+    background: var(--light-gray);
+    border-radius: 4px;
+    animation: pulse 1.5s ease-in-out infinite;
+    height: 12px;
+}
+
+.product-card.loading .product-info .product-name {
+    width: 80%;
+    height: 16px;
+}
+
+.product-card.loading .product-info .product-short-description {
+    width: 100%;
+    height: 32px;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-card.list-view .product-card-content {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 16px;
+    }
+    
+    .product-card.list-view .product-image {
+        width: 100%;
+        height: 200px;
+    }
+    
+    .product-card.list-view .product-footer {
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+    
+    .product-card.list-view .product-actions {
+        order: -1;
+    }
+    
+    .product-actions {
+        padding: 0 16px 16px;
+    }
+    
+    .product-info {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card.list-view .product-actions {
+        flex-direction: column;
+    }
+    
+    .btn-order-whatsapp,
+    .btn-view-details {
+        font-size: 0.85em;
+        padding: 10px 12px;
+    }
+}
+
+/* Mejoras de accesibilidad */
+.product-card:focus-within {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.btn-order-whatsapp:focus,
+.btn-view-details:focus,
+.quick-view-btn:focus,
+.wishlist-btn:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Estados interactivos */
+.wishlist-btn.active {
+    color: var(--error-color);
+}
+
+.wishlist-btn.active i::before {
+    content: '\f004';
+    font-weight: 900;
+}
+</style>
+
+<!-- JavaScript para integración -->
+<script>
+/**
+ * Product Card Template Manager
+ * Proporciona métodos para renderizar tarjetas de producto desde templates
+ */
+
+class ProductCardTemplate {
+    constructor() {
+        this.templates = {
+            grid: document.getElementById('product-card-template'),
+            list: document.getElementById('product-card-list-template')
+        };
+        this.init();
+    }
+
+    init() {
+        // Verificar que los templates estén disponibles
+        if (!this.templates.grid || !this.templates.list) {
+            console.warn('Product card templates not found');
+        }
+    }
+
+    /**
+     * Renderizar tarjeta de producto desde datos
+     */
+    render(productData, viewType = 'grid') {
+        const template = this.templates[viewType];
+        if (!template) {
+            console.error(`Template not found for view type: ${viewType}`);
+            return null;
+        }
+
+        // Preparar datos para el template
+        const templateData = this.prepareTemplateData(productData);
+        
+        // En un entorno real, usarías un motor de templates como Handlebars
+        // Por ahora, simulamos el renderizado
+        const html = this.renderTemplate(template.innerHTML, templateData);
+        
+        const container = document.createElement('div');
+        container.innerHTML = html;
+        
+        return container.firstElementChild;
+    }
+
+    /**
+     * Preparar datos para el template
+     */
+    prepareTemplateData(product) {
+        const primaryImage = product.images?.find(img => img.is_primary) || product.images?.[0] || {};
+        
+        return {
+            ...product,
+            primaryImage: {
+                url: primaryImage.url || '../assets/images/placeholder-product.jpg',
+                alt: primaryImage.alt || product.name
+            },
+            categoryName: this.getCategoryName(product.category),
+            stockStatusClass: this.getStockStatusClass(product.inventory),
+            stockStatusText: this.getStockStatusText(product.inventory),
+            ratingStars: this.generateStarRating(product.rating || 0)
+        };
+    }
+
+    /**
+     * Renderizar template (simulación - en producción usar Handlebars)
+     */
+    renderTemplate(template, data) {
+        let html = template;
+        
+        // Reemplazar variables básicas
+        html = html.replace(/\{\{(\w+)\}\}/g, (match, key) => {
+            return data[key] || '';
+        });
+        
+        // Reemplazar variables con puntos
+        html = html.replace(/\{\{([\w\.]+)\}\}/g, (match, key) => {
+            const value = this.getNestedValue(data, key);
+            return value !== undefined ? value : '';
+        });
+        
+        // Manejar condicionales simples
+        html = html.replace(/\{\{#if (\w+)\}\}(.*?)\{\{\/if\}\}/gs, (match, condition, content) => {
+            return data[condition] ? content : '';
+        });
+        
+        // Manejar loops simples
+        html = html.replace(/\{\{#each (\w+)\}\}(.*?)\{\{\/each\}\}/gs, (match, arrayKey, content) => {
+            const array = data[arrayKey] || [];
+            return array.map(item => 
+                content.replace(/\{\{this\}\}/g, item)
+            ).join('');
+        });
+        
+        return html;
+    }
+
+    getNestedValue(obj, path) {
+        return path.split('.').reduce((current, key) => {
+            return current && current[key] !== undefined ? current[key] : undefined;
+        }, obj);
+    }
+
+    getCategoryName(categoryId) {
+        const categoryMap = {
+            'living-room': 'Living Room',
+            'dining-kitchen': 'Dining & Kitchen',
+            'wall-decor': 'Wall Decor',
+            'bedroom': 'Bedroom',
+            'pillows-decor': 'Pillows & Decor',
+            'lighting': 'Lighting'
+        };
+        return categoryMap[categoryId] || 'Sin categoría';
+    }
+
+    getStockStatusClass(inventory) {
+        const stock = inventory?.stock || 0;
+        const status = inventory?.stock_status || 'in_stock';
+        
+        if (status === 'out_of_stock') return 'out-of-stock';
+        if (stock < 5) return 'low-stock';
+        return 'in-stock';
+    }
+
+    getStockStatusText(inventory) {
+        const stock = inventory?.stock || 0;
+        const status = inventory?.stock_status || 'in_stock';
+        
+        if (status === 'out_of_stock') return 'Agotado';
+        if (stock < 5) return `Últimas ${stock} unidades`;
+        return 'En stock';
+    }
+
+    generateStarRating(rating) {
+        const fullStars = Math.floor(rating);
+        const hasHalfStar = rating % 1 >= 0.5;
+        const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+        
+        let stars = '';
+        
+        // Estrellas llenas
+        for (let i = 0; i < fullStars; i++) {
+            stars += '<i class="fas fa-star"></i>';
+        }
+        
+        // Media estrella
+        if (hasHalfStar) {
+            stars += '<i class="fas fa-star-half-alt"></i>';
+        }
+        
+        // Estrellas vacías
+        for (let i = 0; i < emptyStars; i++) {
+            stars += '<i class="far fa-star"></i>';
+        }
+        
+        return stars;
+    }
+
+    /**
+     * Método para integración con ProductsLoader
+     */
+    static integrateWithProductsLoader() {
+        const productsLoader = window.productsLoader;
+        if (!productsLoader) return;
+
+        // Sobrescribir el método createProductCard para usar templates
+        const originalCreateProductCard = productsLoader.createProductCard;
+        
+        productsLoader.createProductCard = function(product) {
+            const templateManager = window.productCardTemplate || new ProductCardTemplate();
+            return templateManager.render(product, this.state.currentView);
+        };
+    }
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    window.productCardTemplate = new ProductCardTemplate();
+    ProductCardTemplate.integrateWithProductsLoader();
+});
+
+console.log('🛍️ Product Card Templates cargados correctamente');
+</script>

@@ -1,0 +1,580 @@
+<!-- templates/navigation.html -->
+<nav class="main-nav" aria-label="Navegación principal">
+    <div class="container main-nav-container">
+        <!-- Menú principal -->
+        <ul class="nav-links">
+            <li><a href="../pages/index.html" class="nav-link">Inicio</a></li>
+            <li><a href="../pages/tienda.html" class="nav-link active">Tienda</a></li>
+            <li><a href="../pages/nosotros.html" class="nav-link">Nosotros</a></li>
+            <li><a href="../pages/historias.html" class="nav-link">Historias</a></li>
+            <li><a href="../pages/envio.html" class="nav-link">Envío</a></li>
+        </ul>
+
+        <!-- Filtros de categoría integrados -->
+        <div class="category-filters-nav">
+            <div class="category-filters" id="categoryFiltersNav">
+                <ul>
+                    <li>
+                        <a href="../pages/tienda.html" data-category="all" class="category-filter-link active">
+                            Todos
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/tienda.html?categoria=living-room" data-category="living-room" class="category-filter-link">
+                            Living Room
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/tienda.html?categoria=dining-kitchen" data-category="dining-kitchen" class="category-filter-link">
+                            Dining & Kitchen
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/tienda.html?categoria=wall-decor" data-category="wall-decor" class="category-filter-link">
+                            Wall Decor
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/tienda.html?categoria=bedroom" data-category="bedroom" class="category-filter-link">
+                            Bedroom
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/tienda.html?categoria=pillows-decor" data-category="pillows-decor" class="category-filter-link">
+                            Pillows & Decor
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../pages/tienda.html?categoria=lighting" data-category="lighting" class="category-filter-link">
+                            Lighting
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Controles de vista para móvil -->
+            <div class="nav-view-controls">
+                <button class="view-control-btn active" data-view="grid" aria-label="Vista de cuadrícula">
+                    <i class="fas fa-th"></i>
+                </button>
+                <button class="view-control-btn" data-view="list" aria-label="Vista de lista">
+                    <i class="fas fa-list"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- CSS para la navegación -->
+<style>
+.main-nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--light-gray);
+    padding: 0;
+    position: sticky;
+    top: 80px;
+    z-index: 999;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.main-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+    position: relative;
+}
+
+/* Menú principal */
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-link {
+    display: block;
+    padding: 20px 24px;
+    color: var(--dark-brown);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95em;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--accent-orange);
+    background: var(--light-beige);
+}
+
+.nav-link.active {
+    color: var(--accent-orange);
+    border-bottom-color: var(--accent-orange);
+    font-weight: 600;
+}
+
+/* Filtros de categoría */
+.category-filters-nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.category-filters {
+    flex: 1;
+    max-width: 600px;
+}
+
+.category-filters ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.category-filters ul::-webkit-scrollbar {
+    display: none;
+}
+
+.category-filter-link {
+    display: block;
+    padding: 12px 20px;
+    background: var(--light-beige);
+    border: 1px solid var(--light-gray);
+    border-radius: 25px;
+    color: var(--medium-brown);
+    text-decoration: none;
+    font-size: 0.85em;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.category-filter-link:hover {
+    background: var(--accent-orange);
+    color: var(--white);
+    border-color: var(--accent-orange);
+    transform: translateY(-1px);
+}
+
+.category-filter-link.active {
+    background: var(--dark-brown);
+    color: var(--white);
+    border-color: var(--dark-brown);
+}
+
+/* Controles de vista */
+.nav-view-controls {
+    display: flex;
+    gap: 4px;
+    background: var(--light-beige);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.view-control-btn {
+    background: transparent;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: var(--medium-brown);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.view-control-btn:hover {
+    background: var(--white);
+    color: var(--dark-brown);
+}
+
+.view-control-btn.active {
+    background: var(--accent-orange);
+    color: var(--white);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .main-nav-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .nav-links {
+        justify-content: center;
+        border-bottom: 1px solid var(--light-gray);
+    }
+    
+    .nav-link {
+        padding: 16px 20px;
+        font-size: 0.9em;
+    }
+    
+    .category-filters-nav {
+        padding: 15px 0;
+        justify-content: center;
+    }
+    
+    .category-filters {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        top: 70px;
+    }
+    
+    .nav-links {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 0 15px;
+    }
+    
+    .nav-link {
+        padding: 14px 16px;
+        font-size: 0.85em;
+        white-space: nowrap;
+    }
+    
+    .category-filters-nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 12px 15px;
+    }
+    
+    .category-filters {
+        order: 2;
+    }
+    
+    .nav-view-controls {
+        order: 1;
+        align-self: flex-end;
+    }
+    
+    .category-filters ul {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-link {
+        padding: 12px 14px;
+        font-size: 0.8em;
+    }
+    
+    .category-filter-link {
+        padding: 10px 16px;
+        font-size: 0.8em;
+    }
+    
+    .view-control-btn {
+        padding: 6px 10px;
+    }
+}
+
+/* Estados activos y mejoras de UX */
+.category-filters {
+    position: relative;
+}
+
+.category-filters::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    background: linear-gradient(90deg, transparent, var(--white));
+    pointer-events: none;
+}
+
+/* Animaciones suaves */
+.nav-link, .category-filter-link, .view-control-btn {
+    will-change: transform;
+}
+
+/* Mejora de accesibilidad */
+.nav-link:focus,
+.category-filter-link:focus,
+.view-control-btn:focus {
+    outline: 2px solid var(--accent-orange);
+    outline-offset: 2px;
+}
+
+/* Indicador de scroll para móviles */
+.category-filters.scrollable::before {
+    content: '← Desliza →';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7em;
+    color: var(--medium-brown);
+    background: var(--light-beige);
+    padding: 2px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+}
+</style>
+
+<!-- JavaScript para la navegación -->
+<script>
+class NavigationManager {
+    constructor() {
+        this.selectors = {
+            categoryLinks: '.category-filter-link',
+            viewControls: '.view-control-btn',
+            navLinks: '.nav-link',
+            categoryFilters: '.category-filters'
+        };
+        
+        this.state = {
+            currentCategory: 'all',
+            currentView: 'grid'
+        };
+        
+        this.init();
+    }
+    
+    init() {
+        this.setupEventListeners();
+        this.setupScrollIndicators();
+        this.highlightCurrentPage();
+    }
+    
+    setupEventListeners() {
+        // Filtros de categoría
+        document.querySelectorAll(this.selectors.categoryLinks).forEach(link => {
+            link.addEventListener('click', (e) => this.handleCategoryClick(e));
+        });
+        
+        // Controles de vista
+        document.querySelectorAll(this.selectors.viewControls).forEach(btn => {
+            btn.addEventListener('click', (e) => this.handleViewChange(e));
+        });
+        
+        // Navegación principal
+        document.querySelectorAll(this.selectors.navLinks).forEach(link => {
+            link.addEventListener('click', (e) => this.handleNavClick(e));
+        });
+    }
+    
+    setupScrollIndicators() {
+        const filters = document.querySelector(this.selectors.categoryFilters);
+        if (!filters) return;
+        
+        const checkScroll = () => {
+            const ul = filters.querySelector('ul');
+            if (ul.scrollWidth > ul.clientWidth) {
+                filters.classList.add('scrollable');
+            } else {
+                filters.classList.remove('scrollable');
+            }
+        };
+        
+        // Verificar al cargar y al redimensionar
+        checkScroll();
+        window.addEventListener('resize', checkScroll);
+        
+        // Scroll suave para móviles
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        
+        const ul = filters.querySelector('ul');
+        
+        ul.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - ul.offsetLeft;
+            scrollLeft = ul.scrollLeft;
+        });
+        
+        ul.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+        
+        ul.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+        
+        ul.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - ul.offsetLeft;
+            const walk = (x - startX) * 2;
+            ul.scrollLeft = scrollLeft - walk;
+        });
+        
+        // Touch events para móviles
+        ul.addEventListener('touchstart', (e) => {
+            isDown = true;
+            startX = e.touches[0].pageX - ul.offsetLeft;
+            scrollLeft = ul.scrollLeft;
+        }, { passive: true });
+        
+        ul.addEventListener('touchend', () => {
+            isDown = false;
+        });
+        
+        ul.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            const x = e.touches[0].pageX - ul.offsetLeft;
+            const walk = (x - startX) * 2;
+            ul.scrollLeft = scrollLeft - walk;
+        }, { passive: true });
+    }
+    
+    handleCategoryClick(e) {
+        e.preventDefault();
+        const link = e.currentTarget;
+        const category = link.dataset.category;
+        
+        // Actualizar estado
+        this.state.currentCategory = category;
+        
+        // Actualizar UI
+        this.updateCategoryFilters(category);
+        
+        // Si estamos en tienda.html, aplicar filtro
+        if (window.location.pathname.includes('tienda.html')) {
+            this.applyCategoryFilter(category);
+        } else {
+            // Redirigir a tienda con el filtro aplicado
+            if (category === 'all') {
+                window.location.href = '../pages/tienda.html';
+            } else {
+                window.location.href = `../pages/tienda.html?categoria=${category}`;
+            }
+        }
+    }
+    
+    handleViewChange(e) {
+        e.preventDefault();
+        const btn = e.currentTarget;
+        const view = btn.dataset.view;
+        
+        // Actualizar estado
+        this.state.currentView = view;
+        
+        // Actualizar UI
+        this.updateViewControls(view);
+        
+        // Aplicar cambio de vista si estamos en tienda
+        if (window.location.pathname.includes('tienda.html') && window.productsLoader) {
+            // Aquí se integraría con el sistema de vista de productos
+            this.applyViewChange(view);
+        }
+    }
+    
+    handleNavClick(e) {
+        // Aquí podrías agregar tracking analytics o lógica adicional
+        const link = e.currentTarget;
+        console.log('Navegando a:', link.href);
+    }
+    
+    updateCategoryFilters(activeCategory) {
+        document.querySelectorAll(this.selectors.categoryLinks).forEach(link => {
+            if (link.dataset.category === activeCategory) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+    
+    updateViewControls(activeView) {
+        document.querySelectorAll(this.selectors.viewControls).forEach(btn => {
+            if (btn.dataset.view === activeView) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+    
+    applyCategoryFilter(category) {
+        // Integración con ProductsLoader si está disponible
+        if (window.productsLoader) {
+            window.productsLoader.handleCategoryFilter(category);
+        }
+        
+        // Actualizar URL sin recargar
+        const url = new URL(window.location);
+        if (category === 'all') {
+            url.searchParams.delete('categoria');
+        } else {
+            url.searchParams.set('categoria', category);
+        }
+        window.history.pushState({}, '', url);
+    }
+    
+    applyViewChange(view) {
+        // Integración con el sistema de vista de productos
+        if (window.productsLoader && window.productsLoader.setView) {
+            window.productsLoader.setView(view);
+        }
+        
+        // Guardar preferencia
+        localStorage.setItem('nidoBenditoView', view);
+    }
+    
+    highlightCurrentPage() {
+        const currentPath = window.location.pathname;
+        document.querySelectorAll(this.selectors.navLinks).forEach(link => {
+            const linkPath = new URL(link.href).pathname;
+            if (currentPath.includes(linkPath.split('/').pop())) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+        
+        // También destacar categoría actual desde URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentCategory = urlParams.get('categoria') || 'all';
+        this.updateCategoryFilters(currentCategory);
+        this.state.currentCategory = currentCategory;
+    }
+    
+    // Métodos públicos
+    setCategory(category) {
+        this.handleCategoryClick({ 
+            currentTarget: document.querySelector(`[data-category="${category}"]`),
+            preventDefault: () => {}
+        });
+    }
+    
+    setView(view) {
+        this.handleViewChange({
+            currentTarget: document.querySelector(`[data-view="${view}"]`),
+            preventDefault: () => {}
+        });
+    }
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    window.navigationManager = new NavigationManager();
+});
+
+// Para uso desde otros scripts
+window.NavigationManager = NavigationManager;
+</script>

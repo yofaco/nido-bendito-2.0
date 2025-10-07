@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda - Nido Bendito | Catálogo Completo de Decoración</title>
+    <meta name="description" content="Explora nuestro catálogo completo de productos de decoración para el hogar. Filtra por categoría, precio y más. Envío gratis en Guatemala.">
+    
+    <!-- Preload crítico -->
+    <link rel="preload" href="../assets/css/style.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <!--#include virtual="../templates/header.html" -->
+
+    <!-- Navigation -->
+    <!--#include virtual="../templates/navigation.html" -->
+
+    <main class="main-content">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Migas de pan">
+            <div class="container">
+                <a href="index.html">Inicio</a>
+                <span class="breadcrumb-separator">/</span>
+                <span class="current">Tienda</span>
+            </div>
+        </nav>
+
+        <!-- Page Header -->
+        <section class="page-header" aria-labelledby="page-title">
+            <div class="container">
+                <div class="header-content">
+                    <h1 id="page-title" class="page-title">Nuestra Tienda</h1>
+                    <p class="page-subtitle">Descubre productos únicos que transformarán tu hogar en un espacio acogedor y lleno de estilo.</p>
+                    
+                    <!-- Barra de información de la tienda -->
+                    <div class="store-info-bar">
+                        <div class="info-item">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Envío gratis desde Q500</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Compra 100% segura</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-undo"></i>
+                            <span>Devoluciones en 15 días</span>
+                        </div>
+                        <div class="info-item">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <span>Productos artesanales</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop Layout -->
+        <section class="shop-section" aria-labelledby="products-title">
+            <div class="container">
+                <div class="shop-layout">
+                    <!-- Sidebar de filtros -->
+                    <aside class="sidebar" aria-label="Filtros de productos">
+                        <!-- Filtro de categorías -->
+                        <div class="filter-group">
+                            <h3><i class="fas fa-tags"></i> Categorías</h3>
+                            <ul class="sidebar-categories">
+                                <li><a href="tienda.html" data-category="all" class="active">Todos los productos</a></li>
+                                <li><a href="tienda.html?categoria=living-room" data-category="living-room">Living Room</a></li>
+                                <li><a href="tienda.html?categoria=dining-kitchen" data-category="dining-kitchen">Dining & Kitchen</a></li>
+                                <li><a href="tienda.html?categoria=wall-decor" data-category="wall-decor">Wall Decor</a></li>
+                                <li><a href="tienda.html?categoria=bedroom" data-category="bedroom">Bedroom</a></li>
+                                <li><a href="tienda.html?categoria=pillows-decor" data-category="pillows-decor">Pillows & Decor</a></li>
+                                <li><a href="tienda.html?categoria=lighting" data-category="lighting">Lighting</a></li>
+                            </ul>
+                        </div>
+
+                        <!-- Filtro de precio -->
+                        <div class="filter-group">
+                            <h3><i class="fas fa-filter"></i> Filtrar por Precio</h3>
+                            <div class="price-filter">
+                                <div class="price-inputs">
+                                    <label>
+                                        <span>Mín: Q</span>
+                                        <input type="number" id="minPriceInput" value="30" min="30" max="600">
+                                    </label>
+                                    <label>
+                                        <span>Máx: Q</span>
+                                        <input type="number" id="maxPriceInput" value="600" min="30" max="600">
+                                    </label>
+                                </div>
+                                
+                                <div class="range-sliders">
+                                    <input type="range" id="minPrice" min="30" max="600" value="30" step="10">
+                                    <input type="range" id="maxPrice" min="30" max="600" value="600" step="10">
+                                </div>
+                                
+                                <div class="price-display">
+                                    <span>Precio: Q</span>
+                                    <span id="minPriceValue">30</span>
+                                    <span> - Q</span>
+                                    <span id="maxPriceValue">600</span>
+                                </div>
+                                
+                                <button class="btn-apply-price" id="applyPriceFilter">
+                                    Aplicar Filtro
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Filtro de disponibilidad -->
+                        <div class="filter-group">
+                            <h3><i class="fas fa-box"></i> Disponibilidad</h3>
+                            <div class="availability-filters">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="inStockOnly" checked>
+                                    <span class="checkmark"></span>
+                                    Solo productos en stock
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="newProducts">
+                                    <span class="checkmark"></span>
+                                    Solo productos nuevos
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" id="featuredProducts">
+                                    <span class="checkmark"></span>
+                                    Solo productos destacados
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Filtro de rating -->
+                        <div class="filter-group">
+                            <h3><i class="fas fa-star"></i> Calificación</h3>
+                            <div class="rating-filters">
+                                <label class="checkbox-label">
+                                    <input type="radio" name="rating" value="4" id="rating4">
+                                    <span class="checkmark"></span>
+                                    <span class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        & arriba
+                                    </span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="radio" name="rating" value="3" id="rating3">
+                                    <span class="checkmark"></span>
+                                    <span class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        & arriba
+                                    </span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="radio" name="rating" value="2" id="rating2">
+                                    <span class="checkmark"></span>
+                                    <span class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        & arriba
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Botón limpiar filtros -->
+                        <div class="filter-group">
+                            <button class="btn-clear-filters" id="clearAllFilters">
+                                <i class="fas fa-times"></i>
+                                Limpiar Todos los Filtros
+                            </button>
+                        </div>
+                    </aside>
+
+                    <!-- Contenido principal -->
+                    <div class="products-section">
+                        <!-- Header de productos -->
+                        <div class="products-header">
+                            <div class="products-count">
+                                Mostrando <span id="productsShowing">0</span> de <span id="productsTotal">0</span> productos
+                            </div>
+                            
+                            <div class="products-controls">
+                                <!-- Ordenamiento -->
+                                <div class="sort-control">
+                                    <label for="sortProducts">Ordenar por:</label>
+                                    <select id="sortProducts" class="sort-select">
+                                        <option value="default">Por defecto</option>
+                                        <option value="price-asc">Precio: Menor a Mayor</option>
+                                        <option value="price-desc">Precio: Mayor a Menor</option>
+                                        <option value="name-asc">Nombre: A-Z</option>
+                                        <option value="name-desc">Nombre: Z-A</option>
+                                        <option value="newest">Más Nuevos</option>
+                                        <option value="rating-desc">Mejor Calificados</option>
+                                    </select>
+                                </div>
+
+                                <!-- Controles de vista -->
+                                <div class="view-options">
+                                    <button class="view-btn active" data-view="grid" aria-label="Vista de cuadrícula">
+                                        <i class="fas fa-th"></i>
+                                    </button>
+                                    <button class="view-btn" data-view="list" aria-label="Vista de lista">
+                                        <i class="fas fa-list"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Grid de productos -->
+                        <div class="product-grid" id="productGrid">
+                            <!-- Los productos se cargarán dinámicamente aquí -->
+                            <div class="loading-products">
+                                <div class="loading-spinner"></div>
+                                <p>Cargando productos...</p>
+                            </div>
+                        </div>
+
+                        <!-- Mensaje sin productos -->
+                        <div class="no-products-message hidden" id="noProductsMessage">
+                            <i class="fas fa-search"></i>
+                            <h3>No se encontraron productos</h3>
+                            <p>Intenta ajustar los filtros o buscar con otros términos.</p>
+                            <button class="btn-clear-filters" onclick="window.shopManager.clearAllFilters()">
+                                Limpiar Filtros
+                            </button>
+                        </div>
+
+                        <!-- Paginación -->
+                        <div class="pagination" id="pagination">
+                            <!-- La paginación se generará dinámicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Banner de envío gratis -->
+        <section class="shipping-banner" aria-label="Promoción de envío gratis">
+            <div class="container">
+                <div class="banner-content">
+                    <div class="banner-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <div class="banner-text">
+                        <h3>¡Envío Gratis en tu primer pedido!</h3>
+                        <p>Recibe tus productos sin costo de envío en todo Guatemala. Aprovecha esta promoción especial para nuevos clientes.</p>
+                    </div>
+                    <div class="banner-actions">
+                        <a href="index.html#newsletter" class="btn btn-primary">
+                            Suscribirme
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <!--#include virtual="../templates/footer.html" -->
+
+    <!-- Scripts -->
+    <script src="../assets/js/products-loader.js"></script>
+    <script src="../assets/js/script.js"></script>
+    
+    <!-- Script específico para tienda.html -->
+    <script>
+        class ShopManager {
+            constructor() {
+                this.selectors = {
+                    productGrid: '#productGrid',
+                    productsShowing: '#productsShowing',
+                    productsTotal: '#productsTotal',
+                    noProductsMessage: '#noProductsMessage',
+                    pagination: '#pagination',
+                    sortSelect: '#sortProducts',
+                    viewButtons: '.view-btn',
+                    clearFiltersBtn: '#clearAllFilters',
+                    categoryLinks: '.sidebar-categories a',
+                    priceInputs: {
+                        min: '#minPriceInput',
+                        max: '#maxPriceInput',
+                        minSlider: '#minPrice',
+                        maxSlider: '#maxPrice',
+                        minValue: '#minPriceValue',
+                        maxValue: '#maxPriceValue'
+                    },
+                    applyPriceBtn: '#applyPriceFilter',
+                    availabilityFilters: {
+                        inStock: '#inStockOnly',
+                        new: '#newProducts',
+                        featured: '#featuredProducts'
+                    },
+                    ratingFilters: {
+                        rating4: '#rating4',
+                        rating3: '#rating3',
+                        rating2: '#rating2'
+                    }
+                };
+                
+                this.state = {
+                    currentPage: 1,
+                    productsPerPage: 12,
+                    currentView: 'grid',
+                    filters: {
+                        category: this.getCategoryFromURL(),
+                        price: { min: 30, max: 600 },
+                        availability: {
+                            inStock: true,
+                            new: false,
+                            featured: false
+                        },
+                        rating: null,
+                        sortBy: 'default'
+                    }
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+                this.initializePriceSlider();
+                this.updateProductCounters();
+                this.highlightCurrentCategory();
+            }
+            
+            setupEventListeners() {
+                // Ordenamiento
+                document.querySelector(this.selectors.sortSelect).addEventListener('change', (e) => {
+                    this.state.filters.sortBy = e.target.value;
+                    this.applyFilters();
+                });
+                
+                // Controles de vista
+                document.querySelectorAll(this.selectors.viewButtons).forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        this.setView(e.currentTarget.dataset.view);
+                    });
+                });
+                
+                // Filtros de categoría
+                document.querySelectorAll(this.selectors.categoryLinks).forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.handleCategoryFilter(e.currentTarget.dataset.category);
+                    });
+                });
+                
+                // Filtros de precio
+                document.querySelector(this.selectors.applyPriceBtn).addEventListener('click', () => {
+                    this.applyPriceFilter();
+                });
+                
+                // Filtros de disponibilidad
+                Object.keys(this.selectors.availabilityFilters).forEach(key => {
+                    const selector = this.selectors.availabilityFilters[key];
+                    document.querySelector(selector).addEventListener('change', (e) => {
+                        this.state.filters.availability[key] = e.target.checked;
+                        this.applyFilters();
+                    });
+                });
+                
+                // Filtros de rating
+                Object.keys(this.selectors.ratingFilters).forEach(key => {
+                    const selector = this.selectors.ratingFilters[key];
+                    document.querySelector(selector).addEventListener('change', (e) => {
+                        if (e.target.checked) {
+                            this.state.filters.rating = parseInt(e.target.value);
+                            this.applyFilters();
+                        }
+                    });
+                });
+                
+                // Limpiar filtros
+                document.querySelector(this.selectors.clearFiltersBtn).addEventListener('click', () => {
+                    this.clearAllFilters();
+                });
+                
+                // Integración con ProductsLoader
+                this.integrateWithProductsLoader();
+            }
+            
+            integrateWithProductsLoader() {
+                if (!window.productsLoader) return;
+                
+                // Sincronizar estado cuando se carguen los productos
+                window.productsLoader.init().then(() => {
+                    this.updateProductCounters();
+                    this.applyFilters();
+                });
+                
+                // Escuchar cambios en los productos
+                window.productsLoader.state.filteredProducts = [];
+            }
+            
+            initializePriceSlider() {
+                const { minSlider, maxSlider, minValue, maxValue, minInput, maxInput } = this.selectors.priceInputs;
+                
+                const minSliderEl = document.querySelector(minSlider);
+                const maxSliderEl = document.querySelector(maxSlider);
+                const minValueEl = document.querySelector(minValue);
+                const maxValueEl = document.querySelector(maxValue);
+                const minInputEl = document.querySelector(minInput);
+                const maxInputEl = document.querySelector(maxInput);
+                
+                const updatePriceDisplay = () => {
+                    const minVal = parseInt(minSliderEl.value);
+                    const maxVal = parseInt(maxSliderEl.value);
+                    
+                    // Evitar que se crucen
+                    if (minVal > maxVal) {
+                        minSliderEl.value = maxVal;
+                        minInputEl.value = maxVal;
+                    } else {
+                        minInputEl.value = minVal;
+                    }
+                    
+                    if (maxVal < minVal) {
+                        maxSliderEl.value = minVal;
+                        maxInputEl.value = minVal;
+                    } else {
+                        maxInputEl.value = maxVal;
+                    }
+                    
+                    minValueEl.textContent = minSliderEl.value;
+                    maxValueEl.textContent = maxSliderEl.value;
+                };
+                
+                minSliderEl.addEventListener('input', updatePriceDisplay);
+                maxSliderEl.addEventListener('input', updatePriceDisplay);
+                
+                minInputEl.addEventListener('change', (e) => {
+                    let value = Math.max(30, Math.min(600, parseInt(e.target.value)));
+                    minSliderEl.value = value;
+                    updatePriceDisplay();
+                });
+                
+                maxInputEl.addEventListener('change', (e) => {
+                    let value = Math.max(30, Math.min(600, parseInt(e.target.value)));
+                    maxSliderEl.value = value;
+                    updatePriceDisplay();
+                });
+                
+                // Inicializar display
+                updatePriceDisplay();
+            }
+            
+            handleCategoryFilter(category) {
+                this.state.filters.category = category;
+                this.state.currentPage = 1;
+                this.highlightCurrentCategory();
+                this.applyFilters();
+                this.updateURL();
+            }
+            
+            applyPriceFilter() {
+                const minPrice = parseInt(document.querySelector(this.selectors.priceInputs.minInput).value);
+                const maxPrice = parseInt(document.querySelector(this.selectors.priceInputs.maxInput).value);
+                
+                this.state.filters.price = {
+                    min: minPrice,
+                    max: maxPrice
+                };
+                this.state.currentPage = 1;
+                this.applyFilters();
+            }
+            
+            applyFilters() {
+                if (!window.productsLoader) return;
+                
+                // Aplicar filtros al ProductsLoader
+                window.productsLoader.state.currentCategory = this.state.filters.category;
+                window.productsLoader.state.currentSort = this.state.filters.sortBy;
+                
+                // Aplicar filtros adicionales
+                window.productsLoader.applyFilters();
+                
+                // Filtrar productos adicionalmente
+                let filteredProducts = window.productsLoader.state.filteredProducts;
+                
+                // Aplicar filtros de precio
+                filteredProducts = filteredProducts.filter(product => {
+                    return product.price >= this.state.filters.price.min && 
+                           product.price <= this.state.filters.price.max;
+                });
+                
+                // Aplicar filtros de disponibilidad
+                if (this.state.filters.availability.inStock) {
+                    filteredProducts = filteredProducts.filter(product => 
+                        product.inventory?.stock_status !== 'out_of_stock'
+                    );
+                }
+                
+                if (this.state.filters.availability.new) {
+                    filteredProducts = filteredProducts.filter(product => product.new);
+                }
+                
+                if (this.state.filters.availability.featured) {
+                    filteredProducts = filteredProducts.filter(product => product.featured);
+                }
+                
+                // Aplicar filtro de rating
+                if (this.state.filters.rating) {
+                    filteredProducts = filteredProducts.filter(product => 
+                        (product.rating || 0) >= this.state.filters.rating
+                    );
+                }
+                
+                // Actualizar productos filtrados
+                window.productsLoader.state.filteredProducts = filteredProducts;
+                
+                // Renderizar productos
+                this.renderProducts();
+                this.updateProductCounters();
+                this.renderPagination();
+            }
+            
+            renderProducts() {
+                const grid = document.querySelector(this.selectors.productGrid);
+                const productsLoader = window.productsLoader;
+                
+                if (!grid || !productsLoader) return;
+                
+                const filteredProducts = productsLoader.state.filteredProducts;
+                const startIndex = (this.state.currentPage - 1) * this.state.productsPerPage;
+                const endIndex = startIndex + this.state.productsPerPage;
+                const currentProducts = filteredProducts.slice(startIndex, endIndex);
+                
+                grid.innerHTML = '';
+                
+                if (currentProducts.length === 0) {
+                    document.querySelector(this.selectors.noProductsMessage).classList.remove('hidden');
+                    return;
+                }
+                
+                document.querySelector(this.selectors.noProductsMessage).classList.add('hidden');
+                
+                currentProducts.forEach(product => {
+                    const productCard = this.createProductCard(product);
+                    grid.appendChild(productCard);
+                });
+            }
+            
+            createProductCard(product) {
+                // Usar el template system si está disponible
+                if (window.productCardTemplate) {
+                    return window.productCardTemplate.render(product, this.state.currentView);
+                }
+                
+                // Fallback: crear card manualmente
+                const card = document.createElement('div');
+                card.className = `product-item ${this.state.currentView}-view`;
+                card.innerHTML = this.getProductCardHTML(product);
+                return card;
+            }
+            
+            getProductCardHTML(product) {
+                const primaryImage = product.images?.find(img => img.is_primary) || product.images?.[0];
+                const imageUrl = primaryImage?.url || '../assets/images/placeholder-product.jpg';
+                const imageAlt = primaryImage?.alt || product.name;
+                
+                if (this.state.currentView === 'list') {
+                    return this.getListCardHTML(product, imageUrl, imageAlt);
+                }
+                
+                return this.getGridCardHTML(product, imageUrl, imageAlt);
+            }
+            
+            getGridCardHTML(product, imageUrl, imageAlt) {
+                return `
+                    <div class="product-card">
+                        <a href="producto/detalle.html?product=${product.slug}" class="product-link">
+                            <div class="product-image">
+                                <img src="${imageUrl}" alt="${imageAlt}" loading="lazy">
+                                <div class="product-badges">
+                                    ${product.new ? '<span class="product-badge new">Nuevo</span>' : ''}
+                                    ${product.featured ? '<span class="product-badge featured">Destacado</span>' : ''}
+                                    ${product.best_seller ? '<span class="product-badge best-seller">Más Vendido</span>' : ''}
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <div class="product-info">
+                            <span class="product-category">${this.getCategoryName(product.category)}</span>
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-short-description">${product.short_description}</p>
+                            
+                            <div class="product-pricing">
+                                <span class="product-price">Q${product.price}</span>
+                                ${product.compare_price ? 
+                                    `<span class="product-compare-price">Q${product.compare_price}</span>` : 
+                                    ''
+                                }
+                            </div>
+                            
+                            <div class="product-meta">
+                                <span class="stock-status ${this.getStockStatusClass(product.inventory)}">
+                                    ${this.getStockStatusText(product.inventory)}
+                                </span>
+                                ${product.rating ? `
+                                    <div class="product-rating">
+                                        ${this.generateStarRating(product.rating)}
+                                        <span class="rating-count">(${product.review_count})</span>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn-order-whatsapp" data-product="${product.name}" data-price="Q${product.price}">
+                                <i class="fab fa-whatsapp"></i>
+                                Pedir por WhatsApp
+                            </button>
+                            <a href="producto/detalle.html?product=${product.slug}" class="btn-view-details">
+                                Ver detalles
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            getListCardHTML(product, imageUrl, imageAlt) {
+                return `
+                    <div class="product-card list-view">
+                        <div class="product-card-content">
+                            <a href="producto/detalle.html?product=${product.slug}" class="product-image-link">
+                                <div class="product-image">
+                                    <img src="${imageUrl}" alt="${imageAlt}" loading="lazy">
+                                    <div class="product-badges">
+                                        ${product.new ? '<span class="product-badge new">Nuevo</span>' : ''}
+                                        ${product.featured ? '<span class="product-badge featured">Destacado</span>' : ''}
+                                    </div>
+                                </div>
+                            </a>
+                            
+                            <div class="product-details">
+                                <div class="product-header">
+                                    <span class="product-category">${this.getCategoryName(product.category)}</span>
+                                    <h3 class="product-name">${product.name}</h3>
+                                </div>
+                                
+                                <p class="product-description">${product.description}</p>
+                                
+                                <div class="product-features">
+                                    <ul>
+                                        ${product.features ? product.features.slice(0, 3).map(feature => 
+                                            `<li>${feature}</li>`
+                                        ).join('') : ''}
+                                    </ul>
+                                </div>
+                                
+                                <div class="product-footer">
+                                    <div class="product-pricing">
+                                        <span class="product-price">Q${product.price}</span>
+                                        ${product.compare_price ? 
+                                            `<span class="product-compare-price">Q${product.compare_price}</span>` : 
+                                            ''
+                                        }
+                                    </div>
+                                    
+                                    <div class="product-meta">
+                                        <span class="stock-status ${this.getStockStatusClass(product.inventory)}">
+                                            ${this.getStockStatusText(product.inventory)}
+                                        </span>
+                                        ${product.rating ? `
+                                            <div class="product-rating">
+                                                ${this.generateStarRating(product.rating)}
+                                                <span class="rating-count">(${product.review_count})</span>
+                                            </div>
+                                        ` : ''}
+                                    </div>
+                                    
+                                    <div class="product-actions">
+                                        <button class="btn-order-whatsapp" data-product="${product.name}" data-price="Q${product.price}">
+                                            <i class="fab fa-whatsapp"></i>
+                                            Pedir por WhatsApp
+                                        </button>
+                                        <a href="producto/detalle.html?product=${product.slug}" class="btn-view-details">
+                                            Ver detalles
+                                        </a>
+                                        <button class="wishlist-btn" data-product="${product.id}">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            setView(viewType) {
+                this.state.currentView = viewType;
+                
+                // Actualizar botones activos
+                document.querySelectorAll(this.selectors.viewButtons).forEach(btn => {
+                    btn.classList.toggle('active', btn.dataset.view === viewType);
+                });
+                
+                // Actualizar clase del grid
+                const grid = document.querySelector(this.selectors.productGrid);
+                grid.className = `product-grid ${viewType}-view`;
+                
+                // Re-renderizar productos
+                this.renderProducts();
+            }
+            
+            renderPagination() {
+                const pagination = document.querySelector(this.selectors.pagination);
+                const productsLoader = window.productsLoader;
+                
+                if (!pagination || !productsLoader) return;
+                
+                const totalProducts = productsLoader.state.filteredProducts.length;
+                const totalPages = Math.ceil(totalProducts / this.state.productsPerPage);
+                
+                if (totalPages <= 1) {
+                    pagination.innerHTML = '';
+                    return;
+                }
+                
+                let paginationHTML = '';
+                
+                // Botón anterior
+                if (this.state.currentPage > 1) {
+                    paginationHTML += `
+                        <a href="#" class="page-link prev" data-page="${this.state.currentPage - 1}">
+                            <i class="fas fa-chevron-left"></i>
+                            Anterior
+                        </a>
+                    `;
+                }
+                
+                // Páginas
+                for (let i = 1; i <= totalPages; i++) {
+                    if (i === 1 || i === totalPages || (i >= this.state.currentPage - 1 && i <= this.state.currentPage + 1)) {
+                        paginationHTML += `
+                            <a href="#" class="page-link ${i === this.state.currentPage ? 'active' : ''}" data-page="${i}">
+                                ${i}
+                            </a>
+                        `;
+                    } else if (i === this.state.currentPage - 2 || i === this.state.currentPage + 2) {
+                        paginationHTML += `<span class="page-dots">...</span>`;
+                    }
+                }
+                
+                // Botón siguiente
+                if (this.state.currentPage < totalPages) {
+                    paginationHTML += `
+                        <a href="#" class="page-link next" data-page="${this.state.currentPage + 1}">
+                            Siguiente
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    `;
+                }
+                
+                pagination.innerHTML = paginationHTML;
+                
+                // Event listeners para paginación
+                pagination.querySelectorAll('.page-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const page = parseInt(e.currentTarget.dataset.page);
+                        if (page) {
+                            this.goToPage(page);
+                        }
+                    });
+                });
+            }
+            
+            goToPage(page) {
+                this.state.currentPage = page;
+                this.renderProducts();
+                this.renderPagination();
+                
+                // Scroll suave al top de los productos
+                document.querySelector(this.selectors.productGrid).scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }
+            
+            updateProductCounters() {
+                const productsLoader = window.productsLoader;
+                if (!productsLoader) return;
+                
+                const showing = document.querySelector(this.selectors.productsShowing);
+                const total = document.querySelector(this.selectors.productsTotal);
+                
+                if (showing && total) {
+                    const filteredCount = productsLoader.state.filteredProducts.length;
+                    const totalCount = productsLoader.state.products.length;
+                    
+                    showing.textContent = filteredCount;
+                    total.textContent = totalCount;
+                }
+            }
+            
+            highlightCurrentCategory() {
+                document.querySelectorAll(this.selectors.categoryLinks).forEach(link => {
+                    link.classList.toggle('active', link.dataset.category === this.state.filters.category);
+                });
+            }
+            
+            clearAllFilters() {
+                // Resetear estado
+                this.state.filters = {
+                    category: 'all',
+                    price: { min: 30, max: 600 },
+                    availability: {
+                        inStock: true,
+                        new: false,
+                        featured: false
+                    },
+                    rating: null,
+                    sortBy: 'default'
+                };
+                
+                this.state.currentPage = 1;
+                
+                // Resetear UI
+                document.querySelector(this.selectors.sortSelect).value = 'default';
+                this.setView('grid');
+                
+                // Resetear inputs de precio
+                document.querySelector(this.selectors.priceInputs.minInput).value = '30';
+                document.querySelector(this.selectors.priceInputs.maxInput).value = '600';
+                document.querySelector(this.selectors.priceInputs.minSlider).value = '30';
+                document.querySelector(this.selectors.priceInputs.maxSlider).value = '600';
+                document.querySelector(this.selectors.priceInputs.minValue).textContent = '30';
+                document.querySelector(this.selectors.priceInputs.maxValue).textContent = '600';
+                
+                // Resetear checkboxes
+                document.querySelector(this.selectors.availabilityFilters.inStock).checked = true;
+                document.querySelector(this.selectors.availabilityFilters.new).checked = false;
+                document.querySelector(this.selectors.availabilityFilters.featured).checked = false;
+                
+                // Resetear radios de rating
+                Object.keys(this.selectors.ratingFilters).forEach(key => {
+                    document.querySelector(this.selectors.ratingFilters[key]).checked = false;
+                });
+                
+                // Aplicar cambios
+                this.highlightCurrentCategory();
+                this.applyFilters();
+                this.updateURL();
+            }
+            
+            getCategoryFromURL() {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get('categoria') || 'all';
+            }
+            
+            updateURL() {
+                const url = new URL(window.location);
+                
+                if (this.state.filters.category === 'all') {
+                    url.searchParams.delete('categoria');
+                } else {
+                    url.searchParams.set('categoria', this.state.filters.category);
+                }
+                
+                window.history.replaceState({}, '', url);
+            }
+            
+            getCategoryName(categoryId) {
+                const categoryMap = {
+                    'living-room': 'Living Room',
+                    'dining-kitchen': 'Dining & Kitchen',
+                    'wall-decor': 'Wall Decor',
+                    'bedroom': 'Bedroom',
+                    'pillows-decor': 'Pillows & Decor',
+                    'lighting': 'Lighting'
+                };
+                return categoryMap[categoryId] || 'Sin categoría';
+            }
+            
+            getStockStatusClass(inventory) {
+                const stock = inventory?.stock || 0;
+                const status = inventory?.stock_status || 'in_stock';
+                
+                if (status === 'out_of_stock') return 'out-of-stock';
+                if (stock < 5) return 'low-stock';
+                return 'in-stock';
+            }
+            
+            getStockStatusText(inventory) {
+                const stock = inventory?.stock || 0;
+                const status = inventory?.stock_status || 'in_stock';
+                
+                if (status === 'out_of_stock') return 'Agotado';
+                if (stock < 5) return `Últimas ${stock} unidades`;
+                return 'En stock';
+            }
+            
+            generateStarRating(rating) {
+                const fullStars = Math.floor(rating);
+                const hasHalfStar = rating % 1 >= 0.5;
+                const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+                
+                let stars = '';
+                
+                for (let i = 0; i < fullStars; i++) {
+                    stars += '<i class="fas fa-star"></i>';
+                }
+                
+                if (hasHalfStar) {
+                    stars += '<i class="fas fa-star-half-alt"></i>';
+                }
+                
+                for (let i = 0; i < emptyStars; i++) {
+                    stars += '<i class="far fa-star"></i>';
+                }
+                
+                return stars;
+            }
+        }
+        
+        // Inicializar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', () => {
+            window.shopManager = new ShopManager();
+        });
+    </script>
+
+    <!-- Estilos específicos para tienda.html -->
+    <style>
+        /* Shop Layout Styles */
+        .shop-section {
+            padding: 40px 0 80px;
+        }
+
+        .shop-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* Sidebar Styles */
+        .sidebar {
+            background: var(--white);
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 120px;
+        }
+
+        .filter-group {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .filter-group:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .filter-group h3 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: var(--dark-brown);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-categories {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-categories li {
+            margin-bottom: 8px;
+        }
+
+        .sidebar-categories a {
+            display: block;
+            padding: 8px 12px;
+            color: var(--medium-brown);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .sidebar-categories a:hover,
+        .sidebar-categories a.active {
+            background: var(--light-beige);
+            color: var(--dark-brown);
+            border-left-color: var(--primary-color);
+        }
+
+        /* Price Filter */
+        .price-inputs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .price-inputs label {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.9em;
+            color: var(--medium-brown);
+        }
+
+        .price-inputs input {
+            width: 80px;
+            padding: 8px;
+            border: 1px solid var(--light-gray);
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .range-sliders {
+            position: relative;
+            height: 4px;
+            background: var(--light-gray);
+            border-radius: 2px;
+            margin: 20px 0;
+        }
+
+        .range-sliders input[type="range"] {
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            pointer-events: none;
+            -webkit-appearance: none;
+        }
+
+        .range-sliders input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            cursor: pointer;
+            pointer-events: all;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .price-display {
+            text-align: center;
+            font-weight: 600;
+            margin: 16px 0;
+            color: var(--dark-brown);
+        }
+
+        .btn-apply-price {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-apply-price:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Availability Filters */
+        .availability-filters {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .rating-filters {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .rating-stars {
+            color: var(--primary-color);
+        }
+
+        .btn-clear-filters {
+            width: 100%;
+            background: transparent;
+            color: var(--medium-brown);
+            border: 1px solid var(--light-gray);
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-clear-filters:hover {
+            background: var(--light-beige);
+            border-color: var(--medium-brown);
+        }
+
+        /* Products Section */
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .products-count {
+            color: var(--medium-brown);
+            font-size: 0.9em;
+        }
+
+        .products-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .sort-control {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sort-control label {
+            color: var(--medium-brown);
+            font-size: 0.9em;
+        }
+
+        .sort-select {
+            padding: 8px 12px;
+            border: 1px solid var(--light-gray);
+            border-radius: 6px;
+            background: var(--white);
+            color: var(--dark-brown);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .view-options {
+            display: flex;
+            background: var(--light-beige);
+            border-radius: 8px;
+            padding: 4px;
+        }
+
+        .view-btn {
+            background: transparent;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            color: var(--medium-brown);
+            transition: all 0.3s ease;
+        }
+
+        .view-btn.active,
+        .view-btn:hover {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .product-grid.grid-view {
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        }
+
+        .product-grid.list-view {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        /* Shipping Banner */
+        .shipping-banner {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+
+        .banner-content {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 24px;
+            align-items: center;
+        }
+
+        .banner-icon {
+            font-size: 3em;
+            opacity: 0.9;
+        }
+
+        .banner-text h3 {
+            margin: 0 0 8px 0;
+            color: var(--white);
+        }
+
+        .banner-text p {
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .shop-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .sidebar {
+                position: static;
+                order: -1;
+            }
+            
+            .banner-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .products-header {
+                flex-direction: column;
+                gap: 16px;
+                align-items: stretch;
+            }
+            
+            .products-controls {
+                justify-content: space-between;
+            }
+            
+            .product-grid.grid-view {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .price-inputs {
+                flex-direction: column;
+            }
+            
+            .price-inputs input {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-controls {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .sort-control {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .product-grid.grid-view {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                padding: 16px;
+            }
+        }
+
+        /* Loading States */
+        .loading-products {
+            text-align: center;
+            padding: 60px 20px;
+            grid-column: 1 / -1;
+            color: var(--medium-brown);
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--light-gray);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Hidden utility */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nido Bendito - Decoración y Hogar Guatemala</title>
+    <meta name="description" content="Descubre productos únicos de decoración para tu hogar. Artesanías guatemaltecas, envío gratis y calidad garantizada. Transforma tu espacio en un refugio acogedor.">
+    
+    <!-- Preload crítico -->
+    <link rel="preload" href="../assets/css/style.css" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    
+    <!-- Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Estilos -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    
+    <!-- Preload de imágenes importantes -->
+    <link rel="preload" href="../assets/images/hero-home.jpg" as="image">
+</head>
+<body>
+    <!-- Header -->
+    <!--#include virtual="../templates/header.html" -->
+
+    <!-- Navigation -->
+    <!--#include virtual="../templates/navigation.html" -->
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 id="hero-title" class="hero-title">Transforma tu hogar en un refugio acogedor</h1>
+                        <p class="hero-subtitle">Descubre productos únicos de decoración, elaborados con amor y tradición guatemalteca. Donde cada pieza cuenta una historia.</p>
+                        <div class="hero-actions">
+                            <a href="tienda.html" class="btn btn-primary btn-large">
+                                <i class="fas fa-shopping-bag"></i>
+                                Explorar Tienda
+                            </a>
+                            <a href="#featured-products" class="btn btn-outline btn-large">
+                                <i class="fas fa-star"></i>
+                                Ver Destacados
+                            </a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Clientes felices</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Artesanal</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">Envío</span>
+                                <span class="stat-label">Gratis desde Q500</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img 
+                            src="../assets/images/hero-home.jpg" 
+                            alt="Espacio acogedor decorado con productos Nido Bendito - jarrones, velas y cojines en tonos cálidos"
+                            loading="eager"
+                            width="600"
+                            height="600"
+                        >
+                        <!-- Badge flotante -->
+                        <div class="hero-badge">
+                            <span class="badge-text">Hecho en Guatemala</span>
+                            <i class="fas fa-heart"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorías Destacadas -->
+        <section class="featured-categories" aria-labelledby="categories-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="categories-title" class="section-title">Explora por Categorías</h2>
+                    <p class="section-subtitle">Encuentra la pieza perfecta para cada rincón de tu hogar</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <a href="tienda.html?categoria=living-room" class="category-card" data-category="living-room">
+                        <div class="category-image">
+                            <img src="../assets/images/categories/living-room.jpg" alt="Decoración para sala de estar - Living Room" loading="lazy">
+                            <div class="category-overlay"></div>
+                        </div>
+                        <div class="category-info">
+                            <h3 class="category-name">Living Room</h3>
+                            <p class="category-description">Transforma tu sala en un espacio acogedor</p>
+                            <span class="category-link">Ver productos <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    
+                    <a href="tienda.html?categoria=bedroom" class="category-card" data-category="bedroom">
+                        <div class="category-image">
+                            <img src="../assets/images/categories/bedroom.jpg" alt="Decoración para dormitorio - Bedroom" loading="lazy">
+                            <div class="category-overlay"></div>
+                        </div>
+                        <div class="category-info">
+                            <h3 class="category-name">Bedroom</h3>
+                            <p class="category-description">Crea tu santuario personal de descanso</p>
+                            <span class="category-link">Ver productos <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                    
+                    <a href="tienda.html?categoria=dining-kitchen" class="category-card" data-category="dining-kitchen">
+                        <div class="category-image">
+                            <img src="../assets/images/categories/dining-kitchen.jpg" alt="Decoración para comedor y cocina - Dining & Kitchen" loading="lazy">
+                            <div class="category-overlay"></div>
+                        </div>
+                        <div class="category-info">
+                            <h3 class="category-name">Dining & Kitchen</h3>
+                            <p class="category-description">Donde los momentos se convierten en recuerdos</p>
+                            <span class="category-link">Ver productos <i class="fas fa-arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Productos Destacados -->
+        <section id="featured-products" class="featured-products" aria-labelledby="featured-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="featured-title" class="section-title">Productos Destacados</h2>
+                    <p class="section-subtitle">Lo más amado por nuestra comunidad</p>
+                </div>
+                
+                <!-- Filtros rápidos -->
+                <div class="quick-filters">
+                    <button class="filter-btn active" data-filter="all">Todos</button>
+                    <button class="filter-btn" data-filter="new">Nuevos</button>
+                    <button class="filter-btn" data-filter="featured">Destacados</button>
+                    <button class="filter-btn" data-filter="best-seller">Más Vendidos</button>
+                </div>
+                
+                <!-- Grid de productos -->
+                <div class="products-grid" id="featuredProductsGrid">
+                    <!-- Los productos se cargarán dinámicamente aquí -->
+                    <div class="loading-products">
+                        <div class="loading-spinner"></div>
+                        <p>Cargando productos destacados...</p>
+                    </div>
+                </div>
+                
+                <div class="section-footer">
+                    <a href="tienda.html" class="btn btn-outline">
+                        Ver Todos los Productos
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Beneficios -->
+        <section class="benefits-section" aria-labelledby="benefits-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="benefits-title" class="section-title">¿Por qué elegir Nido Bendito?</h2>
+                    <p class="section-subtitle">Más que productos, ofrecemos experiencias que transforman tu hogar</p>
+                </div>
+                
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-hands"></i>
+                        </div>
+                        <h3>Hecho a Mano</h3>
+                        <p>Cada pieza es única, elaborada por artesanos guatemaltecos con técnicas tradicionales.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3>Envío Gratis</h3>
+                        <p>Recibe tus productos sin costo adicional en compras mayores a Q500 en todo Guatemala.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Calidad Garantizada</h3>
+                        <p>Confía en materiales premium y procesos artesanales que garantizan durabilidad.</p>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Comercio Justo</h3>
+                        <p>Apoyamos directamente a comunidades artesanales, promoviendo el comercio sostenible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonios -->
+        <section class="testimonials-section" aria-labelledby="testimonials-title">
+            <div class="container">
+                <div class="section-header">
+                    <h2 id="testimonials-title" class="section-title">Lo que dicen nuestros clientes</h2>
+                    <p class="section-subtitle">Historias reales de hogares transformados</p>
+                </div>
+                
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-text">
+                                <p>"Las velas aromáticas han transformado completamente la energía de mi sala. El aroma a sándalo es simplemente divino y la calidad es excepcional."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="../assets/images/testimonials/maria-garcia.jpg" alt="María García" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>María García</h4>
+                                    <span>Ciudad de Guatemala</span>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-text">
+                                <p>"El jarrón cerámico que compré es la pieza central de mi comedor. Recibo cumplidos constantemente y me encanta que es hecho a mano en Guatemala."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="../assets/images/testimonials/carlos-rodriguez.jpg" alt="Carlos Rodríguez" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Carlos Rodríguez</h4>
+                                    <span>Antigua Guatemala</span>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="testimonial-text">
+                                <p>"Los cojines de lino son tan suaves y de alta calidad. Han hecho mi sofá mucho más acogedor. El proceso de compra fue muy fácil y el envío llegó rápido."</p>
+                            </div>
+                            <div class="testimonial-author">
+                                <div class="author-avatar">
+                                    <img src="../assets/images/testimonials/ana-martinez.jpg" alt="Ana Martínez" loading="lazy">
+                                </div>
+                                <div class="author-info">
+                                    <h4>Ana Martínez</h4>
+                                    <span>Quetzaltenango</span>
+                                </div>
+                                <div class="testimonial-rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instagram Feed -->
+        <section class="instagram-section" aria-labelledby="instagram-title">
+            <div class="container">
+                <div class="section-header">
+                    <div class="instagram-header">
+                        <i class="fab fa-instagram"></i>
+                        <h2 id="instagram-title" class="section-title">Síguenos en Instagram</h2>
+                    </div>
+                    <p class="section-subtitle">@nidobendito - Inspiración diaria para tu hogar</p>
+                </div>
+                
+                <div class="instagram-grid">
+                    <a href="https://instagram.com/p/ejemplo1" class="instagram-post" target="_blank" rel="noopener">
+                        <img src="../assets/images/instagram/instagram-1.jpg" alt="Living room decorado con productos Nido Bendito" loading="lazy">
+                        <div class="instagram-overlay">
+                            <i class="fas fa-heart"></i>
+                            <span>1.2K</span>
+                            <i class="fas fa-comment"></i>
+                            <span>45</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://instagram.com/p/ejemplo2" class="instagram-post" target="_blank" rel="noopener">
+                        <img src="../assets/images/instagram/instagram-2.jpg" alt="Detalle de vela aromática encendida" loading="lazy">
+                        <div class="instagram-overlay">
+                            <i class="fas fa-heart"></i>
+                            <span>2.1K</span>
+                            <i class="fas fa-comment"></i>
+                            <span>89</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://instagram.com/p/ejemplo3" class="instagram-post" target="_blank" rel="noopener">
+                        <img src="../assets/images/instagram/instagram-3.jpg" alt="Jarrón cerámico con flores frescas" loading="lazy">
+                        <div class="instagram-overlay">
+                            <i class="fas fa-heart"></i>
+                            <span>1.8K</span>
+                            <i class="fas fa-comment"></i>
+                            <span>67</span>
+                        </div>
+                    </a>
+                    
+                    <a href="https://instagram.com/p/ejemplo4" class="instagram-post" target="_blank" rel="noopener">
+                        <img src="../assets/images/instagram/instagram-4.jpg" alt="Cojines decorativos en sofá moderno" loading="lazy">
+                        <div class="instagram-overlay">
+                            <i class="fas fa-heart"></i>
+                            <span>1.5K</span>
+                            <i class="fas fa-comment"></i>
+                            <span>52</span>
+                        </div>
+                    </a>
+                </div>
+                
+                <div class="section-footer">
+                    <a href="https://instagram.com/nidobendito" class="btn btn-instagram" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram"></i>
+                        Seguir en Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter-section" aria-labelledby="newsletter-title">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="newsletter-text">
+                        <h2 id="newsletter-title">No te pierdas nada</h2>
+                        <p>Suscríbete a nuestro newsletter y recibe promociones exclusivas, novedades de productos e inspiración para tu hogar.</p>
+                        <div class="newsletter-benefits">
+                            <span><i class="fas fa-check"></i> 15% de descuento en tu primera compra</span>
+                            <span><i class="fas fa-check"></i> Lanzamientos exclusivos</span>
+                            <span><i class="fas fa-check"></i> Tips de decoración mensuales</span>
+                        </div>
+                    </div>
+                    <div class="newsletter-form">
+                        <form id="homeNewsletterForm">
+                            <div class="input-group">
+                                <input 
+                                    type="email" 
+                                    placeholder="Tu correo electrónico" 
+                                    required
+                                    aria-label="Suscribirse al newsletter"
+                                >
+                                <button type="submit" class="btn btn-primary">
+                                    Suscribirme
+                                </button>
+                            </div>
+                            <p class="newsletter-note">Al suscribirte aceptas nuestra <a href="privacidad.html">Política de Privacidad</a>. Puedes darte de baja en cualquier momento.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <!--#include virtual="../templates/footer.html" -->
+
+    <!-- Scripts -->
+    <script src="../assets/js/products-loader.js"></script>
+    <script src="../assets/js/script.js"></script>
+    
+    <!-- Script específico para index.html -->
+    <script>
+        class HomePageManager {
+            constructor() {
+                this.selectors = {
+                    featuredGrid: '#featuredProductsGrid',
+                    quickFilters: '.quick-filters',
+                    filterBtns: '.filter-btn'
+                };
+                
+                this.state = {
+                    currentFilter: 'all',
+                    featuredProducts: []
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                this.setupEventListeners();
+                this.loadFeaturedProducts();
+                this.setupAnimations();
+            }
+            
+            setupEventListeners() {
+                // Filtros rápidos
+                document.querySelectorAll(this.selectors.filterBtns).forEach(btn => {
+                    btn.addEventListener('click', (e) => this.handleFilterClick(e));
+                });
+                
+                // Intersection Observer para animaciones
+                this.setupScrollAnimations();
+            }
+            
+            async loadFeaturedProducts() {
+                try {
+                    // Usar ProductsLoader si está disponible
+                    if (window.productsLoader) {
+                        await window.productsLoader.init();
+                        this.state.featuredProducts = window.productsLoader.getFeaturedProducts(8);
+                        this.renderFeaturedProducts();
+                    } else {
+                        // Fallback: cargar directamente desde JSON
+                        const response = await fetch('../data/products.json');
+                        const data = await response.json();
+                        this.state.featuredProducts = data.products
+                            .filter(product => product.featured || product.best_seller || product.new)
+                            .slice(0, 8);
+                        this.renderFeaturedProducts();
+                    }
+                } catch (error) {
+                    console.error('Error loading featured products:', error);
+                    this.showErrorState();
+                }
+            }
+            
+            renderFeaturedProducts() {
+                const grid = document.querySelector(this.selectors.featuredGrid);
+                if (!grid || this.state.featuredProducts.length === 0) return;
+                
+                grid.innerHTML = '';
+                
+                this.state.featuredProducts.forEach(product => {
+                    const productCard = this.createProductCard(product);
+                    grid.appendChild(productCard);
+                });
+            }
+            
+            createProductCard(product) {
+                // Usar el template system si está disponible
+                if (window.productCardTemplate) {
+                    return window.productCardTemplate.render(product, 'grid');
+                }
+                
+                // Fallback: crear card manualmente
+                const card = document.createElement('div');
+                card.className = 'product-item';
+                card.innerHTML = this.getProductCardHTML(product);
+                return card;
+            }
+            
+            getProductCardHTML(product) {
+                const primaryImage = product.images?.find(img => img.is_primary) || product.images?.[0];
+                const imageUrl = primaryImage?.url || '../assets/images/placeholder-product.jpg';
+                const imageAlt = primaryImage?.alt || product.name;
+                
+                return `
+                    <div class="product-card">
+                        <a href="producto/detalle.html?product=${product.slug}" class="product-link">
+                            <div class="product-image">
+                                <img src="${imageUrl}" alt="${imageAlt}" loading="lazy">
+                                <div class="product-badges">
+                                    ${product.new ? '<span class="product-badge new">Nuevo</span>' : ''}
+                                    ${product.featured ? '<span class="product-badge featured">Destacado</span>' : ''}
+                                    ${product.best_seller ? '<span class="product-badge best-seller">Más Vendido</span>' : ''}
+                                </div>
+                            </div>
+                        </a>
+                        
+                        <div class="product-info">
+                            <span class="product-category">${this.getCategoryName(product.category)}</span>
+                            <h3 class="product-name">${product.name}</h3>
+                            <p class="product-short-description">${product.short_description}</p>
+                            
+                            <div class="product-pricing">
+                                <span class="product-price">Q${product.price}</span>
+                                ${product.compare_price ? 
+                                    `<span class="product-compare-price">Q${product.compare_price}</span>` : 
+                                    ''
+                                }
+                            </div>
+                            
+                            <div class="product-meta">
+                                <span class="stock-status in-stock">En stock</span>
+                                ${product.rating ? `
+                                    <div class="product-rating">
+                                        ${this.generateStarRating(product.rating)}
+                                        <span class="rating-count">(${product.review_count})</span>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                        
+                        <div class="product-actions">
+                            <button class="btn-order-whatsapp" data-product="${product.name}" data-price="Q${product.price}">
+                                <i class="fab fa-whatsapp"></i>
+                                Pedir por WhatsApp
+                            </button>
+                            <a href="producto/detalle.html?product=${product.slug}" class="btn-view-details">
+                                Ver detalles
+                            </a>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            handleFilterClick(e) {
+                const btn = e.currentTarget;
+                const filter = btn.dataset.filter;
+                
+                // Actualizar botones activos
+                document.querySelectorAll(this.selectors.filterBtns).forEach(b => {
+                    b.classList.remove('active');
+                });
+                btn.classList.add('active');
+                
+                // Aplicar filtro
+                this.state.currentFilter = filter;
+                this.applyFilter();
+            }
+            
+            applyFilter() {
+                let filteredProducts = [...this.state.featuredProducts];
+                
+                switch (this.state.currentFilter) {
+                    case 'new':
+                        filteredProducts = filteredProducts.filter(p => p.new);
+                        break;
+                    case 'featured':
+                        filteredProducts = filteredProducts.filter(p => p.featured);
+                        break;
+                    case 'best-seller':
+                        filteredProducts = filteredProducts.filter(p => p.best_seller);
+                        break;
+                }
+                
+                this.renderFilteredProducts(filteredProducts);
+            }
+            
+            renderFilteredProducts(products) {
+                const grid = document.querySelector(this.selectors.featuredGrid);
+                if (!grid) return;
+                
+                grid.innerHTML = '';
+                
+                if (products.length === 0) {
+                    grid.innerHTML = `
+                        <div class="no-products">
+                            <i class="fas fa-search"></i>
+                            <h3>No hay productos con este filtro</h3>
+                            <p>Intenta con otra categoría o vuelve a "Todos"</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                products.forEach(product => {
+                    const productCard = this.createProductCard(product);
+                    grid.appendChild(productCard);
+                });
+            }
+            
+            getCategoryName(categoryId) {
+                const categoryMap = {
+                    'living-room': 'Living Room',
+                    'dining-kitchen': 'Dining & Kitchen',
+                    'wall-decor': 'Wall Decor',
+                    'bedroom': 'Bedroom',
+                    'pillows-decor': 'Pillows & Decor',
+                    'lighting': 'Lighting'
+                };
+                return categoryMap[categoryId] || 'Sin categoría';
+            }
+            
+            generateStarRating(rating) {
+                const fullStars = Math.floor(rating);
+                const hasHalfStar = rating % 1 >= 0.5;
+                const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+                
+                let stars = '';
+                
+                for (let i = 0; i < fullStars; i++) {
+                    stars += '<i class="fas fa-star"></i>';
+                }
+                
+                if (hasHalfStar) {
+                    stars += '<i class="fas fa-star-half-alt"></i>';
+                }
+                
+                for (let i = 0; i < emptyStars; i++) {
+                    stars += '<i class="far fa-star"></i>';
+                }
+                
+                return stars;
+            }
+            
+            setupAnimations() {
+                // Animaciones con Intersection Observer
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('animate-in');
+                        }
+                    });
+                }, observerOptions);
+                
+                // Observar elementos para animar
+                document.querySelectorAll('.category-card, .benefit-card, .testimonial-card').forEach(el => {
+                    observer.observe(el);
+                });
+            }
+            
+            setupScrollAnimations() {
+                // Smooth scroll para enlaces internos
+                document.querySelectorAll('a[href^="#"]').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        const href = link.getAttribute('href');
+                        if (href !== '#') {
+                            e.preventDefault();
+                            const target = document.querySelector(href);
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    });
+                });
+            }
+            
+            showErrorState() {
+                const grid = document.querySelector(this.selectors.featuredGrid);
+                if (grid) {
+                    grid.innerHTML = `
+                        <div class="error-state">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h3>Error al cargar productos</h3>
+                            <p>Por favor intenta recargar la página</p>
+                            <button class="btn btn-outline" onclick="window.location.reload()">
+                                Reintentar
+                            </button>
+                        </div>
+                    `;
+                }
+            }
+        }
+        
+        // Inicializar cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', () => {
+            window.homePageManager = new HomePageManager();
+        });
+    </script>
+
+    <!-- Estilos específicos para index.html -->
+    <style>
+        /* Hero Section Styles */
+        .hero-section {
+            background: linear-gradient(135deg, var(--light-beige) 0%, var(--primary-beige) 100%);
+            padding: 100px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
+            font-weight: 700;
+            color: var(--dark-brown);
+            line-height: 1.1;
+            margin-bottom: 24px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3em;
+            color: var(--medium-brown);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 16px 32px;
+            font-size: 1.1em;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            color: var(--medium-brown);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .hero-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 12px 20px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(224, 160, 107, 0.3);
+        }
+
+        /* Featured Categories */
+        .featured-categories {
+            padding: 80px 0;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .category-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.1);
+        }
+
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.3));
+        }
+
+        .category-info {
+            padding: 24px;
+        }
+
+        .category-name {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: var(--dark-brown);
+            margin-bottom: 8px;
+        }
+
+        .category-description {
+            color: var(--medium-brown);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .category-link {
+            color: var(--primary-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Quick Filters */
+        .quick-filters {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--white);
+            border: 2px solid var(--light-gray);
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--medium-brown);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: var(--light-beige);
+            padding: 80px 0;
+        }
+
+        .testimonials-slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--medium-brown);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .testimonial-text::before {
+            content: '"';
+            font-size: 4em;
+            color: var(--primary-color);
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin: 0 0 4px 0;
+            color: var(--dark-brown);
+        }
+
+        .author-info span {
+            color: var(--medium-brown);
+            font-size: 0.9em;
+        }
+
+        .testimonial-rating {
+            margin-left: auto;
+            color: var(--primary-color);
+        }
+
+        /* Newsletter Section */
+        .newsletter-section {
+            background: linear-gradient(135deg, var(--dark-brown) 0%, #2a231e 100%);
+            color: var(--white);
+            padding: 80px 0;
+        }
+
+        .newsletter-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .newsletter-text h2 {
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .newsletter-text p {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 24px;
+            font-size: 1.1em;
+        }
+
+        .newsletter-benefits {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .newsletter-benefits span {
+            color: rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .newsletter-benefits i {
+            color: var(--primary-color);
+        }
+
+        .newsletter-form .input-group {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 16px 20px;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1em;
+        }
+
+        .newsletter-note {
+            font-size: 0.8em;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .newsletter-note a {
+            color: var(--primary-color);
+        }
+
+        /* Animations */
+        .category-card,
+        .benefit-card,
+        .testimonial-card {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .category-card.animate-in,
+        .benefit-card.animate-in,
+        .testimonial-card.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading States */
+        .loading-products {
+            text-align: center;
+            padding: 60px 20px;
+            grid-column: 1 / -1;
+        }
+
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--light-gray);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        .no-products,
+        .error-state {
+            text-align: center;
+            padding: 60px 20px;
+            grid-column: 1 / -1;
+            color: var(--medium-brown);
+        }
+
+        .no-products i,
+        .error-state i {
+            font-size: 3em;
+            margin-bottom: 16px;
+            color: var(--light-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                gap: 40px;
+            }
+            
+            .hero-title {
+                font-size: 2.8em;
+            }
+            
+            .newsletter-content {
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            
+            .hero-title {
+                font-size: 2.2em;
+            }
+            
+            .hero-actions {
+                justify-content: center;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+            
+            .newsletter-form .input-group {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                padding: 60px 0 40px;
+            }
+            
+            .hero-title {
+                font-size: 1.8em;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1em;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-large {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</body>
+</html>
