@@ -3,313 +3,402 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Envíos y Entregas - Nido Bendito</title>
-    <meta name="description" content="Información sobre envíos y entregas de Nido Bendito. Envío gratis desde Q1000, entregas en 3-5 días hábiles en Guatemala.">
+    <title>Envíos y Entregas - Nido Bendito | Políticas de Envío</title>
+    <meta name="description" content="Información sobre envíos, tiempos de entrega, costos y políticas de Nido Bendito. Envío a toda la República Mexicana.">
     
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Estilos -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/shipping.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
-    <!--#include virtual="../templates/header.html" -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <i class="fas fa-feather"></i>
+                Nido Bendito
+            </a>
 
-    <!-- Navigation -->
-    <!--#include virtual="../templates/navigation.html" -->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Inicio</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="tienda.html" class="nav__link">Tienda</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="nosotros.html" class="nav__link">Nosotros</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="historias.html" class="nav__link">Historias</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="envio.html" class="nav__link active-link">Envío</a>
+                    </li>
+                </ul>
 
-    <main class="main-content">
-        <div class="container">
-            <!-- Breadcrumb -->
-            <nav class="breadcrumb" aria-label="Migas de pan">
-                <a href="../index.html">Inicio</a>
-                <span class="breadcrumb-separator">/</span>
-                <span>Envíos y Entregas</span>
-            </nav>
-
-            <!-- Page Header -->
-            <div class="page-header">
-                <h1>Envíos y Entregas</h1>
-                <p class="page-subtitle">Información importante sobre nuestro proceso de envío y políticas de entrega</p>
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
             </div>
 
-            <div class="page-content">
-                <!-- Información General -->
-                <section class="shipping-info" aria-labelledby="shipping-general">
-                    <h2 id="shipping-general">Políticas de Envío</h2>
-                    
-                    <div class="shipping-features">
-                        <div class="shipping-card">
-                            <div class="shipping-icon">
-                                <i class="fas fa-shipping-fast"></i>
-                            </div>
-                            <h3>Envío Gratis</h3>
-                            <p>En compras mayores a <strong>Q1000</strong> aplica envío gratuito a todo Guatemala</p>
+            <div class="nav__btns">
+                <i class="fas fa-moon change-theme" id="theme-button"></i>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="shipping-hero section">
+            <div class="shipping-hero__container container">
+                <div class="shipping-hero__content">
+                    <h1 class="shipping-hero__title">Envíos y Entregas</h1>
+                    <p class="shipping-hero__description">
+                        Entregamos tus productos artesanales con cuidado y puntualidad 
+                        en toda la República Mexicana.
+                    </p>
+                    <div class="shipping-hero__features">
+                        <div class="shipping-feature">
+                            <i class="fas fa-shipping-fast"></i>
+                            <span>Envío en 1-3 días hábiles</span>
                         </div>
-                        
-                        <div class="shipping-card">
-                            <div class="shipping-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <h3>Tiempos de Entrega</h3>
-                            <p>Entrega en <strong>3-5 días hábiles</strong> para productos en stock</p>
+                        <div class="shipping-feature">
+                            <i class="fas fa-truck"></i>
+                            <span>Entregas a domicilio</span>
                         </div>
-                        
-                        <div class="shipping-card">
-                            <div class="shipping-icon">
-                                <i class="fas fa-box"></i>
-                            </div>
-                            <h3>Productos en Stock</h3>
-                            <p>Los productos marcados como "En stock" se envían inmediatamente</p>
+                        <div class="shipping-feature">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Cobertura nacional</span>
                         </div>
                     </div>
-                </section>
+                </div>
+                <div class="shipping-hero__image">
+                    <img src="../assets/images/shipping/hero-shipping.jpg" alt="Proceso de envío" class="shipping-hero__img">
+                </div>
+            </div>
+        </section>
 
-                <!-- Proceso de Envío -->
-                <section class="shipping-process" aria-labelledby="shipping-process">
-                    <h2 id="shipping-process">Proceso de Envío</h2>
-                    
-                    <div class="process-steps">
-                        <div class="process-step">
-                            <div class="step-number">1</div>
-                            <div class="step-content">
-                                <h3>Confirmación de Pedido</h3>
-                                <p>Recibirás un correo de confirmación con los detalles de tu compra inmediatamente después de realizar tu pedido.</p>
-                            </div>
+        <!-- Shipping Options -->
+        <section class="shipping-options section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Opciones de Envío</h2>
+                    <p class="section__description">
+                        Elige la opción que mejor se adapte a tus necesidades
+                    </p>
+                </div>
+
+                <div class="shipping-options__grid grid">
+                    <div class="shipping-option">
+                        <div class="shipping-option__icon">
+                            <i class="fas fa-shipping-fast"></i>
                         </div>
-                        
-                        <div class="process-step">
-                            <div class="step-number">2</div>
-                            <div class="step-content">
-                                <h3>Preparación del Pedido</h3>
-                                <p>Preparamos tu pedido con cuidado y lo empacamos de forma segura para su transporte.</p>
-                            </div>
+                        <h3 class="shipping-option__title">Envío Estándar</h3>
+                        <div class="shipping-option__price">$50 MXN</div>
+                        <ul class="shipping-option__features">
+                            <li><i class="fas fa-check"></i> 3-5 días hábiles</li>
+                            <li><i class="fas fa-check"></i> Seguimiento incluido</li>
+                            <li><i class="fas fa-check"></i> Entrega a domicilio</li>
+                            <li><i class="fas fa-check"></i> Cobertura nacional</li>
+                        </ul>
+                        <div class="shipping-option__note">
+                            Gratis en compras mayores a $500 MXN
                         </div>
-                        
-                        <div class="process-step">
-                            <div class="step-number">3</div>
-                            <div class="step-content">
-                                <h3>Envío y Seguimiento</h3>
-                                <p>Una vez despachado, recibirás un número de seguimiento para monitorear tu pedido.</p>
-                            </div>
+                    </div>
+
+                    <div class="shipping-option shipping-option--featured">
+                        <div class="shipping-option__icon">
+                            <i class="fas fa-rocket"></i>
                         </div>
-                        
-                        <div class="process-step">
-                            <div class="step-number">4</div>
-                            <div class="step-content">
-                                <h3>Entrega</h3>
-                                <p>Tu pedido llegará a la dirección especificada en un plazo de 3-5 días hábiles.</p>
+                        <h3 class="shipping-option__title">Envío Express</h3>
+                        <div class="shipping-option__price">$120 MXN</div>
+                        <ul class="shipping-option__features">
+                            <li><i class="fas fa-check"></i> 1-2 días hábiles</li>
+                            <li><i class="fas fa-check"></i> Seguimiento prioritario</li>
+                            <li><i class="fas fa-check"></i> Entrega a domicilio</li>
+                            <li><i class="fas fa-check"></i> Soporte premium</li>
+                        </ul>
+                        <div class="shipping-option__note">
+                            Recomendado para regalos y ocasiones especiales
+                        </div>
+                    </div>
+
+                    <div class="shipping-option">
+                        <div class="shipping-option__icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3 class="shipping-option__title">Recoge en Tienda</h3>
+                        <div class="shipping-option__price">Gratis</div>
+                        <ul class="shipping-option__features">
+                            <li><i class="fas fa-check"></i> Listo en 24 horas</li>
+                            <li><i class="fas fa-check"></i> Sin costo de envío</li>
+                            <li><i class="fas fa-check"></i> Horario flexible</li>
+                            <li><i class="fas fa-check"></i> CDMX Centro</li>
+                        </ul>
+                        <div class="shipping-option__note">
+                            Recibe asesoría personalizada al recoger
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coverage Map -->
+        <section class="coverage section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Cobertura de Envíos</h2>
+                    <p class="section__description">
+                        Llegamos a todos los rincones de México
+                    </p>
+                </div>
+
+                <div class="coverage__content">
+                    <div class="coverage__map">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h3>Cobertura Nacional</h3>
+                            <p>Entregamos en todos los estados de la República Mexicana</p>
+                        </div>
+                    </div>
+                    <div class="coverage__info">
+                        <h3 class="coverage__title">Zonas de Entrega</h3>
+                        <div class="coverage__zones">
+                            <div class="coverage-zone">
+                                <h4 class="coverage-zone__title">Zona Centro</h4>
+                                <ul class="coverage-zone__list">
+                                    <li>Ciudad de México</li>
+                                    <li>Estado de México</li>
+                                    <li>Morelos</li>
+                                    <li>Puebla</li>
+                                    <li>Tlaxcala</li>
+                                </ul>
+                                <div class="coverage-zone__time">1-2 días hábiles</div>
+                            </div>
+                            <div class="coverage-zone">
+                                <h4 class="coverage-zone__title">Zona Norte</h4>
+                                <ul class="coverage-zone__list">
+                                    <li>Nuevo León</li>
+                                    <li>Jalisco</li>
+                                    <li>Guanajuato</li>
+                                    <li>Querétaro</li>
+                                    <li>Aguascalientes</li>
+                                </ul>
+                                <div class="coverage-zone__time">2-3 días hábiles</div>
+                            </div>
+                            <div class="coverage-zone">
+                                <h4 class="coverage-zone__title">Zona Sur</h4>
+                                <ul class="coverage-zone__list">
+                                    <li>Oaxaca</li>
+                                    <li>Chiapas</li>
+                                    <li>Tabasco</li>
+                                    <li>Yucatán</li>
+                                    <li>Quintana Roo</li>
+                                </ul>
+                                <div class="coverage-zone__time">3-5 días hábiles</div>
                             </div>
                         </div>
                     </div>
-                </section>
+                </div>
+            </div>
+        </section>
 
-                <!-- Preguntas Frecuentes -->
-                <section class="shipping-faq" aria-labelledby="shipping-faq">
-                    <h2 id="shipping-faq">Preguntas Frecuentes</h2>
-                    
-                    <div class="faq-list">
-                        <div class="faq-item">
-                            <h3>¿Cuánto cuesta el envío?</h3>
-                            <p>El envío es gratuito en compras mayores a Q1000. Para compras menores, el costo de envío se calcula al finalizar tu compra.</p>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <h3>¿Qué hago si no estoy en casa cuando llega el pedido?</h3>
-                            <p>El servicio de mensajería realizará un segundo intento de entrega. Si no hay nadie, dejarán un aviso para coordinar la entrega.</p>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <h3>¿Puedo cambiar la dirección de envío?</h3>
-                            <p>Sí, puedes cambiar la dirección de envío antes de que el pedido sea despachado. Contáctanos inmediatamente después de tu compra.</p>
-                        </div>
-                        
-                        <div class="faq-item">
-                            <h3>¿Los productos contra pedido tienen el mismo tiempo de envío?</h3>
-                            <p>No, los productos contra pedido tienen tiempos de fabricación adicionales. Consulta los tiempos específicos en cada producto.</p>
+        <!-- Tracking Section -->
+        <section class="tracking section">
+            <div class="container">
+                <div class="tracking__content">
+                    <div class="tracking__info">
+                        <h2 class="tracking__title">Seguimiento de Pedidos</h2>
+                        <p class="tracking__description">
+                            Una vez que tu pedido sea enviado, recibirás un correo electrónico 
+                            con un número de seguimiento y enlace para monitorear tu paquete.
+                        </p>
+                        <div class="tracking__steps">
+                            <div class="tracking-step">
+                                <div class="tracking-step__number">1</div>
+                                <div class="tracking-step__content">
+                                    <h3>Procesamiento</h3>
+                                    <p>Preparamos tu pedido con cuidado</p>
+                                </div>
+                            </div>
+                            <div class="tracking-step">
+                                <div class="tracking-step__number">2</div>
+                                <div class="tracking-step__content">
+                                    <h3>Enviado</h3>
+                                    <p>Recibes número de seguimiento</p>
+                                </div>
+                            </div>
+                            <div class="tracking-step">
+                                <div class="tracking-step__number">3</div>
+                                <div class="tracking-step__content">
+                                    <h3>En Tránsito</h3>
+                                    <p>Puedes seguir tu paquete en tiempo real</p>
+                                </div>
+                            </div>
+                            <div class="tracking-step">
+                                <div class="tracking-step__number">4</div>
+                                <div class="tracking-step__content">
+                                    <h3>Entregado</h3>
+                                    <p>¡Tu pedido llega a su destino!</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </section>
+                    <div class="tracking__form">
+                        <h3 class="tracking__form-title">Rastrea tu Pedido</h3>
+                        <form class="tracking-form" id="tracking-form">
+                            <div class="form-group">
+                                <label for="tracking-number">Número de Seguimiento</label>
+                                <input type="text" id="tracking-number" placeholder="Ej: NB123456789MX" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="order-email">Email de la Orden</label>
+                                <input type="email" id="order-email" placeholder="tu@email.com" required>
+                            </div>
+                            <button type="submit" class="button button--primary">
+                                <i class="fas fa-search"></i>
+                                Rastrear Pedido
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                <!-- Información de Contacto -->
-                <section class="shipping-contact" aria-labelledby="shipping-contact">
-                    <h2 id="shipping-contact">¿Necesitas ayuda con tu envío?</h2>
-                    <p>Si tienes alguna pregunta sobre tu pedido o necesitas asistencia con el envío, no dudes en contactarnos.</p>
-                    
-                    <div class="contact-options">
-                        <a href="https://wa.me/50212345678" class="btn btn-whatsapp" target="_blank">
+        <!-- FAQ Section -->
+        <section class="shipping-faq section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Preguntas Frecuentes</h2>
+                    <p class="section__description">
+                        Resolvemos tus dudas sobre envíos y entregas
+                    </p>
+                </div>
+
+                <div class="faq__grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Cuánto tiempo tarda en llegar mi pedido?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>El tiempo de entrega varía según tu ubicación y la opción de envío seleccionada:</p>
+                            <ul>
+                                <li><strong>Envío Estándar:</strong> 3-5 días hábiles</li>
+                                <li><strong>Envío Express:</strong> 1-2 días hábiles</li>
+                                <li><strong>Recoge en Tienda:</strong> 24 horas (CDMX)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Hacen envíos a todo México?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí, realizamos envíos a todos los estados de la República Mexicana. 
+                            Los tiempos pueden variar según la ubicación, pero garantizamos la entrega 
+                            en todo el territorio nacional.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Puedo cambiar la dirección de entrega?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí, puedes cambiar la dirección de entrega antes de que el pedido sea enviado. 
+                            Una vez enviado, los cambios pueden tener un costo adicional. Contáctanos 
+                            inmediatamente si necesitas modificar la dirección.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Qué pasa si no hay quien reciba el paquete?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>El transportista realizará 3 intentos de entrega. Si no hay quien reciba, 
+                            dejarán un aviso y el paquete será enviado a la oficina más cercana donde 
+                            podrás recogerlo. Mantente atento a las notificaciones.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>¿Los productos están asegurados durante el envío?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sí, todos nuestros envíos incluyen seguro básico. Si recibes un producto 
+                            dañado durante el transporte, contáctanos dentro de las 48 horas posteriores 
+                            a la recepción para gestionar el reemplazo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Support -->
+        <section class="shipping-support section">
+            <div class="container">
+                <div class="shipping-support__content">
+                    <h2 class="shipping-support__title">¿Necesitas Ayuda con tu Envío?</h2>
+                    <p class="shipping-support__description">
+                        Nuestro equipo de soporte está listo para ayudarte con cualquier duda 
+                        sobre tu pedido o entrega.
+                    </p>
+                    <div class="shipping-support__contacts">
+                        <a href="https://wa.me/525512345678" target="_blank" class="support-contact">
                             <i class="fab fa-whatsapp"></i>
-                            WhatsApp
+                            <div>
+                                <span>WhatsApp</span>
+                                <small>+52 55 1234 5678</small>
+                            </div>
                         </a>
-                        <a href="mailto:hola@nidobendito.com" class="btn btn-outline">
+                        <a href="mailto:envios@nidobendito.com" class="support-contact">
                             <i class="fas fa-envelope"></i>
-                            Email
+                            <div>
+                                <span>Email</span>
+                                <small>envios@nidobendito.com</small>
+                            </div>
+                        </a>
+                        <a href="tel:+525512345678" class="support-contact">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <span>Teléfono</span>
+                                <small>+52 55 1234 5678</small>
+                            </div>
                         </a>
                     </div>
-                </section>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <!-- Footer -->
-    <!--#include virtual="../templates/footer.html" -->
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <!-- Footer content from template -->
+        </div>
+    </footer>
+
+    <!-- Scroll Up -->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="fas fa-arrow-up scrollup__icon"></i>
+    </a>
 
     <!-- Scripts -->
     <script src="../assets/js/script.js"></script>
-
-    <style>
-        .shipping-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .shipping-card {
-            background: var(--light-beige);
-            padding: 30px 25px;
-            border-radius: 12px;
-            text-align: center;
-            border: 1px solid var(--border-color);
-        }
-
-        .shipping-icon {
-            font-size: 2.5em;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .shipping-card h3 {
-            margin-bottom: 15px;
-            color: var(--dark-brown);
-        }
-
-        .shipping-card p {
-            color: var(--medium-brown);
-            line-height: 1.6;
-        }
-
-        .process-steps {
-            display: grid;
-            gap: 30px;
-            margin: 40px 0;
-        }
-
-        .process-step {
-            display: flex;
-            gap: 25px;
-            align-items: flex-start;
-            padding: 25px;
-            background: var(--white);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        .step-number {
-            background: var(--primary-color);
-            color: var(--white);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .step-content h3 {
-            margin-bottom: 10px;
-            color: var(--dark-brown);
-        }
-
-        .step-content p {
-            color: var(--medium-brown);
-            line-height: 1.6;
-        }
-
-        .faq-list {
-            margin: 40px 0;
-        }
-
-        .faq-item {
-            background: var(--white);
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-        }
-
-        .faq-item h3 {
-            margin-bottom: 15px;
-            color: var(--dark-brown);
-        }
-
-        .faq-item p {
-            color: var(--medium-brown);
-            line-height: 1.6;
-        }
-
-        .shipping-contact {
-            background: var(--light-beige);
-            padding: 40px;
-            border-radius: 16px;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        .shipping-contact h2 {
-            margin-bottom: 15px;
-        }
-
-        .shipping-contact p {
-            margin-bottom: 30px;
-            color: var(--medium-brown);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .contact-options {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-whatsapp {
-            background: var(--whatsapp-green);
-            color: var(--white);
-        }
-
-        .btn-whatsapp:hover {
-            background: #1DA851;
-        }
-
-        @media (max-width: 768px) {
-            .process-step {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
-            }
-
-            .shipping-contact {
-                padding: 30px 20px;
-            }
-
-            .contact-options {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-options .btn {
-                width: 200px;
-            }
-        }
-    </style>
+    <script src="../assets/js/shipping.js"></script>
 </body>
 </html>

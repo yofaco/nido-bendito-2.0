@@ -3,242 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Nosotros - Nido Bendito | Historia y Misión</title>
-    <meta name="description" content="Conoce la historia de Nido Bendito. Descubre nuestra misión de crear hogares acogedores con productos artesanales guatemaltecos y comercio justo.">
+    <title>Sobre Nosotros - Nido Bendito | Decoración Artesanal para tu Hogar</title>
+    <meta name="description" content="Conoce la historia de Nido Bendito. Creando espacios especiales con productos artesanales mexicanos desde 2024.">
     
-    <!-- Preload crítico -->
-    <link rel="preload" href="../assets/css/style.css" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sobre Nosotros - Nido Bendito">
+    <meta property="og:description" content="Descubre nuestra pasión por crear productos artesanales que transforman hogares">
+    <meta property="og:image" content="../assets/images/nosotros/team.jpg">
+    <meta property="og:url" content="https://nidobendito.com/nosotros.html">
+    <meta property="og:type" content="website">
     
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Estilos -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/about.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
-    <!--#include virtual="../templates/header.html" -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <i class="fas fa-feather"></i>
+                Nido Bendito
+            </a>
 
-    <!-- Navigation -->
-    <!--#include virtual="../templates/navigation.html" -->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Inicio</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="tienda.html" class="nav__link">Tienda</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="nosotros.html" class="nav__link active-link">Nosotros</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="historias.html" class="nav__link">Historias</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="envio.html" class="nav__link">Envío</a>
+                    </li>
+                </ul>
 
-    <main class="main-content">
-        <!-- Breadcrumb -->
-        <nav class="breadcrumb" aria-label="Migas de pan">
-            <div class="container">
-                <a href="index.html">Inicio</a>
-                <span class="breadcrumb-separator">/</span>
-                <span class="current">Nosotros</span>
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <i class="fas fa-moon change-theme" id="theme-button"></i>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </nav>
+    </header>
 
+    <!-- Main -->
+    <main class="main">
         <!-- Hero Section -->
-        <section class="about-hero" aria-labelledby="about-title">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 id="about-title" class="hero-title">Transformando hogares, preservando tradiciones</h1>
-                        <p class="hero-subtitle">En Nido Bendito, creemos que cada hogar merece ser un refugio lleno de calidez, belleza y significado. Nuestra misión es conectar la rica herencia artesanal de Guatemala con espacios que inspiran tranquilidad.</p>
-                        <div class="hero-stats">
-                            <div class="stat">
-                                <span class="stat-number">3+</span>
-                                <span class="stat-label">Años creando hogares</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">50+</span>
-                                <span class="stat-label">Artesanos apoyados</span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-number">100%</span>
-                                <span class="stat-label">Comercio justo</span>
-                            </div>
+        <section class="about-hero section">
+            <div class="about-hero__container container">
+                <div class="about-hero__content">
+                    <h1 class="about-hero__title">Nuestra Historia</h1>
+                    <p class="about-hero__description">
+                        Creando espacios llenos de calidez y personalidad con productos artesanales 
+                        hechos con amor y dedicación.
+                    </p>
+                    <div class="about-hero__stats">
+                        <div class="about-stat">
+                            <span class="about-stat__number" id="years-experience">1+</span>
+                            <span class="about-stat__label">Años de Experiencia</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat__number" id="products-created">50+</span>
+                            <span class="about-stat__label">Productos Creados</span>
+                        </div>
+                        <div class="about-stat">
+                            <span class="about-stat__number" id="happy-customers">100+</span>
+                            <span class="about-stat__label">Clientes Felices</span>
                         </div>
                     </div>
-                    <div class="hero-image">
-                        <img 
-                            src="../assets/images/about-hero.jpg" 
-                            alt="Artesanos guatemaltecos trabajando en productos de decoración para Nido Bendito"
-                            loading="eager"
-                            width="600"
-                            height="600"
-                        >
-                        <div class="image-badge">
-                            <span>Hecho con amor en Guatemala</span>
+                </div>
+                <div class="about-hero__image">
+                    <img src="../assets/images/nosotros/hero-about.jpg" alt="Equipo Nido Bendito" class="about-hero__img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story -->
+        <section class="story section">
+            <div class="story__container container">
+                <div class="story__content">
+                    <h2 class="section__title">Nuestro Viaje</h2>
+                    <div class="story__text">
+                        <p>
+                            Nido Bendito nació en 2024 de la pasión por crear espacios que cuenten historias. 
+                            Lo que comenzó como un pequeño proyecto personal se ha convertido en un emprendimiento 
+                            dedicado a llevar productos artesanales de alta calidad a cada hogar.
+                        </p>
+                        <p>
+                            Creemos que cada espacio merece ser único y reflejar la personalidad de quienes lo habitan. 
+                            Por eso, cada pieza que creamos está impregnada de dedicación, atención al detalle y, 
+                            sobre todo, mucho amor por lo que hacemos.
+                        </p>
+                    </div>
+
+                    <div class="story__milestones">
+                        <div class="milestone">
+                            <div class="milestone__year">2024</div>
+                            <div class="milestone__content">
+                                <h3 class="milestone__title">Nacimiento de Nido Bendito</h3>
+                                <p class="milestone__description">
+                                    Comenzamos nuestro viaje con una pequeña colección de productos 
+                                    hechos a mano para living room.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="milestone">
+                            <div class="milestone__year">2024</div>
+                            <div class="milestone__content">
+                                <h3 class="milestone__title">Expansión de Categorías</h3>
+                                <p class="milestone__description">
+                                    Ampliamos nuestra oferta incluyendo bedroom, dining & kitchen y wall decor.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="milestone">
+                            <div class="milestone__year">2024</div>
+                            <div class="milestone__content">
+                                <h3 class="milestone__title">Comunidad en Crecimiento</h3>
+                                <p class="milestone__description">
+                                    Llegamos a más de 100 clientes satisfechos en toda la República Mexicana.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Nuestra Historia -->
-        <section class="story-section" aria-labelledby="story-title">
-            <div class="container">
-                <div class="section-header">
-                    <h2 id="story-title" class="section-title">Nuestra Historia</h2>
-                    <p class="section-subtitle">El viaje que nos llevó a crear Nido Bendito</p>
+        <!-- Our Values -->
+        <section class="values section">
+            <div class="values__container container">
+                <div class="values__header">
+                    <h2 class="section__title">Nuestros Valores</h2>
+                    <p class="section__description">
+                        Los principios que guían cada decisión y cada producto que creamos
+                    </p>
                 </div>
-                
-                <div class="story-timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-year">2021</div>
-                        <div class="timeline-content">
-                            <h3>El Inicio</h3>
-                            <p>Todo comenzó en un pequeño taller en Antigua Guatemala, donde María, nuestra fundadora, descubrió la belleza oculta en las técnicas artesanales locales. Fascinada por la calidad y el significado detrás de cada pieza, decidió compartir este tesoro con el mundo.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-year">2022</div>
-                        <div class="timeline-content">
-                            <h3>Primeras Colecciones</h3>
-                            <p>Lanzamos nuestras primeras colecciones de velas aromáticas y jarrones cerámicos. La respuesta fue abrumadora - las personas no solo amaban los productos, sino la historia detrás de cada uno. Comenzamos a trabajar directamente con comunidades artesanales.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-year">2023</div>
-                        <div class="timeline-content">
-                            <h3>Crecimiento y Impacto</h3>
-                            <p>Expandimos nuestra red de artesanos a 6 departamentos de Guatemala. Implementamos nuestro modelo de comercio justo, asegurando que cada artesano reciba un pago digno por su trabajo excepcional.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-year">2024</div>
-                        <div class="timeline-content">
-                            <h3>Nido Bendito Hoy</h3>
-                            <p>Hemos transformado más de 500 hogares y apoyado a más de 50 familias artesanales. Nuestra comunidad sigue creciendo, unida por el amor a los espacios bien decorados y las tradiciones bien preservadas.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Nuestra Misión y Visión -->
-        <section class="mission-vision" aria-labelledby="mission-title">
-            <div class="container">
-                <div class="mv-grid">
-                    <div class="mv-card mission">
-                        <div class="mv-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3 id="mission-title">Nuestra Misión</h3>
-                        <p>Crear hogares acogedores a través de productos de decoración artesanales que celebren la herencia cultural guatemalteca, mientras promovemos el comercio justo y el desarrollo sostenible de comunidades artesanales.</p>
-                    </div>
-                    
-                    <div class="mv-card vision">
-                        <div class="mv-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <h3>Nuestra Visión</h3>
-                        <p>Ser el puente líder entre la rica tradición artesanal de Guatemala y hogares alrededor del mundo, transformando espacios en refugios llenos de significado, belleza y calidez humana.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Nuestros Valores -->
-        <section class="values-section" aria-labelledby="values-title">
-            <div class="container">
-                <div class="section-header">
-                    <h2 id="values-title" class="section-title">Nuestros Valores</h2>
-                    <p class="section-subtitle">Los principios que guían cada decisión que tomamos</p>
-                </div>
-                
-                <div class="values-grid">
+                <div class="values__grid grid">
                     <div class="value-card">
-                        <div class="value-icon">
+                        <div class="value-card__icon">
                             <i class="fas fa-hands"></i>
                         </div>
-                        <h3>Artesanía Auténtica</h3>
-                        <p>Valoramos las técnicas tradicionales y el trabajo hecho a mano. Cada pieza cuenta una historia única y preserva saberes ancestrales.</p>
+                        <h3 class="value-card__title">Hecho a Mano</h3>
+                        <p class="value-card__description">
+                            Cada pieza es única, creada con dedicación y atención al detalle. 
+                            Valoramos el trabajo artesanal y la singularidad de cada producto.
+                        </p>
                     </div>
-                    
+
                     <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-hand-holding-heart"></i>
-                        </div>
-                        <h3>Comercio Justo</h3>
-                        <p>Creemos en relaciones comerciales éticas. Cada artesano recibe compensación justa por su talento y dedicación excepcionales.</p>
-                    </div>
-                    
-                    <div class="value-card">
-                        <div class="value-icon">
+                        <div class="value-card__icon">
                             <i class="fas fa-leaf"></i>
                         </div>
-                        <h3>Sostenibilidad</h3>
-                        <p>Utilizamos materiales naturales y procesos respetuosos con el medio ambiente. Menos impacto, más conciencia.</p>
+                        <h3 class="value-card__title">Sostenibilidad</h3>
+                        <p class="value-card__description">
+                            Utilizamos materiales naturales y procesos sostenibles. 
+                            Nos preocupamos por el medio ambiente y el impacto de nuestra producción.
+                        </p>
                     </div>
-                    
+
                     <div class="value-card">
-                        <div class="value-icon">
+                        <div class="value-card__icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="value-card__title">Calidad</h3>
+                        <p class="value-card__description">
+                            No comprometemos la calidad. Cada producto pasa por rigurosos 
+                            controles para asegurar que cumple con nuestros estándares.
+                        </p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-card__icon">
                             <i class="fas fa-users"></i>
                         </div>
-                        <h3>Comunidad</h3>
-                        <p>Construimos relaciones duraderas con artesanos y clientes. Juntos creamos un impacto positivo en nuestra sociedad.</p>
-                    </div>
-                    
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                        <h3>Calidad Superior</h3>
-                        <p>No comprometemos la excelencia. Desde la selección de materiales hasta el último detalle, la calidad es nuestra prioridad.</p>
-                    </div>
-                    
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-home"></i>
-                        </div>
-                        <h3>Hogares con Alma</h3>
-                        <p>Creemos que los espacios deben nutrir el alma. Diseñamos productos que transforman casas en hogares llenos de significado.</p>
+                        <h3 class="value-card__title">Comunidad</h3>
+                        <p class="value-card__description">
+                            Creemos en el poder de la comunidad. Apoyamos a artesanos locales 
+                            y construimos relaciones duraderas con nuestros clientes.
+                        </p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Equipo Fundador -->
-        <section class="team-section" aria-labelledby="team-title">
-            <div class="container">
-                <div class="section-header">
-                    <h2 id="team-title" class="section-title">Nuestro Equipo Fundador</h2>
-                    <p class="section-subtitle">Las personas detrás de Nido Bendito</p>
+        <!-- Team Section -->
+        <section class="team section">
+            <div class="team__container container">
+                <div class="team__header">
+                    <h2 class="section__title">Nuestro Equipo</h2>
+                    <p class="section__description">
+                        Las personas detrás de cada producto Nido Bendito
+                    </p>
                 </div>
-                
-                <div class="team-grid">
+
+                <div class="team__grid grid">
                     <div class="team-member">
-                        <div class="member-photo">
-                            <img src="../assets/images/team/maria-fernandez.jpg" alt="María Fernández - Fundadora de Nido Bendito" loading="lazy">
+                        <div class="team-member__image">
+                            <img src="../assets/images/nosotros/team-1.jpg" alt="María González - Fundadora" class="team-member__img">
                         </div>
-                        <div class="member-info">
-                            <h3>María Fernández</h3>
-                            <span class="member-role">Fundadora & Directora Creativa</span>
-                            <p>Diseñadora de interiores con más de 8 años de experiencia. Su pasión por la cultura guatemalteca y el diseño sostenible la llevó a crear Nido Bendito. "Cada hogar merece ser un santuario de paz y belleza."</p>
-                            <div class="member-contact">
-                                <a href="mailto:maria@nidobendito.com">
-                                    <i class="fas fa-envelope"></i>
-                                    maria@nidobendito.com
+                        <div class="team-member__content">
+                            <h3 class="team-member__name">María González</h3>
+                            <p class="team-member__role">Fundadora & Diseñadora Principal</p>
+                            <p class="team-member__bio">
+                                Apasionada por el diseño de interiores y la artesanía mexicana. 
+                                María combina tradición con modernidad en cada creación.
+                            </p>
+                            <div class="team-member__social">
+                                <a href="#" class="team-member__social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="team-member__social-link">
+                                    <i class="fab fa-pinterest"></i>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="team-member">
-                        <div class="member-photo">
-                            <img src="../assets/images/team/carlos-mendez.jpg" alt="Carlos Méndez - Director de Operaciones" loading="lazy">
+                        <div class="team-member__image">
+                            <img src="../assets/images/nosotros/team-2.jpg" alt="Carlos Rodríguez - Artesano" class="team-member__img">
                         </div>
-                        <div class="member-info">
-                            <h3>Carlos Méndez</h3>
-                            <span class="member-role">Director de Operaciones</span>
-                            <p>Especialista en comercio justo y desarrollo comunitario. Conecta a nuestros artesanos con oportunidades de crecimiento y asegura que cada proceso refleje nuestros valores de sostenibilidad y equidad.</p>
-                            <div class="member-contact">
-                                <a href="mailto:carlos@nidobendito.com">
-                                    <i class="fas fa-envelope"></i>
-                                    carlos@nidobendito.com
+                        <div class="team-member__content">
+                            <h3 class="team-member__name">Carlos Rodríguez</h3>
+                            <p class="team-member__role">Maestro Artesano</p>
+                            <p class="team-member__bio">
+                                Tercera generación de artesanos. Carlos domina técnicas tradicionales 
+                                que combina con diseños contemporáneos.
+                            </p>
+                            <div class="team-member__social">
+                                <a href="#" class="team-member__social-link">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="team-member__image">
+                            <img src="../assets/images/nosotros/team-3.jpg" alt="Ana Martínez - Atención a Clientes" class="team-member__img">
+                        </div>
+                        <div class="team-member__content">
+                            <h3 class="team-member__name">Ana Martínez</h3>
+                            <p class="team-member__role">Atención a Clientes</p>
+                            <p class="team-member__bio">
+                                Siempre con una sonrisa, Ana se asegura de que cada cliente 
+                                tenga una experiencia excepcional con Nido Bendito.
+                            </p>
+                            <div class="team-member__social">
+                                <a href="#" class="team-member__social-link">
+                                    <i class="fab fa-instagram"></i>
                                 </a>
                             </div>
                         </div>
@@ -247,148 +275,91 @@
             </div>
         </section>
 
-        <!-- Comunidad de Artesanos -->
-        <section class="artisans-section" aria-labelledby="artisans-title">
-            <div class="container">
-                <div class="section-header">
-                    <h2 id="artisans-title" class="section-title">Nuestra Comunidad de Artesanos</h2>
-                    <p class="section-subtitle">Conoce a las manos talentosas detrás de cada pieza</p>
+        <!-- Process Section -->
+        <section class="process section">
+            <div class="process__container container">
+                <div class="process__header">
+                    <h2 class="section__title">Nuestro Proceso</h2>
+                    <p class="section__description">
+                        Así creamos cada producto que llega a tu hogar
+                    </p>
                 </div>
-                
-                <div class="artisans-grid">
-                    <div class="artisan-card">
-                        <div class="artisan-photo">
-                            <img src="../assets/images/artisans/ana-tzul.jpg" alt="Ana Tzul - Maestra ceramista de Totonicapán" loading="lazy">
-                        </div>
-                        <div class="artisan-info">
-                            <h3>Ana Tzul</h3>
-                            <span class="artisan-location">Totonicapán, Guatemala</span>
-                            <span class="artisan-specialty">Cerámica Tradicional</span>
-                            <p>Tercera generación de ceramistas. Ana preserva técnicas ancestrales mayas en cada una de sus piezas. "La arcia habla, solo hay que saber escucharla."</p>
-                            <div class="artisan-stats">
-                                <span>15+ años de experiencia</span>
-                                <span>Especialista en barro negro</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="artisan-card">
-                        <div class="artisan-photo">
-                            <img src="../assets/images/artisans/mateo-perez.jpg" alt="Mateo Pérez - Tejedor de Sacatepéquez" loading="lazy">
-                        </div>
-                        <div class="artisan-info">
-                            <h3>Mateo Pérez</h3>
-                            <span class="artisan-location">Sacatepéquez, Guatemala</span>
-                            <span class="artisan-specialty">Textiles y Tejidos</span>
-                            <p>Maestro tejedor especializado en técnicas de telar de cintura. Cada diseño cuenta una historia a través de sus colores y patrones únicos.</p>
-                            <div class="artisan-stats">
-                                <span>12+ años de experiencia</span>
-                                <span>Especialista en telar de cintura</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="artisan-card">
-                        <div class="artisan-photo">
-                            <img src="../assets/images/artisans/rosa-garcia.jpg" alt="Rosa García - Velera artesanal de Antigua" loading="lazy">
-                        </div>
-                        <div class="artisan-info">
-                            <h3>Rosa García</h3>
-                            <span class="artisan-location">Antigua Guatemala</span>
-                            <span class="artisan-specialty">Velas Aromáticas</span>
-                            <p>Especialista en velas de cera de soya con aceites esenciales puros. Rosa combina aromaterapia con artesanía tradicional guatemalteca.</p>
-                            <div class="artisan-stats">
-                                <span>8+ años de experiencia</span>
-                                <span>Especialista en aromaterapia</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section-footer">
-                    <a href="contacto.html" class="btn btn-primary">
-                        <i class="fas fa-handshake"></i>
-                        Únete a Nuestra Comunidad
-                    </a>
-                </div>
-            </div>
-        </section>
 
-        <!-- Compromiso Social -->
-        <section class="commitment-section" aria-labelledby="commitment-title">
-            <div class="container">
-                <div class="section-header">
-                    <h2 id="commitment-title" class="section-title">Nuestro Compromiso Social</h2>
-                    <p class="section-subtitle">Más que una empresa, un agente de cambio positivo</p>
-                </div>
-                
-                <div class="commitment-grid">
-                    <div class="commitment-card">
-                        <div class="commitment-icon">
-                            <i class="fas fa-graduation-cap"></i>
+                <div class="process__steps">
+                    <div class="process-step">
+                        <div class="process-step__number">01</div>
+                        <div class="process-step__content">
+                            <h3 class="process-step__title">Diseño e Inspiración</h3>
+                            <p class="process-step__description">
+                                Cada producto comienza con una idea inspirada en la naturaleza, 
+                                la cultura mexicana y las tendencias actuales de diseño.
+                            </p>
                         </div>
-                        <h3>Educación Artesanal</h3>
-                        <p>Financiamos talleres de capacitación para jóvenes interesados en aprender técnicas artesanales tradicionales, asegurando que estas habilidades no se pierdan.</p>
                     </div>
-                    
-                    <div class="commitment-card">
-                        <div class="commitment-icon">
-                            <i class="fas fa-female"></i>
+
+                    <div class="process-step">
+                        <div class="process-step__number">02</div>
+                        <div class="process-step__content">
+                            <h3 class="process-step__title">Selección de Materiales</h3>
+                            <p class="process-step__description">
+                                Elegimos cuidadosamente materiales naturales y sostenibles 
+                                que aseguren durabilidad y belleza en cada pieza.
+                            </p>
                         </div>
-                        <h3>Empoderamiento Femenino</h3>
-                        <p>70% de nuestros artesanos son mujeres. Promovemos su independencia económica y liderazgo en sus comunidades a través de nuestro programa de mentoría.</p>
                     </div>
-                    
-                    <div class="commitment-card">
-                        <div class="commitment-icon">
-                            <i class="fas fa-tree"></i>
+
+                    <div class="process-step">
+                        <div class="process-step__number">03</div>
+                        <div class="process-step__content">
+                            <h3 class="process-step__title">Creación Artesanal</h3>
+                            <p class="process-step__description">
+                                Nuestros artesanos trabajan cada pieza con técnicas tradicionales 
+                                y atención meticulosa a cada detalle.
+                            </p>
                         </div>
-                        <h3>Sostenibilidad Ambiental</h3>
-                        <p>Por cada producto vendido, plantamos un árbol en comunidades guatemaltecas. Ya hemos plantado más de 1,000 árboles nativos.</p>
                     </div>
-                    
-                    <div class="commitment-card">
-                        <div class="commitment-icon">
-                            <i class="fas fa-hands-helping"></i>
+
+                    <div class="process-step">
+                        <div class="process-step__number">04</div>
+                        <div class="process-step__content">
+                            <h3 class="process-step__title">Control de Calidad</h3>
+                            <p class="process-step__description">
+                                Cada producto pasa por rigurosos controles para asegurar 
+                                que cumple con nuestros altos estándares de calidad.
+                            </p>
                         </div>
-                        <h3>Comercio Justo</h3>
-                        <p>Garantizamos precios justos que permiten a los artesanos vivir dignamente de su trabajo, invirtiendo en herramientas y mejoras para sus talleres.</p>
+                    </div>
+
+                    <div class="process-step">
+                        <div class="process-step__number">05</div>
+                        <div class="process-step__content">
+                            <h3 class="process-step__title">Embalaje y Envío</h3>
+                            <p class="process-step__description">
+                                Empacamos con cuidado cada producto para que llegue 
+                                perfecto a tu hogar, listo para ser disfrutado.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Final -->
-        <section class="about-cta" aria-labelledby="cta-title">
-            <div class="container">
-                <div class="cta-content">
-                    <h2 id="cta-title" class="cta-title">Únete a Nuestra Misión</h2>
-                    <p class="cta-subtitle">Cada compra en Nido Bendito no solo transforma tu hogar, sino que apoya el sustento de familias artesanales y preserva tradiciones centenarias.</p>
-                    
-                    <div class="cta-actions">
-                        <a href="tienda.html" class="btn btn-primary btn-large">
-                            <i class="fas fa-shopping-bag"></i>
-                            Descubrir Productos
+        <!-- CTA Section -->
+        <section class="about-cta section">
+            <div class="about-cta__container container">
+                <div class="about-cta__content">
+                    <h2 class="about-cta__title">¿Listo para Transformar tu Hogar?</h2>
+                    <p class="about-cta__description">
+                        Descubre nuestra colección de productos artesanales y encuentra 
+                        la pieza perfecta para cada espacio de tu hogar.
+                    </p>
+                    <div class="about-cta__buttons">
+                        <a href="tienda.html" class="button button--primary">
+                            Explorar Tienda
                         </a>
-                        <a href="contacto.html" class="btn btn-outline btn-large">
-                            <i class="fas fa-envelope"></i>
-                            Contáctanos
+                        <a href="contacto.html" class="button button--outline">
+                            Contactarnos
                         </a>
-                    </div>
-                    
-                    <div class="cta-stats">
-                        <div class="stat">
-                            <span class="stat-number">500+</span>
-                            <span class="stat-label">Hogares transformados</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Familias apoyadas</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">1,000+</span>
-                            <span class="stat-label">Árboles plantados</span>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -396,699 +367,20 @@
     </main>
 
     <!-- Footer -->
-    <!--#include virtual="../templates/footer.html" -->
+    <!-- Se incluirá el componente footer.html -->
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <!-- Footer content from template -->
+        </div>
+    </footer>
+
+    <!-- Scroll Up -->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="fas fa-arrow-up scrollup__icon"></i>
+    </a>
 
     <!-- Scripts -->
     <script src="../assets/js/script.js"></script>
-
-    <!-- Estilos específicos para nosotros.html -->
-    <style>
-        /* About Hero Section */
-        .about-hero {
-            background: linear-gradient(135deg, var(--light-beige) 0%, var(--primary-beige) 100%);
-            padding: 80px 0 60px;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3em;
-            font-weight: 700;
-            color: var(--dark-brown);
-            line-height: 1.1;
-            margin-bottom: 24px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2em;
-            color: var(--medium-brown);
-            line-height: 1.6;
-            margin-bottom: 40px;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 40px;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            display: block;
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 4px;
-        }
-
-        .stat-label {
-            font-size: 0.9em;
-            color: var(--medium-brown);
-            line-height: 1.3;
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .image-badge {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            box-shadow: 0 8px 20px rgba(224, 160, 107, 0.3);
-        }
-
-        /* Story Timeline */
-        .story-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .story-timeline {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .story-timeline::before {
-            content: '';
-            position: absolute;
-            left: 30px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--primary-color);
-            opacity: 0.3;
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 40px;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .timeline-year {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 1.1em;
-            flex-shrink: 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .timeline-content {
-            flex: 1;
-            padding-top: 8px;
-        }
-
-        .timeline-content h3 {
-            font-size: 1.4em;
-            color: var(--dark-brown);
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .timeline-content p {
-            color: var(--medium-brown);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* Mission & Vision */
-        .mission-vision {
-            padding: 80px 0;
-            background: var(--light-beige);
-        }
-
-        .mv-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .mv-card {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.3s ease;
-        }
-
-        .mv-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .mv-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--primary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 24px;
-            font-size: 2em;
-        }
-
-        .mv-card h3 {
-            font-size: 1.5em;
-            color: var(--dark-brown);
-            margin-bottom: 16px;
-            font-weight: 600;
-        }
-
-        .mv-card p {
-            color: var(--medium-brown);
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        /* Values Section */
-        .values-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .value-card {
-            background: var(--light-beige);
-            padding: 32px;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.3s ease;
-            border: 1px solid transparent;
-        }
-
-        .value-card:hover {
-            border-color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .value-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--primary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.8em;
-        }
-
-        .value-card h3 {
-            font-size: 1.2em;
-            color: var(--dark-brown);
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .value-card p {
-            color: var(--medium-brown);
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        /* Team Section */
-        .team-section {
-            padding: 80px 0;
-            background: var(--light-beige);
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .team-member {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .member-photo {
-            height: 300px;
-            overflow: hidden;
-        }
-
-        .member-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .team-member:hover .member-photo img {
-            transform: scale(1.05);
-        }
-
-        .member-info {
-            padding: 32px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .member-info h3 {
-            font-size: 1.4em;
-            color: var(--dark-brown);
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-
-        .member-role {
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 16px;
-            font-size: 0.9em;
-        }
-
-        .member-info p {
-            color: var(--medium-brown);
-            line-height: 1.6;
-            margin-bottom: 20px;
-            flex: 1;
-        }
-
-        .member-contact a {
-            color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .member-contact a:hover {
-            color: var(--primary-dark);
-        }
-
-        /* Artisans Section */
-        .artisans-section {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .artisans-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .artisan-card {
-            background: var(--light-beige);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
-
-        .artisan-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .artisan-photo {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .artisan-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .artisan-card:hover .artisan-photo img {
-            transform: scale(1.05);
-        }
-
-        .artisan-info {
-            padding: 24px;
-        }
-
-        .artisan-info h3 {
-            font-size: 1.3em;
-            color: var(--dark-brown);
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-
-        .artisan-location {
-            color: var(--primary-color);
-            font-weight: 600;
-            font-size: 0.9em;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        .artisan-specialty {
-            color: var(--medium-brown);
-            font-size: 0.9em;
-            display: block;
-            margin-bottom: 12px;
-        }
-
-        .artisan-info p {
-            color: var(--medium-brown);
-            line-height: 1.5;
-            margin-bottom: 16px;
-        }
-
-        .artisan-stats {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .artisan-stats span {
-            font-size: 0.8em;
-            color: var(--medium-brown);
-            padding-left: 12px;
-            position: relative;
-        }
-
-        .artisan-stats span::before {
-            content: '•';
-            color: var(--primary-color);
-            position: absolute;
-            left: 0;
-        }
-
-        /* Commitment Section */
-        .commitment-section {
-            padding: 80px 0;
-            background: var(--light-beige);
-        }
-
-        .commitment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .commitment-card {
-            background: var(--white);
-            padding: 32px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            transition: transform 0.3s ease;
-        }
-
-        .commitment-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .commitment-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--primary-color);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 1.8em;
-        }
-
-        .commitment-card h3 {
-            font-size: 1.2em;
-            color: var(--dark-brown);
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .commitment-card p {
-            color: var(--medium-brown);
-            line-height: 1.5;
-            margin: 0;
-        }
-
-        /* About CTA */
-        .about-cta {
-            background: linear-gradient(135deg, var(--dark-brown) 0%, #2a231e 100%);
-            color: var(--white);
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .cta-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin-bottom: 16px;
-            color: var(--white);
-        }
-
-        .cta-subtitle {
-            font-size: 1.2em;
-            color: rgba(255,255,255,0.8);
-            max-width: 600px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
-        }
-
-        .cta-actions {
-            display: flex;
-            gap: 16px;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .cta-stats {
-            display: flex;
-            gap: 40px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-stats .stat-number {
-            color: var(--primary-color);
-        }
-
-        .cta-stats .stat-label {
-            color: rgba(255,255,255,0.8);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-content {
-                gap: 40px;
-            }
-            
-            .hero-title {
-                font-size: 2.5em;
-            }
-            
-            .mv-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 40px;
-            }
-            
-            .hero-title {
-                font-size: 2em;
-            }
-            
-            .hero-stats {
-                justify-content: center;
-            }
-            
-            .story-timeline::before {
-                left: 20px;
-            }
-            
-            .timeline-item {
-                gap: 20px;
-            }
-            
-            .timeline-year {
-                width: 40px;
-                height: 40px;
-                font-size: 0.9em;
-            }
-            
-            .team-grid,
-            .artisans-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn-large {
-                width: 100%;
-                max-width: 280px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-stats {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .timeline-item {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            
-            .story-timeline::before {
-                display: none;
-            }
-            
-            .values-grid,
-            .commitment-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .cta-stats {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        /* Animations */
-        .timeline-item,
-        .mv-card,
-        .value-card,
-        .team-member,
-        .artisan-card,
-        .commitment-card {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-
-        .timeline-item.animate-in,
-        .mv-card.animate-in,
-        .value-card.animate-in,
-        .team-member.animate-in,
-        .artisan-card.animate-in,
-        .commitment-card.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-
-    <!-- Script para animaciones -->
-    <script>
-        class AboutPageManager {
-            constructor() {
-                this.init();
-            }
-            
-            init() {
-                this.setupAnimations();
-                this.setupEventListeners();
-            }
-            
-            setupAnimations() {
-                // Intersection Observer para animaciones
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                };
-                
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('animate-in');
-                        }
-                    });
-                }, observerOptions);
-                
-                // Observar elementos para animar
-                document.querySelectorAll('.timeline-item, .mv-card, .value-card, .team-member, .artisan-card, .commitment-card').forEach(el => {
-                    observer.observe(el);
-                });
-            }
-            
-            setupEventListeners() {
-                // Smooth scroll para enlaces internos
-                document.querySelectorAll('a[href^="#"]').forEach(link => {
-                    link.addEventListener('click', (e) => {
-                        const href = link.getAttribute('href');
-                        if (href !== '#') {
-                            e.preventDefault();
-                            const target = document.querySelector(href);
-                            if (target) {
-                                target.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        }
-                    });
-                });
-            }
-        }
-        
-        // Inicializar cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', () => {
-            window.aboutPageManager = new AboutPageManager();
-        });
-    </script>
+    <script src="../assets/js/about.js"></script>
 </body>
 </html>

@@ -3,647 +3,303 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Administración - Nido Bendito</title>
-    <meta name="description" content="Sistema de administración para gestionar productos y categorías de Nido Bendito">
-    
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Estilos -->
+    <title>Nido Bendito - Panel de Administración</title>
     <link rel="stylesheet" href="../assets/css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="admin-container">
         <!-- Header -->
         <header class="admin-header">
             <div class="header-content">
-                <div class="logo">
-                    <h1><i class="fas fa-feather-alt"></i> Nido Bendito</h1>
-                    <p>Panel de Administración</p>
-                </div>
+                <h1><i class="fas fa-feather"></i> Nido Bendito - Administración</h1>
                 <div class="admin-actions">
-                    <button class="btn btn-outline" onclick="exportData()">
+                    <button id="save-all" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Guardar Todo
+                    </button>
+                    <button id="export-data" class="btn btn-secondary">
                         <i class="fas fa-download"></i> Exportar
-                    </button>
-                    <button class="btn btn-outline" onclick="importData()">
-                        <i class="fas fa-upload"></i> Importar
-                    </button>
-                    <button class="btn btn-primary" id="btnSave" onclick="saveAllChanges()">
-                        <i class="fas fa-save"></i> Guardar Cambios
                     </button>
                 </div>
             </div>
         </header>
 
-        <div class="admin-layout">
+        <div class="admin-main">
             <!-- Sidebar -->
-            <aside class="admin-sidebar">
-                <nav class="sidebar-nav">
-                    <a href="#" class="nav-item active" data-tab="dashboard">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Dashboard</span>
-                    </a>
-                    
-                    <a href="#" class="nav-item" data-tab="products">
-                        <i class="fas fa-box"></i>
-                        <span>Productos</span>
-                        <span class="product-count" id="productCount">0</span>
-                    </a>
-                    
-                    <a href="#" class="nav-item" data-tab="categories">
-                        <i class="fas fa-tags"></i>
-                        <span>Categorías</span>
-                        <span class="product-count" id="categoryCount">0</span>
-                    </a>
-                    
-                    <a href="#" class="nav-item" data-tab="settings">
-                        <i class="fas fa-cog"></i>
-                        <span>Configuración</span>
-                    </a>
-                    
-                    <a href="#" class="nav-item" data-tab="deploy">
-                        <i class="fas fa-rocket"></i>
-                        <span>Publicar</span>
-                    </a>
-                </nav>
+            <nav class="admin-sidebar">
+                <div class="sidebar-section">
+                    <h3>Gestión de Contenido</h3>
+                    <ul class="sidebar-menu">
+                        <li class="active"><a href="#productos"><i class="fas fa-box"></i> Productos</a></li>
+                        <li><a href="#categorias"><i class="fas fa-tags"></i> Categorías</a></li>
+                        <li><a href="#configuracion"><i class="fas fa-cog"></i> Configuración</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3>Vista Previa</h3>
+                    <ul class="sidebar-menu">
+                        <li><a href="../pages/index.html" target="_blank"><i class="fas fa-eye"></i> Ver Sitio</a></li>
+                        <li><a href="../pages/tienda.html" target="_blank"><i class="fas fa-store"></i> Ver Tienda</a></li>
+                    </ul>
+                </div>
 
-                <div class="sidebar-status">
-                    <div class="status-item">
-                        <span class="status-label">Productos Activos:</span>
-                        <span class="status-value" id="activeProducts">0</span>
+                <div class="stats-panel">
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-products">0</span>
+                        <span class="stat-label">Productos</span>
                     </div>
-                    <div class="status-item">
-                        <span class="status-label">Última Actualización:</span>
-                        <span class="status-value" id="lastUpdate">--</span>
-                    </div>
-                    <div class="status-item">
-                        <span class="status-label">Estado GitHub:</span>
-                        <span class="status-value" id="githubStatus">Desconectado</span>
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-categories">0</span>
+                        <span class="stat-label">Categorías</span>
                     </div>
                 </div>
-            </aside>
+            </nav>
 
             <!-- Main Content -->
-            <main class="admin-main">
-                <!-- Dashboard Tab -->
-                <div id="dashboard-tab" class="tab-content active">
-                    <div class="tab-header">
-                        <h2>Dashboard</h2>
-                        <button class="btn btn-primary" onclick="refreshData()">
-                            <i class="fas fa-sync-alt"></i> Actualizar Datos
-                        </button>
-                    </div>
-
-                    <div class="stats-grid">
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-box"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3 id="totalProducts">0</h3>
-                                <p>Total Productos</p>
-                            </div>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-tags"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3 id="totalCategories">0</h3>
-                                <p>Categorías</p>
-                            </div>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3 id="featuredProducts">0</h3>
-                                <p>Destacados</p>
-                            </div>
-                        </div>
-                        
-                        <div class="stat-card">
-                            <div class="stat-icon">
-                                <i class="fas fa-bolt"></i>
-                            </div>
-                            <div class="stat-info">
-                                <h3 id="newProducts">0</h3>
-                                <p>Nuevos</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="quick-actions">
-                        <h3>Acciones Rápidas</h3>
-                        <div class="actions-grid">
-                            <button class="action-card" onclick="openProductModal()">
-                                <i class="fas fa-plus"></i>
-                                <span>Nuevo Producto</span>
-                            </button>
-                            
-                            <button class="action-card" onclick="openCategoryModal()">
-                                <i class="fas fa-folder-plus"></i>
-                                <span>Nueva Categoría</span>
-                            </button>
-                            
-                            <button class="action-card" onclick="testGitHubConnection()">
-                                <i class="fab fa-github"></i>
-                                <span>Probar GitHub</span>
-                            </button>
-                            
-                            <button class="action-card" onclick="optimizeImages()">
-                                <i class="fas fa-compress-arrows-alt"></i>
-                                <span>Optimizar Imágenes</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="recent-activity">
-                        <h3>Actividad Reciente</h3>
-                        <div class="activity-list" id="activityList">
-                            <div class="activity-item">
-                                <i class="fas fa-info-circle"></i>
-                                <div class="activity-content">
-                                    <p>Bienvenido al panel de administración</p>
-                                    <span class="activity-time">Justo ahora</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Products Tab -->
-                <div id="products-tab" class="tab-content">
-                    <div class="tab-header">
+            <main class="admin-content">
+                <!-- Sección Productos -->
+                <section id="productos" class="content-section active">
+                    <div class="section-header">
                         <h2>Gestión de Productos</h2>
-                        <button class="btn btn-primary" id="btnAddProduct" onclick="openProductModal()">
+                        <button id="add-product" class="btn btn-success">
                             <i class="fas fa-plus"></i> Nuevo Producto
                         </button>
                     </div>
 
-                    <div class="products-controls">
+                    <!-- Filtros y Búsqueda -->
+                    <div class="filters-bar">
                         <div class="search-box">
+                            <input type="text" id="search-products" placeholder="Buscar productos...">
                             <i class="fas fa-search"></i>
-                            <input type="text" id="productSearch" placeholder="Buscar productos..." onkeyup="filterProducts()">
                         </div>
-                        <select id="categoryFilter" onchange="filterProducts()">
-                            <option value="all">Todas las categorías</option>
+                        <select id="filter-category">
+                            <option value="">Todas las categorías</option>
+                        </select>
+                        <select id="filter-status">
+                            <option value="">Todos los estados</option>
+                            <option value="published">Publicados</option>
+                            <option value="draft">Borradores</option>
                         </select>
                     </div>
 
-                    <div class="products-list" id="productsList">
-                        <div class="empty-state" id="emptyProducts">
-                            <i class="fas fa-box-open"></i>
-                            <h3>No hay productos</h3>
-                            <p>Comienza agregando tu primer producto al catálogo.</p>
-                            <button class="btn btn-primary" onclick="openProductModal()">
-                                <i class="fas fa-plus"></i> Agregar Producto
-                            </button>
-                        </div>
+                    <!-- Lista de Productos -->
+                    <div class="products-grid" id="products-grid">
+                        <!-- Los productos se cargarán aquí dinámicamente -->
                     </div>
-                </div>
 
-                <!-- Categories Tab -->
-                <div id="categories-tab" class="tab-content">
-                    <div class="tab-header">
+                    <!-- Estado vacío -->
+                    <div id="empty-products" class="empty-state">
+                        <i class="fas fa-box-open"></i>
+                        <h3>No hay productos</h3>
+                        <p>Comienza agregando tu primer producto</p>
+                        <button id="add-first-product" class="btn btn-primary">
+                            <i class="fas fa-plus"></i> Agregar Primer Producto
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Sección Categorías -->
+                <section id="categorias" class="content-section">
+                    <div class="section-header">
                         <h2>Gestión de Categorías</h2>
-                        <button class="btn btn-primary" id="btnAddCategory" onclick="openCategoryModal()">
+                        <button id="add-category" class="btn btn-success">
                             <i class="fas fa-plus"></i> Nueva Categoría
                         </button>
                     </div>
 
-                    <div class="categories-grid" id="categoriesGrid">
+                    <div class="categories-grid" id="categories-grid">
                         <!-- Las categorías se cargarán aquí dinámicamente -->
                     </div>
-                </div>
+                </section>
 
-                <!-- Settings Tab -->
-                <div id="settings-tab" class="tab-content">
-                    <div class="tab-header">
-                        <h2>Configuración</h2>
+                <!-- Sección Configuración -->
+                <section id="configuracion" class="content-section">
+                    <div class="section-header">
+                        <h2>Configuración del Sitio</h2>
                     </div>
-
-                    <div class="settings-grid">
-                        <div class="setting-card">
-                            <i class="fas fa-database"></i>
-                            <h3>Base de Datos</h3>
-                            <p>Gestiona la información de productos y categorías</p>
-                            <div class="setting-actions">
-                                <button class="btn btn-outline" onclick="exportData()">Exportar</button>
-                                <button class="btn btn-outline" onclick="importData()">Importar</button>
+                    
+                    <div class="config-panel">
+                        <div class="config-group">
+                            <h3>Información General</h3>
+                            <div class="form-group">
+                                <label for="site-title">Nombre del Sitio</label>
+                                <input type="text" id="site-title" class="form-control" value="Nido Bendito">
                             </div>
-                        </div>
-                        
-                        <div class="setting-card">
-                            <i class="fas fa-images"></i>
-                            <h3>Imágenes</h3>
-                            <p>Optimiza y gestiona las imágenes del catálogo</p>
-                            <div class="setting-actions">
-                                <button class="btn btn-outline" onclick="optimizeImages()">Optimizar</button>
-                            </div>
-                        </div>
-                        
-                        <div class="setting-card">
-                            <i class="fab fa-github"></i>
-                            <h3>GitHub</h3>
-                            <p>Configuración de integración con GitHub</p>
-                            <div class="setting-actions">
-                                <button class="btn btn-outline" onclick="testGitHubConnection()">Probar Conexión</button>
-                            </div>
-                        </div>
-                        
-                        <div class="setting-card">
-                            <i class="fas fa-shield-alt"></i>
-                            <h3>Seguridad</h3>
-                            <p>Configuración de seguridad y respaldos</p>
-                            <div class="setting-actions">
-                                <button class="btn btn-outline" onclick="createBackup()">Respaldar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Deploy Tab -->
-                <div id="deploy-tab" class="tab-content">
-                    <div class="tab-header">
-                        <h2>Publicar Cambios</h2>
-                        <button class="btn btn-success" id="btnGenerate" onclick="generateAndUpload()">
-                            <i class="fas fa-rocket"></i> Generar y Publicar
-                        </button>
-                    </div>
-
-                    <div class="deploy-status">
-                        <div class="status-card">
-                            <h3>Estado Actual</h3>
-                            <div class="status-info">
-                                <div class="status-item">
-                                    <span>Productos:</span>
-                                    <span id="deployProductCount">0</span>
-                                </div>
-                                <div class="status-item">
-                                    <span>Categorías:</span>
-                                    <span id="deployCategoryCount">0</span>
-                                </div>
-                                <div class="status-item">
-                                    <span>GitHub:</span>
-                                    <span id="deployGitHubStatus">Desconectado</span>
-                                </div>
-                                <div class="status-item">
-                                    <span>Última Publicación:</span>
-                                    <span id="lastDeploy">Nunca</span>
-                                </div>
+                            <div class="form-group">
+                                <label for="site-description">Descripción</label>
+                                <textarea id="site-description" class="form-control" rows="3">Tienda de productos artesanales y decoración para el hogar</textarea>
                             </div>
                         </div>
 
-                        <div class="deploy-instructions">
-                            <h3>Instrucciones de Publicación</h3>
-                            <ol>
-                                <li>Verifica que todos los productos estén correctos</li>
-                                <li>Haz clic en "Generar y Publicar"</li>
-                                <li>Revisa los archivos generados</li>
-                                <li>GitHub Desktop se abrirá automáticamente</li>
-                                <li>Confirma los cambios y haz push</li>
-                                <li>Netlify desplegará automáticamente</li>
-                            </ol>
+                        <div class="config-group">
+                            <h3>Configuración de Productos</h3>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="auto-publish" checked> Publicar productos automáticamente
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="products-per-page">Productos por página</label>
+                                <input type="number" id="products-per-page" class="form-control" value="12" min="1" max="50">
+                            </div>
                         </div>
                     </div>
-
-                    <div class="deploy-actions">
-                        <button class="btn btn-outline" onclick="validateData()">
-                            <i class="fas fa-check-circle"></i> Validar Datos
-                        </button>
-                        <button class="btn btn-outline" onclick="previewChanges()">
-                            <i class="fas fa-eye"></i> Vista Previa
-                        </button>
-                        <button class="btn btn-outline" onclick="generateForProduction()">
-                            <i class="fas fa-cog"></i> Solo Generar
-                        </button>
-                    </div>
-                </div>
+                </section>
             </main>
         </div>
     </div>
 
     <!-- Modal Producto -->
-    <div id="productModal" class="modal">
-        <div class="modal-content">
+    <div id="product-modal" class="modal">
+        <div class="modal-content large">
             <div class="modal-header">
-                <h3 id="productModalTitle">Nuevo Producto</h3>
-                <button class="modal-close" onclick="closeProductModal()">&times;</button>
+                <h3 id="product-modal-title">Agregar Producto</h3>
+                <button class="close-btn" id="close-product-modal">&times;</button>
             </div>
-            <form id="productForm" onsubmit="saveProduct(); return false;">
+            <form id="product-form">
                 <div class="modal-body">
-                    <div class="form-grid">
-                        <div class="form-group full-width">
-                            <label for="productName">Nombre del Producto *</label>
-                            <input type="text" id="productName" name="name" required>
+                    <div class="form-columns">
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="product-name">Nombre del Producto *</label>
+                                <input type="text" id="product-name" class="form-control" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="product-category">Categoría *</label>
+                                <select id="product-category" class="form-control" required>
+                                    <option value="">Selecciona una categoría</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="product-price">Precio *</label>
+                                <input type="number" id="product-price" class="form-control" min="0" step="0.01" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="product-compare-price">Precio Comparación (opcional)</label>
+                                <input type="number" id="product-compare-price" class="form-control" min="0" step="0.01">
+                            </div>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="productSlug">Slug *</label>
-                            <input type="text" id="productSlug" name="slug" required>
-                            <small>URL amigable (se genera automáticamente)</small>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="productSKU">SKU *</label>
-                            <input type="text" id="productSKU" name="sku" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="productCategory">Categoría *</label>
-                            <select id="productCategory" name="category" required>
-                                <option value="">Seleccionar categoría</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="productPrice">Precio (Q) *</label>
-                            <input type="number" id="productPrice" name="price" step="0.01" min="0" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="productComparePrice">Precio de Comparación (Q)</label>
-                            <input type="number" id="productComparePrice" name="compare_price" step="0.01" min="0">
-                            <small>Precio tachado para mostrar descuento</small>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="productStock">Stock *</label>
-                            <input type="number" id="productStock" name="stock" min="0" required>
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="productShortDescription">Descripción Corta *</label>
-                            <textarea id="productShortDescription" name="short_description" required maxlength="200"></textarea>
-                            <small>Máximo 200 caracteres</small>
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="productDescription">Descripción Completa</label>
-                            <textarea id="productDescription" name="description" rows="4"></textarea>
+                        <div class="form-column">
+                            <div class="form-group">
+                                <label for="product-sku">SKU/Código</label>
+                                <input type="text" id="product-sku" class="form-control">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="product-stock">Inventario</label>
+                                <input type="number" id="product-stock" class="form-control" min="0" value="0">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="product-featured"> Producto Destacado
+                                </label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="product-published" checked> Publicado
+                                </label>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Imágenes -->
-                    <div class="form-section">
-                        <h4>Imágenes del Producto</h4>
-                        <div class="image-upload-area" id="imageUploadArea">
-                            <input type="file" id="imageInput" multiple accept="image/*" style="display: none;">
-                            <div class="upload-placeholder">
+                    
+                    <div class="form-group">
+                        <label for="product-description">Descripción *</label>
+                        <textarea id="product-description" class="form-control" rows="4" required></textarea>
+                    </div>
+                    
+                    <!-- Gestión de Imágenes -->
+                    <div class="form-group">
+                        <label>Imágenes del Producto</label>
+                        <div class="images-upload-area" id="images-upload-area">
+                            <div class="upload-placeholder" id="upload-placeholder">
                                 <i class="fas fa-cloud-upload-alt"></i>
-                                <p>Arrastra imágenes aquí o haz clic para subir</p>
-                                <small>Formatos: JPG, PNG, WEBP - Máx. 5 imágenes</small>
+                                <p>Arrastra imágenes aquí o haz clic para seleccionar</p>
+                                <input type="file" id="image-upload" multiple accept="image/*" style="display: none;">
+                                <button type="button" class="btn btn-outline" id="browse-images">Seleccionar Imágenes</button>
                             </div>
-                        </div>
-                        <div class="image-preview" id="imagePreview"></div>
-                    </div>
-
-                    <!-- Características -->
-                    <div class="form-section">
-                        <h4>Características</h4>
-                        <div class="features-list" id="featuresList">
-                            <div class="feature-item">
-                                <input type="text" placeholder="Nueva característica" class="feature-input">
-                                <button type="button" class="btn btn-sm btn-outline" onclick="addFeature(this)">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
+                            <div class="images-preview" id="images-preview"></div>
                         </div>
                     </div>
-
-                    <!-- Configuración -->
-                    <div class="form-section">
-                        <h4>Configuración</h4>
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="productFeatured" name="featured">
-                                    <span class="checkmark"></span>
-                                    Producto Destacado
-                                </label>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="productNew" name="new">
-                                    <span class="checkmark"></span>
-                                    Producto Nuevo
-                                </label>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="checkbox-label">
-                                    <input type="checkbox" id="productBestSeller" name="best_seller">
-                                    <span class="checkmark"></span>
-                                    Más Vendido
-                                </label>
+                    
+                    <!-- Especificaciones -->
+                    <div class="form-group">
+                        <label>Especificaciones</label>
+                        <div id="specifications-container">
+                            <div class="specification-item">
+                                <input type="text" class="form-control spec-key" placeholder="Especificación (ej: Material)">
+                                <input type="text" class="form-control spec-value" placeholder="Valor (ej: Madera de pino)">
+                                <button type="button" class="btn btn-danger remove-spec"><i class="fas fa-times"></i></button>
                             </div>
                         </div>
+                        <button type="button" class="btn btn-outline" id="add-specification">
+                            <i class="fas fa-plus"></i> Agregar Especificación
+                        </button>
                     </div>
                 </div>
+                
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline" onclick="closeProductModal()">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar Producto</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-product">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="save-product">Guardar Producto</button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Modal Categoría -->
-    <div id="categoryModal" class="modal">
+    <div id="category-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 id="categoryModalTitle">Nueva Categoría</h3>
-                <button class="modal-close" onclick="closeCategoryModal()">&times;</button>
+                <h3 id="category-modal-title">Agregar Categoría</h3>
+                <button class="close-btn" id="close-category-modal">&times;</button>
             </div>
-            <form id="categoryForm" onsubmit="saveCategory(); return false;">
+            <form id="category-form">
                 <div class="modal-body">
-                    <div class="form-grid">
-                        <div class="form-group">
-                            <label for="categoryName">Nombre de la Categoría *</label>
-                            <input type="text" id="categoryName" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="categorySlug">Slug *</label>
-                            <input type="text" id="categorySlug" name="slug" required>
-                            <small>URL amigable</small>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="categoryOrder">Orden de Visualización</label>
-                            <input type="number" id="categoryOrder" name="display_order" min="1" value="1">
-                        </div>
-                        
-                        <div class="form-group full-width">
-                            <label for="categoryDescription">Descripción</label>
-                            <textarea id="categoryDescription" name="description" rows="3"></textarea>
-                        </div>
+                    <div class="form-group">
+                        <label for="category-name">Nombre de la Categoría *</label>
+                        <input type="text" id="category-name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category-slug">Slug (URL) *</label>
+                        <input type="text" id="category-slug" class="form-control" required>
+                        <small>Identificador único para URLs (ej: living-room)</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category-description">Descripción</label>
+                        <textarea id="category-description" class="form-control" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category-image">Imagen de la Categoría</label>
+                        <input type="file" id="category-image" class="form-control" accept="image/*">
+                        <div id="category-image-preview" class="image-preview"></div>
                     </div>
                 </div>
+                
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-outline" onclick="closeCategoryModal()">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Guardar Categoría</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-category">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" id="save-category">Guardar Categoría</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Notifications Container -->
-    <div id="notifications" class="notifications"></div>
-
     <!-- Scripts -->
     <script src="../assets/js/admin.js"></script>
+    <script src="../assets/js/products-manager.js"></script>
+    <script src="../assets/js/categories-manager.js"></script>
+    <script src="../assets/js/image-uploader.js"></script>
+    <!-- Scripts de Auto-Upload Netlify -->
     <script src="auto-upload.js"></script>
-
-    <script>
-        // Inicialización cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', function() {
-            // Inicializar la aplicación
-            if (typeof initializeApp === 'function') {
-                initializeApp();
-            }
-            
-            // Actualizar estadísticas iniciales
-            updateDashboardStats();
-            
-            // Verificar estado de GitHub
-            checkGitHubStatus();
-        });
-
-        // Funciones de utilidad para la UI
-        function updateDashboardStats() {
-            // Esta función se actualizará con datos reales desde admin.js
-            console.log('Actualizando estadísticas del dashboard...');
-        }
-
-        function checkGitHubStatus() {
-            if (window.checkGitHubStatus) {
-                window.checkGitHubStatus();
-            }
-        }
-
-        function refreshData() {
-            if (window.refreshData) {
-                window.refreshData();
-            } else {
-                location.reload();
-            }
-        }
-
-        // Navegación entre tabs
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', function(e) {
-                e.preventDefault();
-                const tabName = this.dataset.tab;
-                
-                // Actualizar navegación
-                document.querySelectorAll('.nav-item').forEach(nav => {
-                    nav.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                // Mostrar contenido
-                document.querySelectorAll('.tab-content').forEach(tab => {
-                    tab.classList.remove('active');
-                });
-                document.getElementById(`${tabName}-tab`).classList.add('active');
-                
-                // Cargar datos específicos del tab
-                switch(tabName) {
-                    case 'products':
-                        if (window.loadProductsList) window.loadProductsList();
-                        break;
-                    case 'categories':
-                        if (window.loadCategoriesGrid) window.loadCategoriesGrid();
-                        break;
-                    case 'deploy':
-                        updateDeployStatus();
-                        break;
-                }
-            });
-        });
-
-        function updateDeployStatus() {
-            // Actualizar información de deploy
-            const productCount = document.getElementById('productCount')?.textContent || '0';
-            const categoryCount = document.getElementById('categoryCount')?.textContent || '0';
-            
-            document.getElementById('deployProductCount').textContent = productCount;
-            document.getElementById('deployCategoryCount').textContent = categoryCount;
-        }
-
-        function filterProducts() {
-            const searchTerm = document.getElementById('productSearch').value.toLowerCase();
-            const categoryFilter = document.getElementById('categoryFilter').value;
-            
-            // Esta función se implementará en admin.js
-            console.log('Filtrando productos:', { searchTerm, categoryFilter });
-        }
-
-        // Manejar tecla Escape para cerrar modales
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeProductModal();
-                closeCategoryModal();
-            }
-        });
-
-        // Cerrar modales al hacer clic fuera
-        document.querySelectorAll('.modal').forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === this) {
-                    this.classList.remove('active');
-                }
-            });
-        });
-
-        // Función para agregar características
-        function addFeature(button) {
-            const featuresList = document.getElementById('featuresList');
-            const newFeature = document.createElement('div');
-            newFeature.className = 'feature-item';
-            newFeature.innerHTML = `
-                <input type="text" placeholder="Nueva característica" class="feature-input">
-                <button type="button" class="btn btn-sm btn-outline" onclick="addFeature(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-                <button type="button" class="btn btn-sm btn-outline" onclick="removeFeature(this)">
-                    <i class="fas fa-minus"></i>
-                </button>
-            `;
-            featuresList.appendChild(newFeature);
-        }
-
-        function removeFeature(button) {
-            if (document.querySelectorAll('.feature-item').length > 1) {
-                button.parentElement.remove();
-            }
-        }
-
-        // Funciones placeholder que serán implementadas en admin.js
-        function createBackup() {
-            alert('Función de respaldo en desarrollo');
-        }
-
-        function validateData() {
-            alert('Función de validación en desarrollo');
-        }
-
-        function previewChanges() {
-            alert('Función de vista previa en desarrollo');
-        }
-
-        function generateForProduction() {
-            alert('Función de generación en desarrollo');
-        }
-    </script>
+    <script src="netlify-deploy.js"></script>
+    
 </body>
 </html>

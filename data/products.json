@@ -1,234 +1,76 @@
 {
   "products": [
     {
-      "id": "prod_vela_sandalo_001",
-      "sku": "NB-VELA-001",
-      "name": "Vela Aromática de Sándalo",
-      "slug": "vela-aromatica-sandalo",
+      "id": 1,
+      "name": "Vela Aromática de Lavanda",
       "category": "living-room",
       "price": 32.00,
-      "compare_price": 38.00,
-      "cost_price": 18.50,
-      "currency": "Q",
+      "comparePrice": 38.00,
+      "sku": "NB-VL001",
+      "stock": 15,
+      "description": "Vela artesanal con aroma relajante de lavanda, perfecta para crear un ambiente acogedor en tu living room. Hecha con cera de soja y aceites esenciales naturales.",
       "images": [
-        {
-          "url": "assets/images/products/vela-sandalo-1.jpg",
-          "alt": "Vela Aromática de Sándalo - aroma relajante para el hogar",
-          "width": 800,
-          "height": 800,
-          "is_primary": true
-        },
-        {
-          "url": "assets/images/products/vela-sandalo-2.jpg",
-          "alt": "Vela Aromática de Sándalo encendida creando ambiente acogedor",
-          "width": 800,
-          "height": 800,
-          "is_primary": false
-        }
-      ],
-      "description": "Vela artesanal con aroma relajante a sándalo, perfecta para crear un ambiente acogedor en tu sala. Elaborada con cera de soya natural y aceites esenciales puros. Quemado de 40 horas que llena tu espacio de calma y serenidad.",
-      "short_description": "Vela artesanal con aroma a sándalo para ambientes relajantes - 40 horas de quemado",
-      "features": [
-        "Quemado de 40 horas",
-        "Cera de soya natural",
-        "Aceites esenciales puros",
-        "Hecho a mano en Guatemala",
-        "Embalaje reciclable"
+        "../assets/images/products/vela-lavanda-1.jpg",
+        "../assets/images/products/vela-lavanda-2.jpg",
+        "../assets/images/products/vela-lavanda-3.jpg"
       ],
       "specifications": {
-        "dimensions": {
-          "height": "8 cm",
-          "diameter": "7 cm",
-          "weight": "280 g"
-        },
-        "material": "Cera de soya, aceites esenciales, contenedor de vidrio",
-        "burn_time": "40 horas",
-        "fragrance": "Sándalo puro"
+        "Material": "Cera de soja",
+        "Fragancia": "Lavanda natural",
+        "Duración": "40 horas",
+        "Dimensiones": "8cm x 8cm"
       },
-      "inventory": {
-        "stock": 45,
-        "low_stock_threshold": 10,
-        "track_quantity": true,
-        "allow_backorder": false,
-        "stock_status": "in_stock"
-      },
-      "shipping": {
-        "weight": 0.3,
-        "dimensions": "8x8x8 cm",
-        "requires_shipping": true,
-        "free_shipping_eligible": true
-      },
-      "seo": {
-        "meta_title": "Vela Aromática de Sándalo | Nido Bendito - Decoración Hogar Guatemala",
-        "meta_description": "Vela artesanal con aroma a sándalo para crear ambientes relajantes. Hecho a mano en Guatemala con cera de soya natural. Quemado de 40 horas. Envío gratis.",
-        "keywords": ["vela aromática", "sándalo", "aromatizador", "decoración hogar", "hecho Guatemala", "cera soya"]
-      },
-      "tags": ["nuevo", "aromatizador", "hecho-a-mano", "natural", "relajante", "living-room"],
-      "status": "active",
       "featured": true,
-      "new": true,
-      "best_seller": false,
-      "rating": 4.5,
-      "review_count": 24,
-      "created_at": "2024-11-15",
-      "updated_at": "2025-01-15"
+      "published": true,
+      "createdAt": "2024-01-15",
+      "updatedAt": "2024-01-15"
     },
     {
-      "id": "prod_jarron_amarillo_002",
-      "sku": "NB-JARR-002",
-      "name": "Jarrón Cerámico Suave Amarillo",
-      "slug": "jarron-ceramico-amarillo",
-      "category": "living-room",
-      "price": 41.00,
-      "compare_price": 49.00,
-      "cost_price": 25.00,
-      "currency": "Q",
+      "id": 2,
+      "name": "Jarrón de Cerámica Artesanal",
+      "category": "dining-kitchen",
+      "price": 45.50,
+      "comparePrice": 55.00,
+      "sku": "NB-JC002",
+      "stock": 8,
+      "description": "Hermoso jarrón de cerámica hecho a mano, ideal para decorar tu comedor o cocina. Cada pieza es única con sus detalles y texturas naturales.",
       "images": [
-        {
-          "url": "assets/images/products/jarron-amarillo-1.jpg",
-          "alt": "Jarrón Cerámico Suave Amarillo - diseño moderno para flores y decoración",
-          "width": 800,
-          "height": 800,
-          "is_primary": true
-        }
-      ],
-      "description": "Jarrón de cerámica con acabado suave en tono amarillo pastel, ideal para flores frescas o como pieza decorativa minimalista. Cada pieza es única y elaborada por artesanos locales guatemaltecos. Perfecto para añadir un toque de color suave a cualquier espacio.",
-      "short_description": "Jarrón cerámico amarillo pastel para flores y decoración minimalista - Hecho a mano",
-      "features": [
-        "Acabado mate suave",
-        "Color amarillo pastel",
-        "Hecho a mano por artesanos",
-        "Pieza única",
-        "Lavable a mano"
+        "../assets/images/products/jarron-ceramica-1.jpg",
+        "../assets/images/products/jarron-ceramica-2.jpg"
       ],
       "specifications": {
-        "dimensions": {
-          "height": "18 cm",
-          "diameter": "12 cm",
-          "weight": "650 g"
-        },
-        "material": "Cerámica artesanal, esmalte no tóxico",
-        "care": "Lavable a mano, no apto para lavavajillas",
-        "origin": "Hecho en Antigua Guatemala"
+        "Material": "Cerámica artesanal",
+        "Altura": "25cm",
+        "Diámetro": "12cm",
+        "Acabado": "Barniz natural"
       },
-      "inventory": {
-        "stock": 28,
-        "low_stock_threshold": 5,
-        "track_quantity": true,
-        "allow_backorder": true,
-        "stock_status": "in_stock"
-      },
-      "shipping": {
-        "weight": 0.7,
-        "dimensions": "18x12x12 cm",
-        "requires_shipping": true,
-        "free_shipping_eligible": true
-      },
-      "seo": {
-        "meta_title": "Jarrón Cerámico Amarillo Pastel | Nido Bendito - Decoración Guatemala",
-        "meta_description": "Jarrón de cerámica artesanal en tono amarillo pastel. Perfecto para flores frescas y decoración minimalista. Pieza única hecha a mano en Guatemala. Envío gratis.",
-        "keywords": ["jarrón cerámico", "amarillo pastel", "decoración living", "artesanal", "florero", "hecho Guatemala"]
-      },
-      "tags": ["cerámica", "artesanal", "minimalista", "decorativo", "hecho-Guatemala", "living-room"],
-      "status": "active",
       "featured": true,
-      "new": false,
-      "best_seller": true,
-      "rating": 4.2,
-      "review_count": 18,
-      "created_at": "2024-10-20",
-      "updated_at": "2025-01-15"
+      "published": true,
+      "createdAt": "2024-01-10",
+      "updatedAt": "2024-01-12"
     },
     {
-      "id": "prod_cojin_lino_003",
-      "sku": "NB-COJI-003",
-      "name": "Cojín de Lino Natural",
-      "slug": "cojin-lino-natural",
-      "category": "pillows-decor",
-      "price": 65.00,
-      "compare_price": 78.00,
-      "cost_price": 35.00,
-      "currency": "Q",
+      "id": 3,
+      "name": "Set de Cojines Decorativos",
+      "category": "bedroom",
+      "price": 28.00,
+      "comparePrice": null,
+      "sku": "NB-SC003",
+      "stock": 20,
+      "description": "Set de 2 cojines decorativos con diseños únicos, perfectos para darle un toque especial a tu dormitorio. Fundas removibles y lavables.",
       "images": [
-        {
-          "url": "assets/images/products/cojin-lino-1.jpg",
-          "alt": "Cojín de Lino Natural - textura suave para sofá y decoración",
-          "width": 800,
-          "height": 800,
-          "is_primary": true
-        },
-        {
-          "url": "assets/images/products/cojin-lino-2.jpg",
-          "alt": "Cojín de Lino Natural en sofá moderno - decoración hogar",
-          "width": 800,
-          "height": 600,
-          "is_primary": false
-        }
-      ],
-      "description": "Cojín decorativo de lino con textura suave y relleno de fibra hueca siliconada, perfecto para añadir confort y estilo a tu sofá o cama. Funda removible y lavable que mantiene su forma y suavidad después de múltiples lavados. Ideal para espacios modernos y minimalistas.",
-      "short_description": "Cojín de lino natural con funda removible y lavable - Confort y estilo para tu hogar",
-      "features": [
-        "Tela de lino 100% natural",
-        "Relleno de fibra siliconada hipoalergénica",
-        "Funda removible y lavable",
-        "Mantiene forma después de lavados",
-        "Textura suave y natural"
+        "../assets/images/products/cojines-decorativos-1.jpg"
       ],
       "specifications": {
-        "dimensions": {
-          "width": "45 cm",
-          "height": "45 cm",
-          "weight": "0.4 kg"
-        },
-        "material": "Lino 100% natural, fibra hueca siliconada",
-        "care": "Lavable a máquina 30°C, secado tumbado",
-        "color": "Natural crudo"
+        "Material": "Algodón 100%",
+        "Incluye": "2 cojines",
+        "Tamaño": "45x45cm",
+        "Cuidado": "Lavable a máquina"
       },
-      "inventory": {
-        "stock": 50,
-        "low_stock_threshold": 15,
-        "track_quantity": true,
-        "allow_backorder": false,
-        "stock_status": "in_stock"
-      },
-      "shipping": {
-        "weight": 0.5,
-        "dimensions": "45x45x10 cm",
-        "requires_shipping": true,
-        "free_shipping_eligible": true
-      },
-      "seo": {
-        "meta_title": "Cojín de Lino Natural | Nido Bendito - Cojines Decorativos Guatemala",
-        "meta_description": "Cojín decorativo de lino natural con relleno de fibra siliconada. Funda removible y lavable. Perfecto para sofá y cama. Textura suave y natural. Envío gratis en Guatemala.",
-        "keywords": ["cojín lino", "decorativo", "sofá", "natural", "funda lavable", "decoración hogar"]
-      },
-      "tags": ["cojín", "lino", "natural", "lavable", "decorativo", "pillows-decor", "confort"],
-      "status": "active",
       "featured": false,
-      "new": false,
-      "best_seller": false,
-      "rating": 4.1,
-      "review_count": 19,
-      "created_at": "2024-11-20",
-      "updated_at": "2025-01-15"
+      "published": true,
+      "createdAt": "2024-01-08",
+      "updatedAt": "2024-01-08"
     }
-  ],
-  "metadata": {
-    "version": "2.0",
-    "last_updated": "2025-01-15T10:30:00Z",
-    "total_products": 3,
-    "total_categories": 3,
-    "price_range": {
-      "min": 32.00,
-      "max": 65.00
-    },
-    "average_rating": 4.27,
-    "total_reviews": 61,
-    "store_info": {
-      "name": "Nido Bendito",
-      "currency": "Q",
-      "free_shipping_threshold": 500,
-      "contact_email": "hola@nidobendito.com"
-    }
-  }
+  ]
 }

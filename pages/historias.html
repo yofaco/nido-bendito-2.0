@@ -3,516 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historias - Nido Bendito | Blog de Decoración y Estilo de Vida</title>
-    <meta name="description" content="Descubre historias inspiradoras, tips de decoración y behind-the-scenes de Nido Bendito. Aprende a transformar tu hogar con estilo guatemalteco.">
+    <title>Historias - Nido Bendito | Inspiración y Casos de Éxito</title>
+    <meta name="description" content="Descubre historias inspiradoras de nuestros clientes, tips de decoración y novedades de Nido Bendito. Transforma tu hogar con ideas creativas.">
     
-    <!-- Preload crítico -->
-    <link rel="preload" href="../assets/css/style.css" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" as="style">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Historias - Nido Bendito | Inspiración para tu Hogar">
+    <meta property="og:description" content="Casos de éxito, tips de decoración y novedades de productos artesanales">
+    <meta property="og:image" content="../assets/images/historias/hero-stories.jpg">
+    <meta property="og:url" content="https://nidobendito.com/historias.html">
+    <meta property="og:type" content="website">
     
-    <!-- Fuentes -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- Estilos -->
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/stories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header -->
-    <!--#include virtual="../templates/header.html" -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">
+                <i class="fas fa-feather"></i>
+                Nido Bendito
+            </a>
 
-    <!-- Navigation -->
-    <!--#include virtual="../templates/navigation.html" -->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="index.html" class="nav__link">Inicio</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="tienda.html" class="nav__link">Tienda</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="nosotros.html" class="nav__link">Nosotros</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="historias.html" class="nav__link active-link">Historias</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="envio.html" class="nav__link">Envío</a>
+                    </li>
+                </ul>
 
-    <main class="main-content">
-        <!-- Breadcrumb -->
-        <nav class="breadcrumb" aria-label="Migas de pan">
-            <div class="container">
-                <a href="index.html">Inicio</a>
-                <span class="breadcrumb-separator">/</span>
-                <span class="current">Historias</span>
+                <div class="nav__close" id="nav-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <div class="nav__btns">
+                <i class="fas fa-moon change-theme" id="theme-button"></i>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
             </div>
         </nav>
+    </header>
 
-        <!-- Page Header -->
-        <section class="blog-hero" aria-labelledby="blog-title">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 id="blog-title" class="hero-title">Historias que Inspiran</h1>
-                        <p class="hero-subtitle">Descubre behind-the-scenes, tips de decoración, historias de artesanos y todo lo que hace especial a Nido Bendito.</p>
-                        
-                        <!-- Categorías del blog -->
-                        <div class="blog-categories">
-                            <a href="#decoracion" class="blog-category active">Decoración</a>
-                            <a href="#artesanos" class="blog-category">Artesanos</a>
-                            <a href="#sostenibilidad" class="blog-category">Sostenibilidad</a>
-                            <a href="#tips" class="blog-category">Tips & Guías</a>
-                            <a href="#detras-escenas" class="blog-category">Behind the Scenes</a>
+    <!-- Main -->
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="stories-hero section">
+            <div class="stories-hero__container container">
+                <div class="stories-hero__content">
+                    <h1 class="stories-hero__title">Nuestras Historias</h1>
+                    <p class="stories-hero__description">
+                        Descubre cómo nuestros productos transforman hogares, 
+                        conoce tips de decoración y mantente al día con las novedades 
+                        de Nido Bendito.
+                    </p>
+                    <div class="stories-hero__social">
+                        <span>Síguenos en:</span>
+                        <div class="social-links">
+                            <a href="https://instagram.com/nidobendito" target="_blank" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://facebook.com/nidobendito" target="_blank" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://wa.me/525512345678" target="_blank" class="social-link" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="mailto:hola@nidobendito.com" class="social-link" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="hero-image">
-                        <img 
-                            src="../assets/images/blog-hero.jpg" 
-                            alt="Espacio de trabajo creativo con productos Nido Bendito y materiales artesanales"
-                            loading="eager"
-                            width="600"
-                            height="400"
-                        >
-                        <div class="hero-badge">
-                            <span>Inspiración para tu hogar</span>
-                        </div>
-                    </div>
+                </div>
+                <div class="stories-hero__image">
+                    <img src="../assets/images/historias/hero-stories.jpg" alt="Inspiración para el hogar" class="stories-hero__img">
                 </div>
             </div>
         </section>
 
-        <!-- Artículo Destacado -->
-        <section class="featured-article" aria-labelledby="featured-article-title">
+        <!-- Featured Stories -->
+        <section class="featured-stories section">
             <div class="container">
-                <article class="featured-content">
-                    <div class="featured-image">
-                        <img 
-                            src="../assets/images/blog/featured-article.jpg" 
-                            alt="Transformación de living room con productos artesanales guatemaltecos"
-                            loading="eager"
-                        >
-                        <div class="article-badge">Artículo Destacado</div>
-                    </div>
-                    <div class="featured-text">
-                        <span class="article-category">Decoración</span>
-                        <h2 id="featured-article-title" class="article-title">Cómo Transformar tu Sala en un Santuario de Paz</h2>
-                        <p class="article-excerpt">Descubre los secretos para crear un espacio que no solo luzca hermoso, sino que también nutra tu alma. Aprende a combinar elementos artesanales con diseño moderno para lograr el equilibrio perfecto entre estilo y confort.</p>
-                        
-                        <div class="article-meta">
-                            <span class="meta-item">
-                                <i class="fas fa-user"></i>
-                                Por María Fernández
-                            </span>
-                            <span class="meta-item">
-                                <i class="fas fa-calendar"></i>
-                                15 Enero, 2024
-                            </span>
-                            <span class="meta-item">
-                                <i class="fas fa-clock"></i>
-                                5 min lectura
-                            </span>
+                <div class="section__header">
+                    <h2 class="section__title">Historias Destacadas</h2>
+                    <p class="section__description">
+                        Casos de éxito y transformaciones que inspiran
+                    </p>
+                </div>
+
+                <div class="featured-stories__grid grid">
+                    <!-- Featured Story 1 -->
+                    <article class="featured-story featured-story--large">
+                        <div class="featured-story__image">
+                            <img src="../assets/images/historias/featured-1.jpg" alt="Transformación living room" class="featured-story__img">
+                            <div class="featured-story__badge">Caso de Éxito</div>
                         </div>
-                        
-                        <div class="article-tags">
-                            <span class="tag">#LivingRoom</span>
-                            <span class="tag">#Decoración</span>
-                            <span class="tag">#EstiloGuatemalteco</span>
+                        <div class="featured-story__content">
+                            <div class="featured-story__meta">
+                                <span class="featured-story__date">15 Enero, 2024</span>
+                                <span class="featured-story__category">Living Room</span>
+                            </div>
+                            <h3 class="featured-story__title">
+                                <a href="historia-transformacion-living.html">De Espacio Común a Rincón Especial</a>
+                            </h3>
+                            <p class="featured-story__excerpt">
+                                Cómo María transformó su sala de estar con nuestros productos artesanales, 
+                                creando un espacio acogedor que refleja su personalidad única...
+                            </p>
+                            <div class="featured-story__footer">
+                                <a href="historia-transformacion-living.html" class="featured-story__link">
+                                    Leer Historia Completa <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <div class="featured-story__stats">
+                                    <span class="story-stat">
+                                        <i class="fas fa-heart"></i> 24
+                                    </span>
+                                    <span class="story-stat">
+                                        <i class="fas fa-comment"></i> 8
+                                    </span>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <a href="articulos/transformar-sala.html" class="btn-read-article">
-                            Leer Artículo Completo
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
+                    </article>
+
+                    <!-- Featured Story 2 -->
+                    <article class="featured-story">
+                        <div class="featured-story__image">
+                            <img src="../assets/images/historias/featured-2.jpg" alt="Decoración bedroom" class="featured-story__img">
+                            <div class="featured-story__badge">Tips & Ideas</div>
+                        </div>
+                        <div class="featured-story__content">
+                            <div class="featured-story__meta">
+                                <span class="featured-story__date">10 Enero, 2024</span>
+                                <span class="featured-story__category">Bedroom</span>
+                            </div>
+                            <h3 class="featured-story__title">
+                                <a href="historia-decoracion-dormitorio.html">5 Elementos para un Dormitorio Soñado</a>
+                            </h3>
+                            <p class="featured-story__excerpt">
+                                Descubre los elementos clave que transformarán tu dormitorio en un santuario 
+                                de descanso y tranquilidad...
+                            </p>
+                            <a href="historia-decoracion-dormitorio.html" class="featured-story__link">
+                                Leer Más <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Featured Story 3 -->
+                    <article class="featured-story">
+                        <div class="featured-story__image">
+                            <img src="../assets/images/historias/featured-3.jpg" alt="Cocina decorada" class="featured-story__img">
+                            <div class="featured-story__badge">Inspiración</div>
+                        </div>
+                        <div class="featured-story__content">
+                            <div class="featured-story__meta">
+                                <span class="featured-story__date">5 Enero, 2024</span>
+                                <span class="featured-story__category">Dining & Kitchen</span>
+                            </div>
+                            <h3 class="featured-story__title">
+                                <a href="historia-cocina-acogedora.html">Cómo Hacer tu Cocina Más Acogedora</a>
+                            </h3>
+                            <p class="featured-story__excerpt">
+                                Pequeños cambios que hacen una gran diferencia en el corazón del hogar. 
+                                Ideas prácticas y fáciles de implementar...
+                            </p>
+                            <a href="historia-cocina-acogedora.html" class="featured-story__link">
+                                Leer Más <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
 
-        <!-- Grid de Artículos -->
-        <section class="blog-grid" aria-labelledby="recent-articles-title">
+        <!-- Stories Grid -->
+        <section class="stories-grid section">
             <div class="container">
-                <div class="section-header">
-                    <h2 id="recent-articles-title" class="section-title">Artículos Recientes</h2>
-                    <p class="section-subtitle">Inspiración fresca para tu hogar</p>
+                <div class="section__header">
+                    <h2 class="section__title">Todas las Historias</h2>
+                    <p class="section__description">
+                        Explora nuestro archivo completo de artículos e inspiración
+                    </p>
                 </div>
 
-                <!-- Filtros y Búsqueda -->
-                <div class="blog-filters">
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Buscar artículos..." id="blogSearch">
-                    </div>
-                    <div class="filter-options">
-                        <select id="categoryFilter">
-                            <option value="all">Todas las categorías</option>
-                            <option value="decoracion">Decoración</option>
-                            <option value="artesanos">Artesanos</option>
-                            <option value="sostenibilidad">Sostenibilidad</option>
-                            <option value="tips">Tips & Guías</option>
-                            <option value="detras-escenas">Behind the Scenes</option>
-                        </select>
-                        <select id="sortArticles">
-                            <option value="newest">Más recientes</option>
-                            <option value="popular">Más populares</option>
-                            <option value="title">Orden alfabético</option>
-                        </select>
-                    </div>
+                <div class="stories-filter">
+                    <button class="filter-btn active" data-filter="all">Todas</button>
+                    <button class="filter-btn" data-filter="casos-exito">Casos de Éxito</button>
+                    <button class="filter-btn" data-filter="tips">Tips & Ideas</button>
+                    <button class="filter-btn" data-filter="novedades">Novedades</button>
+                    <button class="filter-btn" data-filter="inspiracion">Inspiración</button>
                 </div>
 
-                <!-- Grid de Artículos -->
-                <div class="articles-container" id="articlesGrid">
-                    <!-- Artículo 1 -->
-                    <article class="blog-card" data-category="artesanos" data-popular="true">
-                        <div class="card-image">
-                            <img 
-                                src="../assets/images/blog/artesana-ana.jpg" 
-                                alt="Ana Tzul trabajando en su taller de cerámica en Totonicapán"
-                                loading="lazy"
-                            >
-                            <div class="card-badge">Historia de Artesano</div>
-                        </div>
-                        <div class="card-content">
-                            <span class="article-category">Artesanos</span>
-                            <h3 class="card-title">El Legado de Ana: 3 Generaciones de Cerámica Maya</h3>
-                            <p class="card-excerpt">Conoce la inspiradora historia de Ana Tzul, quien preserva técnicas ancestrales de cerámica que han pasado por tres generaciones en su familia.</p>
-                            
-                            <div class="card-meta">
-                                <span class="meta-item">
-                                    <i class="fas fa-calendar"></i>
-                                    10 Enero, 2024
-                                </span>
-                                <span class="meta-item">
-                                    <i class="fas fa-comment"></i>
-                                    24 comentarios
-                                </span>
-                            </div>
-                            
-                            <a href="articulos/legado-ana.html" class="read-more">
-                                Leer más
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Artículo 2 -->
-                    <article class="blog-card" data-category="decoracion" data-popular="true">
-                        <div class="card-image">
-                            <img 
-                                src="../assets/images/blog/velas-aromaticas.jpg" 
-                                alt="Diferentes velas aromáticas Nido Bendito creando ambiente acogedor"
-                                loading="lazy"
-                            >
-                            <div class="card-badge">Guía Práctica</div>
-                        </div>
-                        <div class="card-content">
-                            <span class="article-category">Decoración</span>
-                            <h3 class="card-title">Guía Definitiva: Cómo Elegir Velas Aromáticas para Cada Espacio</h3>
-                            <p class="card-excerpt">Descubre cómo los aromas pueden transformar la energía de tus espacios. Una guía completa para seleccionar las velas perfectas para cada habitación.</p>
-                            
-                            <div class="card-meta">
-                                <span class="meta-item">
-                                    <i class="fas fa-calendar"></i>
-                                    5 Enero, 2024
-                                </span>
-                                <span class="meta-item">
-                                    <i class="fas fa-comment"></i>
-                                    18 comentarios
-                                </span>
-                            </div>
-                            
-                            <a href="articulos/guia-velas.html" class="read-more">
-                                Leer más
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Artículo 3 -->
-                    <article class="blog-card" data-category="sostenibilidad">
-                        <div class="card-image">
-                            <img 
-                                src="../assets/images/blog/arboles-plantados.jpg" 
-                                alt="Comunidad plantando árboles como parte del programa de sostenibilidad"
-                                loading="lazy"
-                            >
-                            <div class="card-badge">Impacto Positivo</div>
-                        </div>
-                        <div class="card-content">
-                            <span class="article-category">Sostenibilidad</span>
-                            <h3 class="card-title">Celebrando 1,000 Árboles: Nuestro Compromiso con el Planeta</h3>
-                            <p class="card-excerpt">Un vistazo a nuestro programa de reforestación y cómo cada compra en Nido Bendito contribuye a un Guatemala más verde y sostenible.</p>
-                            
-                            <div class="card-meta">
-                                <span class="meta-item">
-                                    <i class="fas fa-calendar"></i>
-                                    28 Diciembre, 2023
-                                </span>
-                                <span class="meta-item">
-                                    <i class="fas fa-comment"></i>
-                                    32 comentarios
-                                </span>
-                            </div>
-                            
-                            <a href="articulos/1000-arboles.html" class="read-more">
-                                Leer más
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Artículo 4 -->
-                    <article class="blog-card" data-category="tips">
-                        <div class="card-image">
-                            <img 
-                                src="../assets/images/blog/estaciones-decoracion.jpg" 
-                                alt="Decoración de hogar adaptada para diferentes estaciones del año"
-                                loading="lazy"
-                            >
-                            <div class="card-badge">Tips Estacionales</div>
-                        </div>
-                        <div class="card-content">
-                            <span class="article-category">Tips & Guías</span>
-                            <h3 class="card-title">Decoración por Estaciones: Cómo Adaptar tu Hogar al Clima Guatemalteco</h3>
-                            <p class="card-excerpt">Aprende a refrescar tu espacio para la temporada de verano y crear ambientes acogedores para el invierno, todo con productos locales.</p>
-                            
-                            <div class="card-meta">
-                                <span class="meta-item">
-                                    <i class="fas fa-calendar"></i>
-                                    20 Diciembre, 2023
-                                </span>
-                                <span class="meta-item">
-                                    <i class="fas fa-comment"></i>
-                                    15 comentarios
-                                </span>
-                            </div>
-                            
-                            <a href="articulos/decoracion-estaciones.html" class="read-more">
-                                Leer más
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Artículo 5 -->
-                    <article class="blog-card" data-category="detras-escenas">
-                        <div class="card-image">
-                            <img 
-                                src="../assets/images/blog/proceso-creativo.jpg" 
-                                alt="Proceso creativo en el taller de Nido Bendito"
-                                loading="lazy"
-                            >
-                            <div class="card-badge">Behind the Scenes</div>
-                        </div>
-                        <div class="card-content">
-                            <span class="article-category">Behind the Scenes</span>
-                            <h3 class="card-title">Un Día en la Vida: Así Creamos las Nuevas Colecciones</h3>
-                            <p class="card-excerpt">Acompaña a nuestro equipo en un día típico de trabajo, desde la inspiración inicial hasta el producto final. Descubre nuestro proceso creativo.</p>
-                            
-                            <div class="card-meta">
-                                <span class="meta-item">
-                                    <i class="fas fa-calendar"></i>
-                                    15 Diciembre, 2023
-                                </span>
-                                <span class="meta-item">
-                                    <i class="fas fa-comment"></i>
-                                    28 comentarios
-                                </span>
-                            </div>
-                            
-                            <a href="articulos/dia-en-la-vida.html" class="read-more">
-                                Leer más
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-
-                    <!-- Artículo 6 -->
-                    <article class="blog-card" data-category="decoracion">
-                        <div class="card-image">
-                            <img 
-                                src="../assets/images/blog/minimalismo.jpg" 
-                                alt="Espacio minimalista decorado con productos Nido Bendito"
-                                loading="lazy"
-                            >
-                            <div class="card-badge">Estilo de Vida</div>
-                        </div>
-                        <div class="card-content">
-                            <span class="article-category">Decoración</span>
-                            <h3 class="card-title">Minimalismo con Alma: Menos es Más (Cuando Cada Pieza Cuenta)</h3>
-                            <p class="card-excerpt">Cómo adoptar el minimalismo sin sacrificar la calidez y personalidad de tu hogar. Tips para seleccionar piezas con significado.</p>
-                            
-                            <div class="card-meta">
-                                <span class="meta-item">
-                                    <i class="fas fa-calendar"></i>
-                                    10 Diciembre, 2023
-                                </span>
-                                <span class="meta-item">
-                                    <i class="fas fa-comment"></i>
-                                    22 comentarios
-                                </span>
-                            </div>
-                            
-                            <a href="articulos/minimalismo-alma.html" class="read-more">
-                                Leer más
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
+                <div class="stories__grid grid" id="stories-grid">
+                    <!-- Story cards will be loaded dynamically -->
                 </div>
 
-                <!-- Load More Button -->
-                <div class="load-more-container">
-                    <button class="btn-load-more" id="loadMoreArticles">
-                        Cargar Más Artículos
+                <div class="stories-load-more">
+                    <button class="button button--outline" id="load-more-stories">
                         <i class="fas fa-plus"></i>
+                        Cargar Más Historias
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Sidebar con contenido adicional -->
-        <aside class="blog-sidebar">
-            <div class="container">
-                <div class="sidebar-content">
-                    <!-- Newsletter Sidebar -->
-                    <div class="sidebar-widget">
-                        <div class="widget-header">
-                            <i class="fas fa-newspaper"></i>
-                            <h3>Newsletter Exclusiva</h3>
+        <!-- Newsletter Section -->
+        <section class="stories-newsletter section">
+            <div class="stories-newsletter__container container">
+                <div class="stories-newsletter__content">
+                    <h2 class="stories-newsletter__title">No Te Pierdas Nada</h2>
+                    <p class="stories-newsletter__description">
+                        Suscríbete a nuestro newsletter y recibe las últimas historias, 
+                        tips de decoración y promociones exclusivas directamente en tu correo.
+                    </p>
+                    <form class="stories-newsletter__form" id="stories-newsletter-form">
+                        <div class="newsletter-input-group">
+                            <input type="email" 
+                                   placeholder="Tu correo electrónico" 
+                                   class="newsletter-input"
+                                   required>
+                            <button type="submit" class="button button--primary">
+                                Suscribirme <i class="fas fa-paper-plane"></i>
+                            </button>
                         </div>
-                        <div class="widget-content">
-                            <p>Recibe contenido exclusivo, tips de decoración y primeras vistas de nuevas colecciones.</p>
-                            <form class="sidebar-newsletter">
-                                <input type="email" placeholder="Tu correo electrónico" required>
-                                <button type="submit" class="btn btn-primary">
-                                    Suscribirme
-                                </button>
-                            </form>
-                        </div>
-                    </div>
+                        <p class="newsletter-privacy">
+                            Al suscribirte aceptas nuestra <a href="privacidad.html">política de privacidad</a>. 
+                            Puedes darte de baja en cualquier momento.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Artículos Populares -->
-                    <div class="sidebar-widget">
-                        <div class="widget-header">
-                            <i class="fas fa-fire"></i>
-                            <h3>Artículos Populares</h3>
-                        </div>
-                        <div class="widget-content">
-                            <div class="popular-posts">
-                                <a href="articulos/guia-velas.html" class="popular-post">
-                                    <div class="post-image">
-                                        <img src="../assets/images/blog/velas-aromaticas-thumb.jpg" alt="Guía de velas aromáticas" loading="lazy">
-                                    </div>
-                                    <div class="post-info">
-                                        <h4>Guía Definitiva de Velas Aromáticas</h4>
-                                        <span class="post-date">5 Ene, 2024</span>
-                                    </div>
-                                </a>
-                                
-                                <a href="articulos/legado-ana.html" class="popular-post">
-                                    <div class="post-image">
-                                        <img src="../assets/images/blog/artesana-ana-thumb.jpg" alt="Legado de Ana Tzul" loading="lazy">
-                                    </div>
-                                    <div class="post-info">
-                                        <h4>El Legado de Ana: Cerámica Maya</h4>
-                                        <span class="post-date">10 Ene, 2024</span>
-                                    </div>
-                                </a>
-                                
-                                <a href="articulos/1000-arboles.html" class="popular-post">
-                                    <div class="post-image">
-                                        <img src="../assets/images/blog/arboles-plantados-thumb.jpg" alt="1000 árboles plantados" loading="lazy">
-                                    </div>
-                                    <div class="post-info">
-                                        <h4>Celebrando 1,000 Árboles</h4>
-                                        <span class="post-date">28 Dic, 2023</span>
-                                    </div>
+        <!-- Social Feed Section -->
+        <section class="social-feed section">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Síguenos en Instagram</h2>
+                    <p class="section__description">
+                        Últimas fotos y videos de nuestros productos en hogares reales
+                    </p>
+                </div>
+
+                <div class="instagram-feed" id="instagram-feed">
+                    <!-- Instagram feed will be loaded here -->
+                    <div class="instagram-placeholder">
+                        <div class="instagram-post">
+                            <div class="instagram-post__image">
+                                <img src="../assets/images/historias/instagram-1.jpg" alt="Instagram post">
+                            </div>
+                            <div class="instagram-post__overlay">
+                                <a href="https://instagram.com/nidobendito" target="_blank" class="instagram-link">
+                                    <i class="fab fa-instagram"></i>
+                                    @nidobendito
                                 </a>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Categorías -->
-                    <div class="sidebar-widget">
-                        <div class="widget-header">
-                            <i class="fas fa-folder"></i>
-                            <h3>Categorías</h3>
+                        <div class="instagram-post">
+                            <div class="instagram-post__image">
+                                <img src="../assets/images/historias/instagram-2.jpg" alt="Instagram post">
+                            </div>
+                            <div class="instagram-post__overlay">
+                                <a href="https://instagram.com/nidobendito" target="_blank" class="instagram-link">
+                                    <i class="fab fa-instagram"></i>
+                                    @nidobendito
+                                </a>
+                            </div>
                         </div>
-                        <div class="widget-content">
-                            <ul class="category-list">
-                                <li>
-                                    <a href="#decoracion" class="category-link">
-                                        <span>Decoración</span>
-                                        <span class="category-count">12</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#artesanos" class="category-link">
-                                        <span>Artesanos</span>
-                                        <span class="category-count">8</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#sostenibilidad" class="category-link">
-                                        <span>Sostenibilidad</span>
-                                        <span class="category-count">6</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#tips" class="category-link">
-                                        <span>Tips & Guías</span>
-                                        <span class="category-count">15</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#detras-escenas" class="category-link">
-                                        <span>Behind the Scenes</span>
-                                        <span class="category-count">5</span>
-                                    </a>
-                                </li>
-                            </ul>
+                        <div class="instagram-post">
+                            <div class="instagram-post__image">
+                                <img src="../assets/images/historias/instagram-3.jpg" alt="Instagram post">
+                            </div>
+                            <div class="instagram-post__overlay">
+                                <a href="https://instagram.com/nidobendito" target="_blank" class="instagram-link">
+                                    <i class="fab fa-instagram"></i>
+                                    @nidobendito
+                                </a>
+                            </div>
                         </div>
-                    </div>
-
-                    <!-- Tags -->
-                    <div class="sidebar-widget">
-                        <div class="widget-header">
-                            <i class="fas fa-tags"></i>
-                            <h3>Tags Populares</h3>
+                        <div class="instagram-post">
+                            <div class="instagram-post__image">
+                                <img src="../assets/images/historias/instagram-4.jpg" alt="Instagram post">
+                            </div>
+                            <div class="instagram-post__overlay">
+                                <a href="https://instagram.com/nidobendito" target="_blank" class="instagram-link">
+                                    <i class="fab fa-instagram"></i>
+                                    @nidobendito
+                                </a>
+                            </div>
                         </div>
-                        <div class="widget-content">
-                            <div class="tag-cloud">
-                                <a href="#decoracion" class="tag">#Decoración</a>
-                                <a href="#artesanal" class="tag">#Artesanal</a>
-                                <a href="#sostenible" class="tag">#Sostenible</a>
-                                <a href="#guatemala" class="tag">#Guatemala</a>
-                                <a href="#hogar" class="tag">#Hogar</a>
-                                <a href="#diseño" class="tag">#Diseño</a>
-                                <a href="#manualidades" class="tag">#Manualidades</a>
-                                <a href="#comerciojusto" class="tag">#ComercioJusto</a>
+                        <div class="instagram-post">
+                            <div class="instagram-post__image">
+                                <img src="../assets/images/historias/instagram-5.jpg" alt="Instagram post">
+                            </div>
+                            <div class="instagram-post__overlay">
+                                <a href="https://instagram.com/nidobendito" target="_blank" class="instagram-link">
+                                    <i class="fab fa-instagram"></i>
+                                    @nidobendito
+                                </a>
+                            </div>
+                        </div>
+                        <div class="instagram-post">
+                            <div class="instagram-post__image">
+                                <img src="../assets/images/historias/instagram-6.jpg" alt="Instagram post">
+                            </div>
+                            <div class="instagram-post__overlay">
+                                <a href="https://instagram.com/nidobendito" target="_blank" class="instagram-link">
+                                    <i class="fab fa-instagram"></i>
+                                    @nidobendito
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </aside>
 
-        <!-- Newsletter Section -->
-        <section class="blog-newsletter">
-            <div class="container">
-                <div class="newsletter-content">
-                    <div class="newsletter-text">
-                        <h2>No Te Pierdas Ninguna Historia</h2>
-                        <p>Únete a más de 2,000 amantes de la decoración que ya reciben nuestro contenido exclusivo cada semana.</p>
-                        <div class="newsletter-benefits">
-                            <span><i class="fas fa-check"></i> Tips de decoración semanales</span>
-                            <span><i class="fas fa-check"></i> Historias exclusivas de artesanos</span>
-                            <span><i class="fas fa-check"></i> Descuentos especiales para suscriptores</span>
-                        </div>
-                    </div>
-                    <div class="newsletter-form">
-                        <form id="blogNewsletterForm">
-                            <div class="input-group">
-                                <input 
-                                    type="email" 
-                                    placeholder="Tu correo electrónico" 
-                                    required
-                                    aria-label="Suscribirse al newsletter del blog"
-                                >
-                                <button type="submit" class="btn btn-primary">
-                                    Suscribirme
-                                </button>
-                            </div>
-                            <p class="newsletter-note">Prometemos no spamearte. Puedes darte de baja en cualquier momento.</p>
-                        </form>
+                <div class="social-cta">
+                    <a href="https://instagram.com/nidobendito" target="_blank" class="button button--primary">
+                        <i class="fab fa-instagram"></i>
+                        Seguir en Instagram
+                    </a>
+                    <a href="https://facebook.com/nidobendito" target="_blank" class="button button--outline">
+                        <i class="fab fa-facebook-f"></i>
+                        Seguir en Facebook
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact CTA -->
+        <section class="stories-contact section">
+            <div class="stories-contact__container container">
+                <div class="stories-contact__content">
+                    <h2 class="stories-contact__title">¿Tienes una Historia que Compartir?</h2>
+                    <p class="stories-contact__description">
+                        Nos encanta conocer cómo nuestros productos han transformado tu hogar. 
+                        Comparte tu experiencia y podrías aparecer en nuestra próxima historia destacada.
+                    </p>
+                    <div class="stories-contact__buttons">
+                        <a href="https://wa.me/525512345678" target="_blank" class="button button--primary">
+                            <i class="fab fa-whatsapp"></i>
+                            Compartir por WhatsApp
+                        </a>
+                        <a href="mailto:hola@nidobendito.com" class="button button--outline">
+                            <i class="fas fa-envelope"></i>
+                            Enviar por Email
+                        </a>
                     </div>
                 </div>
             </div>
@@ -520,953 +370,19 @@
     </main>
 
     <!-- Footer -->
-    <!--#include virtual="../templates/footer.html" -->
+    <footer class="footer section">
+        <div class="footer__container container grid">
+            <!-- Footer content from template -->
+        </div>
+    </footer>
+
+    <!-- Scroll Up -->
+    <a href="#" class="scrollup" id="scroll-up">
+        <i class="fas fa-arrow-up scrollup__icon"></i>
+    </a>
 
     <!-- Scripts -->
     <script src="../assets/js/script.js"></script>
-
-    <!-- Script específico para historias.html -->
-    <script>
-        class BlogManager {
-            constructor() {
-                this.selectors = {
-                    articlesGrid: '#articlesGrid',
-                    blogSearch: '#blogSearch',
-                    categoryFilter: '#categoryFilter',
-                    sortArticles: '#sortArticles',
-                    loadMoreBtn: '#loadMoreArticles',
-                    blogCategories: '.blog-category'
-                };
-                
-                this.state = {
-                    currentPage: 1,
-                    articlesPerPage: 6,
-                    allArticles: [],
-                    filteredArticles: [],
-                    currentCategory: 'all',
-                    searchTerm: '',
-                    sortBy: 'newest'
-                };
-                
-                this.init();
-            }
-            
-            init() {
-                this.setupEventListeners();
-                this.loadArticles();
-                this.setupAnimations();
-            }
-            
-            setupEventListeners() {
-                // Búsqueda
-                document.querySelector(this.selectors.blogSearch).addEventListener('input', (e) => {
-                    this.state.searchTerm = e.target.value.toLowerCase();
-                    this.applyFilters();
-                });
-                
-                // Filtro de categoría
-                document.querySelector(this.selectors.categoryFilter).addEventListener('change', (e) => {
-                    this.state.currentCategory = e.target.value;
-                    this.state.currentPage = 1;
-                    this.applyFilters();
-                    this.updateCategoryLinks();
-                });
-                
-                // Ordenamiento
-                document.querySelector(this.selectors.sortArticles).addEventListener('change', (e) => {
-                    this.state.sortBy = e.target.value;
-                    this.applyFilters();
-                });
-                
-                // Load more
-                document.querySelector(this.selectors.loadMoreBtn).addEventListener('click', () => {
-                    this.loadMoreArticles();
-                });
-                
-                // Categorías del hero
-                document.querySelectorAll(this.selectors.blogCategories).forEach(category => {
-                    category.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        this.handleCategoryClick(e.currentTarget.getAttribute('href').substring(1));
-                    });
-                });
-            }
-            
-            loadArticles() {
-                // En un entorno real, esto vendría de una API
-                // Por ahora, usamos los artículos ya renderizados en el HTML
-                this.state.allArticles = Array.from(document.querySelectorAll('.blog-card'));
-                this.state.filteredArticles = [...this.state.allArticles];
-                this.updateArticleCounts();
-            }
-            
-            applyFilters() {
-                let filtered = [...this.state.allArticles];
-                
-                // Filtrar por búsqueda
-                if (this.state.searchTerm) {
-                    filtered = filtered.filter(article => {
-                        const title = article.querySelector('.card-title').textContent.toLowerCase();
-                        const excerpt = article.querySelector('.card-excerpt').textContent.toLowerCase();
-                        const category = article.dataset.category.toLowerCase();
-                        
-                        return title.includes(this.state.searchTerm) || 
-                               excerpt.includes(this.state.searchTerm) ||
-                               category.includes(this.state.searchTerm);
-                    });
-                }
-                
-                // Filtrar por categoría
-                if (this.state.currentCategory !== 'all') {
-                    filtered = filtered.filter(article => 
-                        article.dataset.category === this.state.currentCategory
-                    );
-                }
-                
-                // Ordenar
-                filtered = this.sortArticles(filtered, this.state.sortBy);
-                
-                this.state.filteredArticles = filtered;
-                this.state.currentPage = 1;
-                this.renderArticles();
-                this.updateLoadMoreButton();
-            }
-            
-            sortArticles(articles, sortBy) {
-                const sorted = [...articles];
-                
-                switch (sortBy) {
-                    case 'newest':
-                        // Por defecto, ya están ordenados por fecha en el HTML
-                        return sorted;
-                        
-                    case 'popular':
-                        return sorted.sort((a, b) => {
-                            const aPopular = a.dataset.popular === 'true';
-                            const bPopular = b.dataset.popular === 'true';
-                            return bPopular - aPopular;
-                        });
-                        
-                    case 'title':
-                        return sorted.sort((a, b) => {
-                            const aTitle = a.querySelector('.card-title').textContent;
-                            const bTitle = b.querySelector('.card-title').textContent;
-                            return aTitle.localeCompare(bTitle);
-                        });
-                }
-                
-                return sorted;
-            }
-            
-            renderArticles() {
-                const grid = document.querySelector(this.selectors.articlesGrid);
-                const startIndex = 0;
-                const endIndex = this.state.currentPage * this.state.articlesPerPage;
-                const articlesToShow = this.state.filteredArticles.slice(startIndex, endIndex);
-                
-                // Ocultar todos los artículos primero
-                this.state.allArticles.forEach(article => {
-                    article.style.display = 'none';
-                });
-                
-                // Mostrar artículos filtrados
-                articlesToShow.forEach(article => {
-                    article.style.display = 'block';
-                });
-                
-                // Si no hay resultados, mostrar mensaje
-                if (articlesToShow.length === 0) {
-                    grid.innerHTML = `
-                        <div class="no-articles">
-                            <i class="fas fa-search"></i>
-                            <h3>No se encontraron artículos</h3>
-                            <p>Intenta con otros términos de búsqueda o categorías.</p>
-                        </div>
-                    `;
-                }
-            }
-            
-            loadMoreArticles() {
-                this.state.currentPage++;
-                this.renderArticles();
-                this.updateLoadMoreButton();
-            }
-            
-            updateLoadMoreButton() {
-                const loadMoreBtn = document.querySelector(this.selectors.loadMoreBtn);
-                const totalArticles = this.state.filteredArticles.length;
-                const shownArticles = this.state.currentPage * this.state.articlesPerPage;
-                
-                if (shownArticles >= totalArticles) {
-                    loadMoreBtn.style.display = 'none';
-                } else {
-                    loadMoreBtn.style.display = 'block';
-                }
-            }
-            
-            updateArticleCounts() {
-                const categoryCounts = {};
-                
-                this.state.allArticles.forEach(article => {
-                    const category = article.dataset.category;
-                    categoryCounts[category] = (categoryCounts[category] || 0) + 1;
-                });
-                
-                // Actualizar contadores en el sidebar
-                document.querySelectorAll('.category-count').forEach(element => {
-                    const category = element.closest('.category-link').getAttribute('href').substring(1);
-                    element.textContent = categoryCounts[category] || 0;
-                });
-            }
-            
-            updateCategoryLinks() {
-                document.querySelectorAll(this.selectors.blogCategories).forEach(category => {
-                    const categoryName = category.getAttribute('href').substring(1);
-                    category.classList.toggle('active', categoryName === this.state.currentCategory);
-                });
-            }
-            
-            handleCategoryClick(category) {
-                this.state.currentCategory = category;
-                this.state.currentPage = 1;
-                
-                // Actualizar select
-                document.querySelector(this.selectors.categoryFilter).value = category;
-                
-                this.applyFilters();
-                this.updateCategoryLinks();
-                
-                // Scroll suave a los artículos
-                document.querySelector('.blog-grid').scrollIntoView({ 
-                    behavior: 'smooth' 
-                });
-            }
-            
-            setupAnimations() {
-                // Intersection Observer para animaciones
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('animate-in');
-                        }
-                    });
-                }, { threshold: 0.1 });
-                
-                // Observar artículos del blog
-                document.querySelectorAll('.blog-card').forEach(card => {
-                    observer.observe(card);
-                });
-            }
-        }
-        
-        // Inicializar cuando el DOM esté listo
-        document.addEventListener('DOMContentLoaded', () => {
-            window.blogManager = new BlogManager();
-        });
-    </script>
-
-    <!-- Estilos específicos para historias.html -->
-    <style>
-        /* Blog Hero Section */
-        .blog-hero {
-            background: linear-gradient(135deg, var(--light-beige) 0%, var(--primary-beige) 100%);
-            padding: 80px 0 60px;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3em;
-            font-weight: 700;
-            color: var(--dark-brown);
-            line-height: 1.1;
-            margin-bottom: 20px;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2em;
-            color: var(--medium-brown);
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-
-        .blog-categories {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .blog-category {
-            background: var(--white);
-            color: var(--medium-brown);
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-        }
-
-        .blog-category:hover,
-        .blog-category.active {
-            background: var(--primary-color);
-            color: var(--white);
-            border-color: var(--primary-color);
-        }
-
-        .hero-image {
-            position: relative;
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-
-        .hero-badge {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            box-shadow: 0 8px 20px rgba(224, 160, 107, 0.3);
-        }
-
-        /* Featured Article */
-        .featured-article {
-            padding: 60px 0;
-            background: var(--white);
-        }
-
-        .featured-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            background: var(--light-beige);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .featured-image {
-            position: relative;
-            height: 400px;
-        }
-
-        .featured-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .article-badge {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .featured-text {
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .article-category {
-            color: var(--primary-color);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.8em;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .article-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2em;
-            font-weight: 700;
-            color: var(--dark-brown);
-            line-height: 1.2;
-            margin-bottom: 16px;
-        }
-
-        .article-excerpt {
-            font-size: 1.1em;
-            color: var(--medium-brown);
-            line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        .article-meta {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-        }
-
-        .meta-item {
-            color: var(--medium-brown);
-            font-size: 0.9em;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .meta-item i {
-            color: var(--primary-color);
-        }
-
-        .article-tags {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background: rgba(224, 160, 107, 0.1);
-            color: var(--primary-color);
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: 500;
-        }
-
-        .btn-read-article {
-            background: var(--dark-brown);
-            color: var(--white);
-            padding: 14px 28px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease;
-            align-self: flex-start;
-        }
-
-        .btn-read-article:hover {
-            background: var(--primary-color);
-            transform: translateY(-2px);
-        }
-
-        /* Blog Grid */
-        .blog-grid {
-            padding: 80px 0;
-            background: var(--white);
-        }
-
-        .blog-filters {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .search-box {
-            position: relative;
-            flex: 1;
-            max-width: 400px;
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--medium-brown);
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 12px 16px 12px 44px;
-            border: 1px solid var(--light-gray);
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1em;
-        }
-
-        .filter-options {
-            display: flex;
-            gap: 12px;
-        }
-
-        .filter-options select {
-            padding: 12px 16px;
-            border: 1px solid var(--light-gray);
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            color: var(--dark-brown);
-            background: var(--white);
-        }
-
-        .articles-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 50px;
-        }
-
-        .blog-card {
-            background: var(--white);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        .blog-card.animate-in {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .card-image {
-            position: relative;
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .blog-card:hover .card-image img {
-            transform: scale(1.05);
-        }
-
-        .card-badge {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-size: 0.7em;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .card-content {
-            padding: 24px;
-        }
-
-        .card-title {
-            font-size: 1.3em;
-            font-weight: 600;
-            color: var(--dark-brown);
-            line-height: 1.3;
-            margin-bottom: 12px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .card-excerpt {
-            color: var(--medium-brown);
-            line-height: 1.5;
-            margin-bottom: 16px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .card-meta {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-
-        .read-more {
-            color: var(--primary-color);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            transition: gap 0.3s ease;
-        }
-
-        .read-more:hover {
-            gap: 10px;
-        }
-
-        .load-more-container {
-            text-align: center;
-        }
-
-        .btn-load-more {
-            background: var(--primary-color);
-            color: var(--white);
-            border: none;
-            padding: 14px 28px;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-load-more:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Blog Sidebar */
-        .blog-sidebar {
-            padding: 60px 0;
-            background: var(--light-beige);
-        }
-
-        .sidebar-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .sidebar-widget {
-            background: var(--white);
-            border-radius: 16px;
-            padding: 24px;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .widget-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 20px;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .widget-header i {
-            color: var(--primary-color);
-            font-size: 1.2em;
-        }
-
-        .widget-header h3 {
-            font-size: 1.2em;
-            color: var(--dark-brown);
-            margin: 0;
-            font-weight: 600;
-        }
-
-        .sidebar-newsletter {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .sidebar-newsletter input {
-            padding: 12px 16px;
-            border: 1px solid var(--light-gray);
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .popular-posts {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .popular-post {
-            display: flex;
-            gap: 12px;
-            text-decoration: none;
-            color: inherit;
-            transition: transform 0.3s ease;
-        }
-
-        .popular-post:hover {
-            transform: translateX(5px);
-        }
-
-        .post-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 8px;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .post-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .post-info h4 {
-            font-size: 0.9em;
-            color: var(--dark-brown);
-            margin: 0 0 4px 0;
-            line-height: 1.3;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .post-date {
-            font-size: 0.8em;
-            color: var(--medium-brown);
-        }
-
-        .category-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .category-list li {
-            margin-bottom: 8px;
-        }
-
-        .category-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            color: var(--medium-brown);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            border-bottom: 1px solid var(--light-gray);
-        }
-
-        .category-link:hover {
-            color: var(--primary-color);
-        }
-
-        .category-count {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            font-weight: 600;
-        }
-
-        .tag-cloud {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tag-cloud .tag {
-            background: rgba(224, 160, 107, 0.1);
-            color: var(--primary-color);
-            padding: 6px 12px;
-            border-radius: 12px;
-            font-size: 0.8em;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .tag-cloud .tag:hover {
-            background: var(--primary-color);
-            color: var(--white);
-        }
-
-        /* Blog Newsletter */
-        .blog-newsletter {
-            background: linear-gradient(135deg, var(--dark-brown) 0%, #2a231e 100%);
-            color: var(--white);
-            padding: 80px 0;
-        }
-
-        .newsletter-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .newsletter-text h2 {
-            color: var(--white);
-            margin-bottom: 16px;
-        }
-
-        .newsletter-text p {
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 24px;
-            font-size: 1.1em;
-        }
-
-        .newsletter-benefits {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .newsletter-benefits span {
-            color: rgba(255,255,255,0.9);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .newsletter-benefits i {
-            color: var(--primary-color);
-        }
-
-        .newsletter-form .input-group {
-            display: flex;
-            gap: 12px;
-            margin-bottom: 12px;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 16px 20px;
-            border: none;
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1em;
-        }
-
-        .newsletter-note {
-            font-size: 0.8em;
-            color: rgba(255,255,255,0.6);
-        }
-
-        /* No Articles State */
-        .no-articles {
-            text-align: center;
-            padding: 60px 20px;
-            grid-column: 1 / -1;
-            color: var(--medium-brown);
-        }
-
-        .no-articles i {
-            font-size: 3em;
-            margin-bottom: 16px;
-            color: var(--light-gray);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-content {
-                gap: 40px;
-            }
-            
-            .hero-title {
-                font-size: 2.5em;
-            }
-            
-            .featured-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .featured-image {
-                height: 300px;
-            }
-            
-            .newsletter-content {
-                gap: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 40px;
-            }
-            
-            .hero-title {
-                font-size: 2em;
-            }
-            
-            .blog-filters {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            
-            .search-box {
-                max-width: none;
-            }
-            
-            .filter-options {
-                justify-content: space-between;
-            }
-            
-            .articles-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .newsletter-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .newsletter-form .input-group {
-                flex-direction: column;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .article-meta {
-                flex-direction: column;
-                gap: 8px;
-            }
-            
-            .featured-text {
-                padding: 24px;
-            }
-            
-            .article-title {
-                font-size: 1.8em;
-            }
-            
-            .sidebar-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .filter-options {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <script src="../assets/js/stories.js"></script>
 </body>
 </html>

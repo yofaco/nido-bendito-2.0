@@ -1,216 +1,83 @@
 {
-  "site_config": {
-    "version": "2.0",
-    "name": "Nido Bendito",
-    "description": "Decoración y hogar guatemalteca - Productos artesanales únicos para transformar tu espacio",
-    "url": "https://nidobendito.com",
-    "language": "es-GT",
-    "currency": "GTQ",
-    "timezone": "America/Guatemala"
+  "site": {
+    "title": "Nido Bendito",
+    "description": "Tienda de productos artesanales y decoración para el hogar",
+    "keywords": "decoración, hogar, artesanías, productos hechos a mano, living room, bedroom",
+    "language": "es",
+    "currency": "MXN",
+    "timezone": "America/Mexico_City"
   },
-  
-  "business_info": {
-    "company_name": "Nido Bendito",
-    "contact_email": "hola@nidobendito.com",
-    "contact_phone": "+502 1234-5678",
+  "products": {
+    "autoPublish": true,
+    "productsPerPage": 12,
+    "allowReviews": true,
+    "lowStockThreshold": 5,
+    "showOutOfStock": true,
+    "defaultSort": "name"
+  },
+  "images": {
+    "maxFileSize": 5242880,
+    "allowedTypes": ["image/jpeg", "image/png", "image/webp"],
+    "optimizeUploads": true,
+    "maxWidth": 1200,
+    "maxHeight": 1200,
+    "thumbnailWidth": 300,
+    "thumbnailHeight": 300
+  },
+  "seo": {
+    "metaDescription": "Nido Bendito - Productos artesanales únicos para tu hogar. Encuentra la decoración perfecta para cada espacio.",
+    "ogImage": "../assets/images/og-image.jpg",
+    "twitterHandle": "@nidobendito",
+    "structuredData": true
+  },
+  "social": {
+    "facebook": "https://facebook.com/nidobendito",
+    "instagram": "https://instagram.com/nidobendito",
+    "pinterest": "https://pinterest.com/nidobendito",
+    "email": "hola@nidobendito.com",
+    "phone": "+52 55 1234 5678"
+  },
+  "business": {
+    "name": "Nido Bendito",
     "address": {
-      "street": "Calle Principal",
-      "city": "Ciudad de Guatemala",
-      "country": "Guatemala"
+      "street": "Av. Decoración 123",
+      "city": "Ciudad de México",
+      "state": "CDMX",
+      "zipCode": "03100",
+      "country": "México"
     },
-    "business_hours": {
-      "monday_friday": "9:00 AM - 6:00 PM",
-      "saturday": "10:00 AM - 2:00 PM",
+    "businessHours": {
+      "monday": "9:00-18:00",
+      "tuesday": "9:00-18:00",
+      "wednesday": "9:00-18:00",
+      "thursday": "9:00-18:00",
+      "friday": "9:00-18:00",
+      "saturday": "10:00-14:00",
       "sunday": "Cerrado"
     }
   },
-
-  "ecommerce_settings": {
-    "free_shipping_threshold": 1000,
-    "shipping_time": "3-5 días hábiles",
-    "currency_symbol": "Q",
-    "decimal_separator": ".",
-    "thousands_separator": ",",
-    "price_decimals": 2,
-    "low_stock_threshold": 10,
-    "new_product_days": 30
-  },
-
-  "payment_methods": {
-    "enabled": ["whatsapp"],
-    "whatsapp_number": "+50212345678",
-    "whatsapp_message": "¡Hola! Estoy interesado en el producto: {product_name} - {product_price}. ¿Podrían darme más información?",
-    "bank_transfer": {
-      "enabled": false,
-      "bank_name": "",
-      "account_number": "",
-      "account_holder": ""
-    }
-  },
-
-  "shipping_settings": {
+  "shipping": {
     "enabled": true,
-    "free_shipping_enabled": true,
-    "free_shipping_min_amount": 1000,
-    "default_shipping_time": "3-5 días hábiles",
-    "shipping_methods": [
-      {
-        "name": "Envío Estándar",
-        "description": "Entrega en 3-5 días hábiles",
-        "price": 50,
-        "free_above": 1000
-      }
-    ],
-    "zones": {
-      "guatemala_city": "2-3 días hábiles",
-      "central_areas": "3-4 días hábiles", 
-      "other_departments": "4-5 días hábiles"
-    }
+    "freeShippingThreshold": 500,
+    "domesticShipping": 50,
+    "internationalShipping": 200,
+    "processingTime": "1-3 días"
   },
-
-  "social_media": {
-    "instagram": {
-      "enabled": true,
-      "username": "nidobendito",
-      "url": "https://instagram.com/nidobendito"
-    },
-    "facebook": {
-      "enabled": true,
-      "username": "nidobendito",
-      "url": "https://facebook.com/nidobendito"
-    },
-    "pinterest": {
-      "enabled": true,
-      "username": "nidobendito",
-      "url": "https://pinterest.com/nidobendito"
-    },
-    "whatsapp": {
-      "enabled": true,
-      "number": "+50212345678",
-      "prefilled_message": "¡Hola! Visité Nido Bendito y tengo una consulta"
-    }
+  "theme": {
+    "primaryColor": "#4a6572",
+    "secondaryColor": "#f9aa33",
+    "accentColor": "#344955",
+    "fontFamily": "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
+    "borderRadius": "8px"
   },
-
-  "seo_settings": {
-    "meta_title": "Nido Bendito - Decoración y Hogar Guatemala | Productos Artesanales",
-    "meta_description": "Descubre productos únicos de decoración para tu hogar. Artesanías guatemaltecas, envío gratis y calidad garantizada. Transforma tu espacio en un refugio acogedor.",
-    "meta_keywords": ["decoración hogar", "artesanías guatemaltecas", "decoración guatemala", "productos hechos a mano", "hogar acogedor"],
-    "og_image": "/assets/images/og-image.jpg",
-    "twitter_handle": "@nidobendito",
-    "structured_data": {
-      "enabled": true,
-      "organization_schema": true,
-      "product_schema": true,
-      "website_schema": true
-    }
-  },
-
-  "analytics": {
-    "google_analytics": {
-      "enabled": false,
-      "tracking_id": ""
-    },
-    "facebook_pixel": {
-      "enabled": false,
-      "pixel_id": ""
-    }
-  },
-
-  "performance": {
-    "image_optimization": {
-      "enabled": true,
-      "max_width": 1200,
-      "quality": 85,
-      "formats": ["webp", "jpg", "png"]
-    },
-    "lazy_loading": {
-      "enabled": true,
-      "threshold": 100
-    },
-    "caching": {
-      "enabled": true,
-      "duration": 300
-    }
-  },
-
   "features": {
-    "product_filters": {
-      "enabled": true,
-      "categories": true,
-      "price_range": true,
-      "attributes": true
-    },
-    "product_search": {
-      "enabled": true,
-      "min_chars": 2,
-      "max_results": 10
-    },
-    "wishlist": {
-      "enabled": true,
-      "max_items": 20
-    },
-    "reviews": {
-      "enabled": true,
-      "moderation": true
-    },
-    "newsletter": {
-      "enabled": true,
-      "double_optin": false
-    }
+    "wishlist": true,
+    "compareProducts": true,
+    "quickView": true,
+    "newsletter": true,
+    "relatedProducts": true,
+    "recentlyViewed": true
   },
-
-  "admin_settings": {
-    "auto_save": {
-      "enabled": true,
-      "interval": 30000
-    },
-    "backup": {
-      "enabled": true,
-      "auto_backup": true,
-      "backup_interval": 86400000
-    },
-    "notifications": {
-      "enabled": true,
-      "low_stock": true,
-      "new_orders": true,
-      "system_errors": true
-    }
-  },
-
-  "integrations": {
-    "github": {
-      "enabled": true,
-      "auto_commit": true,
-      "repo_url": "https://github.com/tuusuario/nido-bendito"
-    },
-    "netlify": {
-      "enabled": true,
-      "site_url": "https://nidobendito.netlify.app",
-      "auto_deploy": true
-    }
-  },
-
-  "security": {
-    "csp_enabled": true,
-    "xss_protection": true,
-    "hsts_enabled": true,
-    "data_encryption": {
-      "enabled": true,
-      "algorithm": "AES-GCM"
-    }
-  },
-
-  "maintenance": {
-    "mode": false,
-    "allowed_ips": ["127.0.0.1"],
-    "maintenance_message": "Estamos realizando mantenimiento. Volvemos pronto."
-  },
-
-  "metadata": {
-    "version": "2.0",
-    "created_at": "2024-01-15T00:00:00Z",
-    "updated_at": "2025-01-15T10:30:00Z",
-    "last_modified_by": "admin",
-    "environment": "production"
-  }
+  "version": "1.0.0",
+  "lastUpdated": "2024-01-15"
 }

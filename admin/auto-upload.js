@@ -1,703 +1,619 @@
-/**
- * Sistema de Auto-Subida para GitHub - Nido Bendito
- * @version 1.0
- * @description Generación automática de archivos y preparación para GitHub
- */
-
-class GitHubAutoUpload {
+// auto-upload.js - Sistema automático de subida a GitHub para Netlify
+class NetlifyAutoUpload {
     constructor() {
-        this.config = {
-            repoPath: '../', // Ruta al repositorio principal
-            outputPath: 'output/', // Carpeta temporal para archivos generados
-            dataFiles: {
-                products: 'data/products.json',
-                categories: 'data/categories.json'
-            },
-            imageSources: '../data/images/', // Imágenes en admin
-            imageTargets: '../assets/images/products/' // Imágenes en sitio web
-        };
+        this.githubToken = null;
+        this.repoOwner = 'tu-usuario'; // Reemplazar con tu usuario de GitHub
+        this.repoName = 'nido-bendito'; // Reemplazar con el nombre de tu repositorio
+        this.branch = 'main'; // o 'master' según tu repositorio
+        this.isConfigured = false;
         
-        this.state = {
-            isGitHubDesktopInstalled: false,
-            lastGenerated: null,
-            changesDetected: false
-        };
+        this.init();
     }
 
-    /**
-     * Función principal - Genera todos los archivos para producción
-     */
-    async generateForProduction(products, categories) {
-        try {
-            this.showProgress('Iniciando generación de archivos...', 0);
+    init() {
+        this.loadConfiguration();
+        this.setupEventListeners();
+        this.checkGitHubConnection();
+    }
+
+    loadConfiguration() {
+        // Cargar configuración desde localStorage o mostrar setup
+        const savedConfig = localStorage.getItem('netlify-auto-upload-config');
+        
+        if (savedConfig) {
+            const config = JSON.parse(savedConfig);
+            this.githubToken = config.githubToken;
+            this.repoOwner = config.repoOwner || this.repoOwner;
+            this.repoName = config.repoName || this.repoName;
+            this.branch = config.branch || this.branch;
+            this.isConfigured = true;
             
-            // Validar datos
-            if (!this.validateData(products, categories)) {
-                throw new Error('Datos de productos o categorías inválidos');
-            }
-
-            // Crear estructura de carpetas
-            await this.createFolderStructure();
-
-            // Generar archivos JSON optimizados
-            await this.generateDataFiles(products, categories);
-            this.showProgress('Archivos de datos generados...', 30);
-
-            // Procesar y copiar imágenes
-            await this.processImages(products);
-            this.showProgress('Imágenes procesadas...', 60);
-
-            // Generar archivos para el sitio web
-            await this.generateWebFiles(products, categories);
-            this.showProgress('Archivos web generados...', 80);
-
-            // Preparar para GitHub
-            await this.prepareForGitHub();
-            this.showProgress('Preparando para GitHub...', 90);
-
-            // Abrir GitHub Desktop
-            await this.openGitHubDesktop();
-            this.showProgress('Proceso completado!', 100);
-
-            this.state.lastGenerated = new Date();
-            this.state.changesDetected = true;
-
-            return {
-                success: true,
-                message: 'Archivos generados correctamente. GitHub Desktop se abrirá automáticamente.',
-                generatedFiles: this.getGeneratedFilesList(),
-                nextSteps: this.getNextSteps()
-            };
-
-        } catch (error) {
-            console.error('Error en generación:', error);
-            return {
-                success: false,
-                message: `Error durante la generación: ${error.message}`,
-                error: error
-            };
+            this.updateUI();
+        } else {
+            this.showSetupModal();
         }
     }
 
-    /**
-     * Valida que los datos sean correctos antes de generar
-     */
-    validateData(products, categories) {
-        if (!Array.isArray(products) || !Array.isArray(categories)) {
-            throw new Error('Los datos de productos y categorías deben ser arrays');
+    setupEventListeners() {
+        // Botón de configuración en el header
+        const configButton = document.createElement('button');
+        configButton.className = 'btn btn-outline';
+        configButton.innerHTML = '<i class="fas fa-cloud-upload-alt"></i> Configurar Auto-Upload';
+        configButton.addEventListener('click', () => this.showSetupModal());
+        
+        // Agregar al header de acciones
+        const adminActions = document.querySelector('.admin-actions');
+        if (adminActions) {
+            adminActions.appendChild(configButton);
         }
 
-        // Validar productos
-        products.forEach((product, index) => {
-            if (!product.id || !product.name || !product.slug) {
-                throw new Error(`Producto en posición ${index} no tiene ID, nombre o slug`);
-            }
-
-            if (!product.price || isNaN(product.price)) {
-                throw new Error(`Producto "${product.name}" no tiene un precio válido`);
-            }
-
-            if (!categories.find(cat => cat.id === product.category)) {
-                throw new Error(`Producto "${product.name}" tiene una categoría inválida: ${product.category}`);
+        // Escuchar eventos de guardado para auto-subir
+        document.addEventListener('productsUpdated', () => {
+            if (this.isConfigured && this.autoUploadEnabled()) {
+                this.autoUpload('products.json');
             }
         });
 
-        // Validar categorías
-        categories.forEach((category, index) => {
-            if (!category.id || !category.name || !category.slug) {
-                throw new Error(`Categoría en posición ${index} no tiene ID, nombre o slug`);
+        document.addEventListener('categoriesUpdated', () => {
+            if (this.isConfigured && this.autoUploadEnabled()) {
+                this.autoUpload('categories.json');
             }
         });
 
-        return true;
-    }
-
-    /**
-     * Crea la estructura de carpetas necesaria
-     */
-    async createFolderStructure() {
-        const folders = [
-            this.config.outputPath,
-            `${this.config.outputPath}data/`,
-            `${this.config.outputPath}${this.config.imageTargets}`
-        ];
-
-        for (const folder of folders) {
-            try {
-                // En un entorno real, aquí crearías las carpetas
-                // Por ahora simulamos la creación
-                console.log(`Creando carpeta: ${folder}`);
-                await this.simulateFileOperation();
-            } catch (error) {
-                console.warn(`No se pudo crear la carpeta ${folder}:`, error);
+        document.addEventListener('configUpdated', () => {
+            if (this.isConfigured && this.autoUploadEnabled()) {
+                this.autoUpload('config.json');
             }
-        }
+        });
     }
 
-    /**
-     * Genera los archivos JSON de datos optimizados
-     */
-    async generateDataFiles(products, categories) {
-        // Productos optimizados para producción
-        const optimizedProducts = products.map(product => ({
-            id: product.id,
-            sku: product.sku,
-            name: product.name,
-            slug: product.slug,
-            category: product.category,
-            price: product.price,
-            compare_price: product.compare_price,
-            description: product.description,
-            short_description: product.short_description,
-            images: this.optimizeImagePaths(product.images),
-            features: product.features || [],
-            specifications: product.specifications || {},
-            inventory: product.inventory,
-            shipping: product.shipping,
-            featured: product.featured || false,
-            new: product.new || false,
-            best_seller: product.best_seller || false,
-            rating: product.rating || 0,
-            review_count: product.review_count || 0,
-            status: product.status || 'active',
-            created_at: product.created_at,
-            updated_at: product.updated_at
-        }));
+    showSetupModal() {
+        const modalHTML = `
+            <div id="netlify-setup-modal" class="modal active">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Configuración Auto-Upload Netlify</h3>
+                        <button class="close-btn" onclick="netlifyUpload.closeSetupModal()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="setup-steps">
+                            <div class="setup-step active">
+                                <h4>Paso 1: Token de GitHub</h4>
+                                <p>Necesitas un token de acceso personal de GitHub:</p>
+                                <ol>
+                                    <li>Ve a <a href="https://github.com/settings/tokens" target="_blank">GitHub Settings → Tokens</a></li>
+                                    <li>Haz clic en "Generate new token"</li>
+                                    <li>Selecciona el scope <strong>repo</strong></li>
+                                    <li>Copia el token generado</li>
+                                </ol>
+                                <div class="form-group">
+                                    <label for="github-token">Token de GitHub</label>
+                                    <input type="password" id="github-token" class="form-control" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
+                                </div>
+                            </div>
+                            
+                            <div class="setup-step">
+                                <h4>Paso 2: Información del Repositorio</h4>
+                                <div class="form-group">
+                                    <label for="repo-owner">Propietario del Repositorio</label>
+                                    <input type="text" id="repo-owner" class="form-control" value="${this.repoOwner}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="repo-name">Nombre del Repositorio</label>
+                                    <input type="text" id="repo-name" class="form-control" value="${this.repoName}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="repo-branch">Rama</label>
+                                    <input type="text" id="repo-branch" class="form-control" value="${this.branch}">
+                                </div>
+                            </div>
+                            
+                            <div class="setup-step">
+                                <h4>Paso 3: Configuración de Auto-Upload</h4>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="auto-upload-enabled" checked>
+                                        Habilitar auto-upload al guardar cambios
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" id="upload-images" checked>
+                                        Subir imágenes optimizadas
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="commit-message">Mensaje de commit por defecto</label>
+                                    <input type="text" id="commit-message" class="form-control" value="Actualización de productos - {date}">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="setup-progress">
+                            <button id="prev-step" class="btn btn-secondary" disabled>Anterior</button>
+                            <button id="next-step" class="btn btn-primary">Siguiente</button>
+                            <button id="save-config" class="btn btn-success" style="display: none;">Guardar Configuración</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
 
-        // Categorías optimizadas
-        const optimizedCategories = categories.map(category => ({
-            id: category.id,
-            name: category.name,
-            slug: category.slug,
-            description: category.description,
-            image: category.image,
-            product_count: category.product_count || 0,
-            display_order: category.display_order || 1
-        }));
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        this.setupModalListeners();
+    }
 
-        // Metadata del catálogo
-        const metadata = {
-            version: "2.0",
-            last_updated: new Date().toISOString(),
-            total_products: products.length,
-            total_categories: categories.length,
-            price_range: this.calculatePriceRange(products),
-            average_rating: this.calculateAverageRating(products)
+    setupModalListeners() {
+        let currentStep = 0;
+        const steps = document.querySelectorAll('.setup-step');
+        const prevBtn = document.getElementById('prev-step');
+        const nextBtn = document.getElementById('next-step');
+        const saveBtn = document.getElementById('save-config');
+
+        const updateSteps = () => {
+            steps.forEach((step, index) => {
+                step.classList.toggle('active', index === currentStep);
+                step.classList.toggle('completed', index < currentStep);
+            });
+
+            prevBtn.disabled = currentStep === 0;
+            nextBtn.style.display = currentStep < steps.length - 1 ? 'inline-flex' : 'none';
+            saveBtn.style.display = currentStep === steps.length - 1 ? 'inline-flex' : 'none';
         };
 
-        // Generar archivos
-        const files = {
-            'data/products.json': {
-                products: optimizedProducts,
-                metadata: metadata
-            },
-            'data/categories.json': {
-                categories: optimizedCategories,
-                metadata: metadata
-            },
-            'data/catalog-metadata.json': metadata
-        };
-
-        // Simular escritura de archivos
-        for (const [filePath, data] of Object.entries(files)) {
-            const fullPath = `${this.config.outputPath}${filePath}`;
-            console.log(`Generando archivo: ${fullPath}`);
-            await this.simulateFileWrite(fullPath, JSON.stringify(data, null, 2));
-        }
-    }
-
-    /**
-     * Optimiza las rutas de imágenes para producción
-     */
-    optimizeImagePaths(images) {
-        if (!images || !Array.isArray(images)) return [];
-
-        return images.map((image, index) => ({
-            url: image.url ? image.url.replace(this.config.imageSources, this.config.imageTargets) : 
-                 `assets/images/products/default-${index + 1}.jpg`,
-            alt: image.alt || `Imagen del producto`,
-            width: image.width || 800,
-            height: image.height || 800,
-            is_primary: image.is_primary || index === 0
-        }));
-    }
-
-    /**
-     * Procesa y copia las imágenes a la carpeta destino
-     */
-    async processImages(products) {
-        console.log('Procesando imágenes...');
-        
-        const imageOperations = [];
-        
-        // Recolectar todas las imágenes únicas
-        const allImages = new Set();
-        products.forEach(product => {
-            if (product.images && Array.isArray(product.images)) {
-                product.images.forEach(image => {
-                    if (image.url) {
-                        allImages.add(image.url);
-                    }
-                });
+        nextBtn.addEventListener('click', () => {
+            if (this.validateStep(currentStep)) {
+                currentStep++;
+                updateSteps();
             }
         });
 
-        // Simular copia de imágenes
-        for (const imagePath of allImages) {
-            if (imagePath.startsWith(this.config.imageSources)) {
-                const sourcePath = imagePath;
-                const targetPath = imagePath.replace(
-                    this.config.imageSources, 
-                    `${this.config.outputPath}${this.config.imageTargets}`
-                );
-                
-                imageOperations.push(this.simulateImageCopy(sourcePath, targetPath));
+        prevBtn.addEventListener('click', () => {
+            currentStep--;
+            updateSteps();
+        });
+
+        saveBtn.addEventListener('click', () => {
+            if (this.saveConfiguration()) {
+                this.closeSetupModal();
+                this.showNotification('Configuración guardada correctamente', 'success');
             }
-        }
+        });
 
-        // Ejecutar operaciones en paralelo (simulado)
-        await Promise.all(imageOperations);
-        console.log(`Procesadas ${imageOperations.length} imágenes`);
+        updateSteps();
     }
 
-    /**
-     * Genera archivos adicionales para el sitio web
-     */
-    async generateWebFiles(products, categories) {
-        // Generar sitemap de productos (simplificado)
-        const sitemap = this.generateProductSitemap(products);
-        await this.simulateFileWrite(
-            `${this.config.outputPath}sitemap-products.xml`,
-            sitemap
-        );
-
-        // Generar datos para SEO
-        const seoData = this.generateSEODATA(products, categories);
-        await this.simulateFileWrite(
-            `${this.config.outputPath}data/seo-data.json`,
-            JSON.stringify(seoData, null, 2)
-        );
-
-        // Generar archivo de configuración
-        const config = this.generateConfigFile();
-        await this.simulateFileWrite(
-            `${this.config.outputPath}data/config.json`,
-            JSON.stringify(config, null, 2)
-        );
-    }
-
-    /**
-     * Genera sitemap XML para productos
-     */
-    generateProductSitemap(products) {
-        const baseUrl = 'https://nidobendito.com';
-        const urls = products.map(product => 
-            `  <url>
-    <loc>${baseUrl}/producto/${product.slug}.html</loc>
-    <lastmod>${product.updated_at || new Date().toISOString().split('T')[0]}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>`
-        ).join('\n');
-
-        return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls}
-</urlset>`;
-    }
-
-    /**
-     * Genera datos optimizados para SEO
-     */
-    generateSEODATA(products, categories) {
-        return {
-            products: products.map(product => ({
-                id: product.id,
-                name: product.name,
-                slug: product.slug,
-                description: product.short_description,
-                price: product.price,
-                category: product.category,
-                image: product.images?.[0]?.url,
-                availability: product.inventory?.stock_status === 'in_stock' ? 'in stock' : 'out of stock'
-            })),
-            categories: categories.map(category => ({
-                id: category.id,
-                name: category.name,
-                slug: category.slug,
-                description: category.description,
-                product_count: category.product_count
-            })),
-            generated_at: new Date().toISOString()
-        };
-    }
-
-    /**
-     * Genera archivo de configuración
-     */
-    generateConfigFile() {
-        return {
-            site_name: "Nido Bendito",
-            version: "2.0",
-            currency: "Q",
-            free_shipping_threshold: 500,
-            contact: {
-                email: "hola@nidobendito.com",
-                phone: "+502 1234-5678"
-            },
-            social: {
-                instagram: "https://instagram.com/nidobendito",
-                facebook: "https://facebook.com/nidobendito",
-                pinterest: "https://pinterest.com/nidobendito"
-            },
-            last_updated: new Date().toISOString()
-        };
-    }
-
-    /**
-     * Prepara los archivos para GitHub
-     */
-    async prepareForGitHub() {
-        console.log('Preparando archivos para GitHub...');
-
-        // Generar archivo README con instrucciones
-        const readme = this.generateGitHubReadme();
-        await this.simulateFileWrite(
-            `${this.config.outputPath}GITHUB_INSTRUCTIONS.md`,
-            readme
-        );
-
-        // Generar script de deploy (si es necesario)
-        const deployScript = this.generateDeployScript();
-        await this.simulateFileWrite(
-            `${this.config.outputPath}deploy-to-netlify.js`,
-            deployScript
-        );
-
-        // Verificar si GitHub Desktop está disponible
-        this.state.isGitHubDesktopInstalled = await this.checkGitHubDesktop();
-    }
-
-    /**
-     * Genera archivo README con instrucciones para GitHub
-     */
-    generateGitHubReadme() {
-        return `# Actualización de Productos - Nido Bendito
-
-## Archivos Generados
-
-Los siguientes archivos han sido actualizados y están listos para subir a GitHub:
-
-### 📁 Estructura de Archivos
-
-\`\`\`
-nido-bendito/
-├── 📊 data/
-│   ├── products.json          # Datos de productos actualizados
-│   ├── categories.json        # Datos de categorías actualizados
-│   ├── catalog-metadata.json  # Metadatos del catálogo
-│   ├── seo-data.json          # Datos optimizados para SEO
-│   └── config.json            # Configuración del sitio
-├── 🖼️ assets/images/products/
-│   └── [imágenes actualizadas] # Imágenes de productos
-└── 📄 sitemap-products.xml    # Sitemap actualizado
-\`\`\`
-
-## 🚀 Instrucciones para Subir
-
-1. **Abre GitHub Desktop**
-2. **Selecciona tu repositorio** de Nido Bendito
-3. **Verifica los cambios** en la pestaña "Changes"
-4. **Escribe un commit** descriptivo:
-   \`\`\`
-   Actualización de catálogo - ${new Date().toLocaleDateString()}
-   - ${this.getGeneratedFilesList().length} archivos actualizados
-   - Productos y categorías sincronizados
-   \`\`\`
-5. **Haz click en "Commit to main"**
-6. **Haz click en "Push origin"**
-
-## ⚡ Despliegue Automático
-
-Netlify detectará los cambios automáticamente y desplegará la nueva versión en 1-2 minutos.
-
-## 📞 Soporte
-
-Si encuentras algún problema:
-- Revisa que todos los archivos estén presentes
-- Verifica que las imágenes se hayan copiado correctamente
-- Contacta al desarrollador si necesitas ayuda
-
----
-*Generado automáticamente el ${new Date().toLocaleString()}*
-`;
-    }
-
-    /**
-     * Genera script de deploy para Netlify
-     */
-    generateDeployScript() {
-        return `/**
- * Script de Despliegue para Netlify - Nido Bendito
- * Este script verifica la integridad de los datos antes del deploy
- */
-
-const fs = require('fs');
-const path = require('path');
-
-class DeployValidator {
-    constructor() {
-        this.dataPath = './data';
-    }
-
-    async validateDeployment() {
-        console.log('🔍 Validando datos para despliegue...');
-        
-        try {
-            // Verificar archivos esenciales
-            const essentialFiles = [
-                'products.json',
-                'categories.json',
-                'config.json'
-            ];
-
-            for (const file of essentialFiles) {
-                const filePath = path.join(this.dataPath, file);
-                if (!fs.existsSync(filePath)) {
-                    throw new Error(\`Archivo esencial no encontrado: \${file}\`);
+    validateStep(step) {
+        switch (step) {
+            case 0:
+                const token = document.getElementById('github-token').value;
+                if (!token) {
+                    this.showNotification('El token de GitHub es requerido', 'error');
+                    return false;
                 }
+                return true;
                 
-                const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-                if (!this.validateJSONStructure(data, file)) {
-                    throw new Error(\`Estructura inválida en: \${file}\`);
+            case 1:
+                const owner = document.getElementById('repo-owner').value;
+                const repo = document.getElementById('repo-name').value;
+                if (!owner || !repo) {
+                    this.showNotification('Todos los campos son requeridos', 'error');
+                    return false;
                 }
-            }
-
-            console.log('✅ Todos los archivos son válidos');
-            console.log('🚀 Listo para despliegue en Netlify');
-            
-        } catch (error) {
-            console.error('❌ Error en validación:', error.message);
-            process.exit(1);
-        }
-    }
-
-    validateJSONStructure(data, fileType) {
-        switch (fileType) {
-            case 'products.json':
-                return data.products && Array.isArray(data.products);
-            case 'categories.json':
-                return data.categories && Array.isArray(data.categories);
-            case 'config.json':
-                return data.site_name && data.currency;
+                return true;
+                
             default:
                 return true;
         }
     }
-}
 
-// Ejecutar validación
-if (require.main === module) {
-    const validator = new DeployValidator();
-    validator.validateDeployment();
-}
+    saveConfiguration() {
+        const config = {
+            githubToken: document.getElementById('github-token').value,
+            repoOwner: document.getElementById('repo-owner').value,
+            repoName: document.getElementById('repo-name').value,
+            branch: document.getElementById('repo-branch').value,
+            autoUploadEnabled: document.getElementById('auto-upload-enabled').checked,
+            uploadImages: document.getElementById('upload-images').checked,
+            commitMessage: document.getElementById('commit-message').value
+        };
 
-module.exports = DeployValidator;
-`;
+        // Validar token probando la conexión
+        return this.testGitHubConnection(config).then(isValid => {
+            if (isValid) {
+                localStorage.setItem('netlify-auto-upload-config', JSON.stringify(config));
+                this.githubToken = config.githubToken;
+                this.repoOwner = config.repoOwner;
+                this.repoName = config.repoName;
+                this.branch = config.branch;
+                this.isConfigured = true;
+                
+                this.updateUI();
+                return true;
+            } else {
+                this.showNotification('Error: Token de GitHub inválido o sin permisos', 'error');
+                return false;
+            }
+        });
     }
 
-    /**
-     * Verifica si GitHub Desktop está instalado
-     */
-    async checkGitHubDesktop() {
+    async testGitHubConnection(config) {
         try {
-            // En un entorno real, aquí verificarías la instalación
-            // Por ahora simulamos que está instalado
-            await this.simulateFileOperation();
-            return true;
+            const response = await fetch(`https://api.github.com/repos/${config.repoOwner}/${config.repoName}`, {
+                headers: {
+                    'Authorization': `token ${config.githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json'
+                }
+            });
+            
+            return response.ok;
         } catch (error) {
-            console.warn('GitHub Desktop no detectado:', error);
+            console.error('Error testing GitHub connection:', error);
             return false;
         }
     }
 
-    /**
-     * Abre GitHub Desktop automáticamente
-     */
-    async openGitHubDesktop() {
-        if (!this.state.isGitHubDesktopInstalled) {
-            console.warn('GitHub Desktop no está instalado');
-            this.showNotification(
-                'GitHub Desktop no detectado. Por favor, ábrelo manualmente.',
-                'warning'
-            );
+    closeSetupModal() {
+        const modal = document.getElementById('netlify-setup-modal');
+        if (modal) {
+            modal.remove();
+        }
+    }
+
+    updateUI() {
+        // Actualizar indicador de estado en la UI
+        const statusIndicator = document.createElement('div');
+        statusIndicator.className = 'upload-status';
+        statusIndicator.innerHTML = `
+            <span class="status-dot ${this.isConfigured ? 'connected' : 'disconnected'}"></span>
+            <span>GitHub: ${this.isConfigured ? 'Conectado' : 'Desconectado'}</span>
+        `;
+
+        const existingStatus = document.querySelector('.upload-status');
+        if (existingStatus) {
+            existingStatus.replaceWith(statusIndicator);
+        } else {
+            document.querySelector('.admin-actions').appendChild(statusIndicator);
+        }
+    }
+
+    autoUploadEnabled() {
+        const config = JSON.parse(localStorage.getItem('netlify-auto-upload-config') || '{}');
+        return config.autoUploadEnabled !== false;
+    }
+
+    async autoUpload(fileType, data = null) {
+        if (!this.isConfigured) {
+            console.log('Auto-upload no configurado');
             return;
         }
 
         try {
-            // En un entorno real, aquí abrirías GitHub Desktop
-            // Por ahora simulamos la apertura
-            console.log('Abriendo GitHub Desktop...');
-            await this.simulateFileOperation(2000);
+            this.showUploadProgress(`Subiendo ${fileType}...`);
+
+            let content, path;
             
-            this.showNotification(
-                'GitHub Desktop abierto. Por favor, confirma los cambios y haz push.',
-                'success'
-            );
+            switch (fileType) {
+                case 'products.json':
+                    content = JSON.stringify({ products: window.adminApp.products }, null, 2);
+                    path = 'data/products.json';
+                    break;
+                    
+                case 'categories.json':
+                    content = JSON.stringify({ categories: window.adminApp.categories }, null, 2);
+                    path = 'data/categories.json';
+                    break;
+                    
+                case 'config.json':
+                    content = JSON.stringify(window.adminApp.config, null, 2);
+                    path = 'data/config.json';
+                    break;
+                    
+                default:
+                    throw new Error(`Tipo de archivo no soportado: ${fileType}`);
+            }
+
+            await this.uploadToGitHub(path, content);
+            this.showNotification(`${fileType} subido correctamente a GitHub`, 'success');
 
         } catch (error) {
-            console.error('Error abriendo GitHub Desktop:', error);
-            this.showNotification(
-                'No se pudo abrir GitHub Desktop automáticamente. Por favor, ábrelo manualmente.',
-                'error'
-            );
+            console.error('Error en auto-upload:', error);
+            this.showNotification(`Error subiendo ${fileType}: ${error.message}`, 'error');
+        } finally {
+            this.hideUploadProgress();
         }
     }
 
-    /**
-     * Calcula el rango de precios
-     */
-    calculatePriceRange(products) {
-        if (products.length === 0) return { min: 0, max: 0 };
+    async uploadToGitHub(path, content) {
+        // Primero, obtener el SHA del archivo actual (si existe)
+        const currentFile = await this.getFileSHA(path);
         
-        const prices = products.map(p => p.price).filter(p => p > 0);
-        return {
-            min: Math.min(...prices),
-            max: Math.max(...prices)
+        const message = this.generateCommitMessage();
+        const encodedContent = btoa(unescape(encodeURIComponent(content)));
+        
+        const payload = {
+            message: message,
+            content: encodedContent,
+            branch: this.branch
         };
-    }
 
-    /**
-     * Calcula el rating promedio
-     */
-    calculateAverageRating(products) {
-        const productsWithRating = products.filter(p => p.rating > 0);
-        if (productsWithRating.length === 0) return 0;
-        
-        const totalRating = productsWithRating.reduce((sum, product) => 
-            sum + product.rating, 0
+        // Si el archivo existe, agregar el SHA para actualizar
+        if (currentFile) {
+            payload.sha = currentFile.sha;
+        }
+
+        const response = await fetch(
+            `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/${path}`,
+            {
+                method: 'PUT',
+                headers: {
+                    'Authorization': `token ${this.githubToken}`,
+                    'Accept': 'application/vnd.github.v3+json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            }
         );
-        return Math.round((totalRating / productsWithRating.length) * 10) / 10;
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Error subiendo archivo');
+        }
+
+        return await response.json();
     }
 
-    /**
-     * Obtiene lista de archivos generados
-     */
-    getGeneratedFilesList() {
-        return [
-            'data/products.json',
-            'data/categories.json', 
-            'data/catalog-metadata.json',
-            'data/seo-data.json',
-            'data/config.json',
-            'sitemap-products.xml',
-            'GITHUB_INSTRUCTIONS.md',
-            'deploy-to-netlify.js'
-        ];
+    async getFileSHA(path) {
+        try {
+            const response = await fetch(
+                `https://api.github.com/repos/${this.repoOwner}/${this.repoName}/contents/${path}?ref=${this.branch}`,
+                {
+                    headers: {
+                        'Authorization': `token ${this.githubToken}`,
+                        'Accept': 'application/vnd.github.v3+json'
+                    }
+                }
+            );
+
+            if (response.ok) {
+                return await response.json();
+            }
+            return null;
+        } catch (error) {
+            return null;
+        }
     }
 
-    /**
-     * Obtiene los siguientes pasos a seguir
-     */
-    getNextSteps() {
-        return [
-            'Revisa los archivos generados en la carpeta "output/"',
-            'Abre GitHub Desktop manualmente si no se abrió automáticamente',
-            'Verifica los cambios en la pestaña "Changes"',
-            'Escribe un mensaje de commit descriptivo',
-            'Haz click en "Commit to main" y luego "Push origin"',
-            'Espera 1-2 minutos para que Netlify haga deploy automáticamente'
-        ];
-    }
-
-    // ===== MÉTODOS DE UTILIDAD =====
-
-    showProgress(message, percentage) {
-        console.log(`[${percentage}%] ${message}`);
+    generateCommitMessage() {
+        const config = JSON.parse(localStorage.getItem('netlify-auto-upload-config') || '{}');
+        let message = config.commitMessage || 'Actualización de productos - {date}';
         
-        // Actualizar UI si está disponible
-        if (window.showNotification) {
-            window.showNotification(message, 'info');
+        const now = new Date();
+        const replacements = {
+            '{date}': now.toLocaleDateString('es-MX'),
+            '{time}': now.toLocaleTimeString('es-MX'),
+            '{datetime}': now.toLocaleString('es-MX')
+        };
+
+        for (const [key, value] of Object.entries(replacements)) {
+            message = message.replace(key, value);
+        }
+
+        return message;
+    }
+
+    async uploadImage(file, productId) {
+        if (!this.isConfigured || !this.autoUploadEnabled()) {
+            return URL.createObjectURL(file); // Fallback local
+        }
+
+        try {
+            const config = JSON.parse(localStorage.getItem('netlify-auto-upload-config') || '{}');
+            if (!config.uploadImages) {
+                return URL.createObjectURL(file);
+            }
+
+            // Optimizar imagen antes de subir
+            const optimizedImage = await window.imageUploader.processImage(file);
+            
+            const imagePath = `assets/images/products/${productId}/${optimizedImage.name}`;
+            await this.uploadToGitHub(imagePath, await optimizedImage.optimizedFile.text());
+            
+            // Retornar URL relativa para el sitio
+            return `../${imagePath}`;
+
+        } catch (error) {
+            console.error('Error subiendo imagen:', error);
+            // Fallback a URL local
+            return URL.createObjectURL(file);
+        }
+    }
+
+    showUploadProgress(message) {
+        // Crear o actualizar indicador de progreso
+        let progress = document.getElementById('upload-progress');
+        
+        if (!progress) {
+            progress = document.createElement('div');
+            progress.id = 'upload-progress';
+            progress.className = 'upload-progress';
+            progress.innerHTML = `
+                <div class="progress-content">
+                    <div class="spinner"></div>
+                    <span class="progress-message">${message}</span>
+                </div>
+            `;
+            document.body.appendChild(progress);
+        } else {
+            progress.querySelector('.progress-message').textContent = message;
+        }
+        
+        progress.style.display = 'flex';
+    }
+
+    hideUploadProgress() {
+        const progress = document.getElementById('upload-progress');
+        if (progress) {
+            progress.style.display = 'none';
+        }
+    }
+
+    async manualUpload() {
+        if (!this.isConfigured) {
+            this.showSetupModal();
+            return;
+        }
+
+        try {
+            this.showUploadProgress('Subiendo todos los archivos...');
+
+            // Subir todos los archivos de datos
+            await Promise.all([
+                this.autoUpload('products.json'),
+                this.autoUpload('categories.json'),
+                this.autoUpload('config.json')
+            ]);
+
+            this.showNotification('Todos los archivos subidos correctamente a GitHub', 'success');
+
+        } catch (error) {
+            console.error('Error en upload manual:', error);
+            this.showNotification(`Error en upload: ${error.message}`, 'error');
+        } finally {
+            this.hideUploadProgress();
         }
     }
 
     showNotification(message, type = 'info') {
-        if (window.showNotification) {
-            window.showNotification(message, type);
+        // Reutilizar la función de notificación del adminApp si existe
+        if (window.adminApp && window.adminApp.showNotification) {
+            window.adminApp.showNotification(message, type);
         } else {
-            console.log(`[${type.toUpperCase()}] ${message}`);
+            // Fallback simple
+            alert(`${type.toUpperCase()}: ${message}`);
         }
     }
 
-    async simulateFileOperation(delay = 500) {
-        return new Promise(resolve => setTimeout(resolve, delay));
-    }
+    async checkGitHubConnection() {
+        if (!this.isConfigured) return;
 
-    async simulateFileWrite(path, content) {
-        console.log(`📝 Escribiendo: ${path} (${content.length} bytes)`);
-        await this.simulateFileOperation(100);
-        return { path, size: content.length };
-    }
+        try {
+            const isValid = await this.testGitHubConnection({
+                githubToken: this.githubToken,
+                repoOwner: this.repoOwner,
+                repoName: this.repoName
+            });
 
-    async simulateImageCopy(source, target) {
-        console.log(`🖼️ Copiando: ${source} → ${target}`);
-        await this.simulateFileOperation(200);
-        return { source, target, success: true };
+            if (!isValid) {
+                this.showNotification('Conexión con GitHub perdida. Verifica la configuración.', 'warning');
+                this.isConfigured = false;
+            }
+        } catch (error) {
+            console.error('Error verificando conexión GitHub:', error);
+        }
     }
 }
 
-// ===== INICIALIZACIÓN Y EXPORTACIÓN =====
-
-// Crear instancia global
-const gitHubAutoUpload = new GitHubAutoUpload();
-
-// Hacer disponible globalmente
-window.generateForProduction = async function(products, categories) {
-    const result = await gitHubAutoUpload.generateForProduction(products, categories);
-    
-    if (result.success) {
-        if (window.showNotification) {
-            window.showNotification(result.message, 'success');
-        }
-        
-        // Mostrar resumen
-        console.log('🎉 Generación completada!');
-        console.log('📁 Archivos generados:', result.generatedFiles.length);
-        console.log('🚀 Siguientes pasos:');
-        result.nextSteps.forEach((step, index) => {
-            console.log(`   ${index + 1}. ${step}`);
-        });
-        
-    } else {
-        if (window.showNotification) {
-            window.showNotification(result.message, 'error');
-        }
-        console.error('❌ Error en generación:', result.error);
+// Estilos para el auto-upload
+const autoUploadStyles = `
+    .upload-status {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: #f8f9fa;
+        border-radius: 20px;
+        font-size: 0.875rem;
     }
-    
-    return result;
-};
 
-// Funciones adicionales disponibles globalmente
-window.checkGitHubStatus = async function() {
-    const isInstalled = await gitHubAutoUpload.checkGitHubDesktop();
-    const message = isInstalled ? 
-        'GitHub Desktop está instalado y listo para usar' :
-        'GitHub Desktop no está instalado. Por favor, instálalo desde https://desktop.github.com/';
-    
-    if (window.showNotification) {
-        window.showNotification(message, isInstalled ? 'success' : 'warning');
+    .status-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        display: inline-block;
     }
-    
-    return { installed: isInstalled };
-};
 
-window.getGenerationStatus = function() {
-    return {
-        lastGenerated: gitHubAutoUpload.state.lastGenerated,
-        changesDetected: gitHubAutoUpload.state.changesDetected,
-        githubInstalled: gitHubAutoUpload.state.isGitHubDesktopInstalled
-    };
-};
+    .status-dot.connected {
+        background: #4caf50;
+    }
 
-console.log('🚀 Sistema de Auto-Subida GitHub inicializado correctamente');
+    .status-dot.disconnected {
+        background: #f44336;
+    }
+
+    .upload-progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+    }
+
+    .progress-content {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .spinner {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #f3f3f3;
+        border-top: 2px solid #4a6572;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    .setup-steps {
+        margin-bottom: 2rem;
+    }
+
+    .setup-step {
+        display: none;
+    }
+
+    .setup-step.active {
+        display: block;
+    }
+
+    .setup-step.completed {
+        display: none;
+    }
+
+    .setup-progress {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        padding-top: 1rem;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+`;
+
+// Agregar estilos al documento
+const styleSheet = document.createElement('style');
+styleSheet.textContent = autoUploadStyles;
+document.head.appendChild(styleSheet);
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    window.netlifyUpload = new NetlifyAutoUpload();
+});
+
+// Exportar para uso en otros módulos
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = NetlifyAutoUpload;
+}

@@ -1,662 +1,807 @@
-<!-- Header Template - Nido Bendito -->
-<header class="main-header" id="main-header">
-    <div class="container header-content">
-        <!-- Top Navigation -->
-        <nav class="top-nav" aria-label="Navegación secundaria">
-            <ul>
-                <li><a href="../pages/envio.html" class="top-nav-link">Envío</a></li>
-                <li><a href="../pages/nosotros.html" class="top-nav-link">Nosotros</a></li>
-                <li><a href="../pages/historias.html" class="top-nav-link">Historias</a></li>
-            </ul>
-        </nav>
+<!-- templates/header.html -->
+<header class="header" id="header">
+    <nav class="nav container">
+        <a href="index.html" class="nav__logo">
+            <i class="fas fa-feather"></i>
+            Nido Bendito
+        </a>
 
-        <!-- Logo -->
-        <div class="logo">
-            <a href="../pages/index.html" class="logo-link" aria-label="Nido Bendito - Inicio">
-                <h1 class="logo-text">Nido Bendito</h1>
-            </a>
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="index.html" class="nav__link" data-page="index">Inicio</a>
+                </li>
+                <li class="nav__item">
+                    <a href="tienda.html" class="nav__link" data-page="tienda">Tienda</a>
+                </li>
+                <li class="nav__item">
+                    <a href="nosotros.html" class="nav__link" data-page="nosotros">Nosotros</a>
+                </li>
+                <li class="nav__item">
+                    <a href="historias.html" class="nav__link" data-page="historias">Historias</a>
+                </li>
+                <li class="nav__item">
+                    <a href="envio.html" class="nav__link" data-page="envio">Envío</a>
+                </li>
+            </ul>
+
+            <div class="nav__close" id="nav-close">
+                <i class="fas fa-times"></i>
+            </div>
         </div>
 
-        <!-- Header Icons -->
-        <div class="header-icons">
-            <!-- Search -->
-            <div class="search-container">
-                <button class="search-toggle" id="searchToggle" aria-label="Abrir búsqueda">
-                    <i class="fas fa-search"></i>
-                </button>
-                <div class="search-dropdown" id="searchDropdown">
-                    <form class="search-form" id="searchForm" role="search">
-                        <input 
-                            type="search" 
-                            id="headerSearch" 
-                            class="search-input" 
-                            placeholder="Buscar productos..." 
-                            aria-label="Buscar productos"
-                        >
-                        <button type="submit" class="search-submit" aria-label="Buscar">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </form>
-                    <div class="search-results" id="searchResults" aria-live="polite"></div>
-                </div>
+        <div class="nav__actions">
+            <!-- Search Toggle -->
+            <div class="nav__search-toggle" id="search-toggle">
+                <i class="fas fa-search"></i>
             </div>
+
+            <!-- Wishlist -->
+            <a href="wishlist.html" class="nav__action-btn" id="wishlist-btn">
+                <i class="far fa-heart"></i>
+                <span class="nav__action-count" id="wishlist-count">0</span>
+            </a>
 
             <!-- Cart -->
-            <div class="cart-container">
-                <a href="../pages/carrito.html" class="cart-link" aria-label="Carrito de compras">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span class="cart-count" id="cartCount">0</span>
-                </a>
-            </div>
+            <a href="carrito.html" class="nav__action-btn" id="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="nav__action-count" id="cart-count">0</span>
+            </a>
 
-            <!-- User Account -->
-            <div class="account-container">
-                <button class="account-toggle" id="accountToggle" aria-label="Menú de cuenta">
-                    <i class="fas fa-user"></i>
-                </button>
-                <div class="account-dropdown" id="accountDropdown">
-                    <div class="account-menu">
-                        <a href="../pages/cuenta.html" class="account-link">
-                            <i class="fas fa-user-circle"></i>
-                            Mi Cuenta
-                        </a>
-                        <a href="../pages/pedidos.html" class="account-link">
-                            <i class="fas fa-box"></i>
-                            Mis Pedidos
-                        </a>
-                        <a href="../pages/favoritos.html" class="account-link">
-                            <i class="fas fa-heart"></i>
-                            Favoritos
-                        </a>
-                        <div class="account-divider"></div>
-                        <button class="account-link logout-btn" id="logoutBtn">
-                            <i class="fas fa-sign-out-alt"></i>
-                            Cerrar Sesión
-                        </button>
-                    </div>
-                </div>
+            <!-- Theme Toggle -->
+            <div class="nav__theme-toggle" id="theme-toggle">
+                <i class="fas fa-moon"></i>
             </div>
 
             <!-- Mobile Menu Toggle -->
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menú móvil" aria-expanded="false">
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-                <span class="hamburger-line"></span>
-            </button>
-        </div>
-    </div>
-
-    <!-- Main Navigation -->
-    <nav class="main-nav" aria-label="Navegación principal">
-        <div class="container main-nav-container">
-            <ul class="nav-links">
-                <li><a href="../pages/index.html" class="nav-link">Nuevo en</a></li>
-                <li><a href="../pages/tienda.html" class="nav-link active">Tienda</a></li>
-            </ul>
-            
-            <!-- Category Filters for Desktop -->
-            <div class="category-filters-desktop">
-                <ul class="category-filters-list">
-                    <li><a href="../pages/tienda.html?categoria=all" data-category="all" class="category-filter-link active">Todos</a></li>
-                    <li><a href="../pages/tienda.html?categoria=living-room" data-category="living-room" class="category-filter-link">Living Room</a></li>
-                    <li><a href="../pages/tienda.html?categoria=dining-kitchen" data-category="dining-kitchen" class="category-filter-link">Dining & Kitchen</a></li>
-                    <li><a href="../pages/tienda.html?categoria=wall-decor" data-category="wall-decor" class="category-filter-link">Wall Decor</a></li>
-                    <li><a href="../pages/tienda.html?categoria=bedroom" data-category="bedroom" class="category-filter-link">Bedroom</a></li>
-                    <li><a href="../pages/tienda.html?categoria=pillows-decor" data-category="pillows-decor" class="category-filter-link">Pillows & Decor</a></li>
-                    <li><a href="../pages/tienda.html?categoria=lighting" data-category="lighting" class="category-filter-link">Lighting</a></li>
-                </ul>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class="fas fa-bars"></i>
             </div>
         </div>
-    </nav>
 
-    <!-- Mobile Navigation -->
-    <div class="mobile-nav" id="mobileNav">
-        <div class="mobile-nav-content">
-            <div class="mobile-nav-header">
-                <h3>Menú</h3>
-                <button class="mobile-nav-close" id="mobileNavClose" aria-label="Cerrar menú">
+        <!-- Search Bar -->
+        <div class="search-bar" id="search-bar">
+            <div class="search-bar__container container">
+                <form class="search-bar__form" id="search-form">
+                    <input type="text" 
+                           class="search-bar__input" 
+                           id="search-input"
+                           placeholder="Buscar productos...">
+                    <button type="submit" class="search-bar__submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <button class="search-bar__close" id="search-close">
                     <i class="fas fa-times"></i>
                 </button>
             </div>
 
-            <nav class="mobile-nav-links" aria-label="Navegación móvil">
-                <div class="mobile-nav-section">
-                    <h4>Navegación</h4>
-                    <a href="../pages/index.html" class="mobile-nav-link">
-                        <i class="fas fa-home"></i>
-                        Inicio
-                    </a>
-                    <a href="../pages/tienda.html" class="mobile-nav-link">
-                        <i class="fas fa-store"></i>
-                        Tienda
-                    </a>
-                    <a href="../pages/nosotros.html" class="mobile-nav-link">
-                        <i class="fas fa-users"></i>
-                        Nosotros
-                    </a>
-                    <a href="../pages/historias.html" class="mobile-nav-link">
-                        <i class="fas fa-book"></i>
-                        Historias
-                    </a>
-                    <a href="../pages/envio.html" class="mobile-nav-link">
-                        <i class="fas fa-shipping-fast"></i>
-                        Envío
-                    </a>
-                </div>
-
-                <div class="mobile-nav-section">
-                    <h4>Categorías</h4>
-                    <a href="../pages/tienda.html?categoria=all" class="mobile-nav-link" data-category="all">
-                        Todos los productos
-                    </a>
-                    <a href="../pages/tienda.html?categoria=living-room" class="mobile-nav-link" data-category="living-room">
-                        Living Room
-                    </a>
-                    <a href="../pages/tienda.html?categoria=dining-kitchen" class="mobile-nav-link" data-category="dining-kitchen">
-                        Dining & Kitchen
-                    </a>
-                    <a href="../pages/tienda.html?categoria=wall-decor" class="mobile-nav-link" data-category="wall-decor">
-                        Wall Decor
-                    </a>
-                    <a href="../pages/tienda.html?categoria=bedroom" class="mobile-nav-link" data-category="bedroom">
-                        Bedroom
-                    </a>
-                    <a href="../pages/tienda.html?categoria=pillows-decor" class="mobile-nav-link" data-category="pillows-decor">
-                        Pillows & Decor
-                    </a>
-                    <a href="../pages/tienda.html?categoria=lighting" class="mobile-nav-link" data-category="lighting">
-                        Lighting
-                    </a>
-                </div>
-
-                <div class="mobile-nav-section">
-                    <h4>Cuenta</h4>
-                    <a href="../pages/cuenta.html" class="mobile-nav-link">
-                        <i class="fas fa-user"></i>
-                        Mi Cuenta
-                    </a>
-                    <a href="../pages/pedidos.html" class="mobile-nav-link">
-                        <i class="fas fa-box"></i>
-                        Mis Pedidos
-                    </a>
-                    <a href="../pages/favoritos.html" class="mobile-nav-link">
-                        <i class="fas fa-heart"></i>
-                        Favoritos
-                    </a>
-                    <a href="../pages/carrito.html" class="mobile-nav-link">
-                        <i class="fas fa-shopping-cart"></i>
-                        Carrito
-                        <span class="mobile-cart-count" id="mobileCartCount">0</span>
-                    </a>
-                </div>
-            </nav>
-
-            <div class="mobile-nav-footer">
-                <div class="mobile-contact-info">
-                    <p><strong>¿Necesitas ayuda?</strong></p>
-                    <a href="mailto:hola@nidobendito.com" class="mobile-contact-link">
-                        <i class="fas fa-envelope"></i>
-                        hola@nidobendito.com
-                    </a>
-                    <a href="tel:+50212345678" class="mobile-contact-link">
-                        <i class="fas fa-phone"></i>
-                        +502 1234-5678
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Search Overlay -->
-    <div class="search-overlay" id="searchOverlay">
-        <div class="search-overlay-content">
-            <button class="search-overlay-close" id="searchOverlayClose" aria-label="Cerrar búsqueda">
-                <i class="fas fa-times"></i>
-            </button>
-            
-            <form class="search-overlay-form" id="searchOverlayForm">
-                <div class="search-input-container">
-                    <input 
-                        type="search" 
-                        id="overlaySearch" 
-                        class="search-overlay-input" 
-                        placeholder="¿Qué estás buscando?" 
-                        autocomplete="off"
-                        aria-label="Buscar productos"
-                    >
-                    <button type="submit" class="search-overlay-submit" aria-label="Buscar">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </form>
-
-            <div class="search-overlay-results" id="searchOverlayResults">
-                <div class="search-suggestions">
-                    <h4>Sugerencias populares</h4>
-                    <div class="suggestion-tags">
-                        <button class="suggestion-tag" data-search="vela">Velas aromáticas</button>
-                        <button class="suggestion-tag" data-search="jarrón">Jarrones</button>
-                        <button class="suggestion-tag" data-search="cojín">Cojines</button>
-                        <button class="suggestion-tag" data-search="espejo">Espejos</button>
-                    </div>
-                </div>
-
-                <div class="recent-searches" id="recentSearches">
-                    <h4>Búsquedas recientes</h4>
-                    <div class="recent-searches-list" id="recentSearchesList">
-                        <!-- Las búsquedas recientes se cargarán aquí -->
+            <!-- Search Results -->
+            <div class="search-results" id="search-results">
+                <div class="search-results__container container">
+                    <div class="search-results__content" id="search-results-content">
+                        <!-- Los resultados de búsqueda se cargan aquí dinámicamente -->
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </nav>
 </header>
 
-<!-- Header JavaScript -->
+<!-- Mobile Menu Overlay -->
+<div class="mobile-overlay" id="mobile-overlay"></div>
+
+<style>
+    /* Header Styles */
+    .header {
+        width: 100%;
+        background-color: var(--container-color);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: var(--z-fixed);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+    }
+
+    .header.scrolled {
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav {
+        height: var(--header-height);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+
+    .nav__logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: var(--font-semi-bold);
+        color: var(--title-color);
+        font-size: var(--h3-font-size);
+        transition: color 0.3s ease;
+    }
+
+    .nav__logo:hover {
+        color: var(--primary-color);
+    }
+
+    .nav__logo i {
+        color: var(--secondary-color);
+        font-size: 1.5rem;
+    }
+
+    .nav__actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .nav__action-btn {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--body-color);
+        border-radius: 50%;
+        color: var(--title-color);
+        transition: all 0.3s ease;
+    }
+
+    .nav__action-btn:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    .nav__action-count {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: var(--secondary-color);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: var(--font-bold);
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+    }
+
+    .nav__theme-toggle,
+    .nav__search-toggle,
+    .nav__toggle {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--body-color);
+        border-radius: 50%;
+        color: var(--title-color);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .nav__theme-toggle:hover,
+    .nav__search-toggle:hover,
+    .nav__toggle:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+    }
+
+    /* Navigation Menu */
+    .nav__menu {
+        position: static;
+        background: transparent;
+        padding: 0;
+        box-shadow: none;
+        transition: none;
+    }
+
+    .nav__list {
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+    }
+
+    .nav__link {
+        color: var(--title-color);
+        font-weight: var(--font-medium);
+        transition: color 0.3s ease;
+        position: relative;
+        padding: 0.5rem 0;
+    }
+
+    .nav__link:hover {
+        color: var(--primary-color);
+    }
+
+    .nav__link.active {
+        color: var(--primary-color);
+    }
+
+    .nav__link.active::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--primary-color);
+        border-radius: 2px;
+    }
+
+    .nav__close {
+        display: none;
+    }
+
+    /* Search Bar */
+    .search-bar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--container-color);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        transform: translateY(-10px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: var(--z-modal);
+    }
+
+    .search-bar.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .search-bar__container {
+        padding: 1rem 0;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .search-bar__form {
+        flex: 1;
+        position: relative;
+    }
+
+    .search-bar__input {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        padding-right: 3rem;
+        border: 2px solid var(--body-color);
+        border-radius: 2rem;
+        font-size: var(--normal-font-size);
+        background: var(--body-color);
+        transition: all 0.3s ease;
+    }
+
+    .search-bar__input:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        background: white;
+        box-shadow: 0 0 0 3px rgba(74, 101, 114, 0.1);
+    }
+
+    .search-bar__submit {
+        position: absolute;
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .search-bar__submit:hover {
+        background: var(--primary-color-dark);
+        transform: translateY(-50%) scale(1.05);
+    }
+
+    .search-bar__close {
+        background: none;
+        border: none;
+        color: var(--text-color-light);
+        font-size: 1.25rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+
+    .search-bar__close:hover {
+        background: var(--body-color);
+        color: var(--title-color);
+    }
+
+    /* Search Results */
+    .search-results {
+        background: white;
+        border-top: 1px solid var(--body-color);
+        max-height: 400px;
+        overflow-y: auto;
+        display: none;
+    }
+
+    .search-results.active {
+        display: block;
+    }
+
+    .search-results__container {
+        padding: 1rem 0;
+    }
+
+    .search-result-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        border-bottom: 1px solid var(--body-color);
+        transition: background 0.3s ease;
+        cursor: pointer;
+    }
+
+    .search-result-item:hover {
+        background: var(--body-color);
+    }
+
+    .search-result-item:last-child {
+        border-bottom: none;
+    }
+
+    .search-result-item__image {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+        overflow: hidden;
+        flex-shrink: 0;
+    }
+
+    .search-result-item__image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .search-result-item__content {
+        flex: 1;
+    }
+
+    .search-result-item__name {
+        font-weight: var(--font-medium);
+        color: var(--title-color);
+        margin-bottom: 0.25rem;
+    }
+
+    .search-result-item__price {
+        color: var(--primary-color);
+        font-weight: var(--font-semi-bold);
+    }
+
+    .search-results__empty {
+        text-align: center;
+        padding: 2rem;
+        color: var(--text-color-light);
+    }
+
+    .search-results__empty i {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        opacity: 0.5;
+    }
+
+    /* Mobile Overlay */
+    .mobile-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: var(--z-fixed);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 968px) {
+        .nav__menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 280px;
+            height: 100vh;
+            background: var(--container-color);
+            padding: 5rem 2rem 2rem;
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            z-index: var(--z-fixed);
+        }
+
+        .nav__menu.active {
+            right: 0;
+        }
+
+        .nav__list {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .nav__link {
+            padding: 0.75rem 0;
+            font-size: var(--h3-font-size);
+        }
+
+        .nav__close {
+            display: flex;
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: var(--title-color);
+            cursor: pointer;
+        }
+
+        .nav__actions {
+            gap: 0.75rem;
+        }
+
+        .nav__action-btn,
+        .nav__theme-toggle,
+        .nav__search-toggle,
+        .nav__toggle {
+            width: 36px;
+            height: 36px;
+            font-size: 0.9rem;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .nav__logo span {
+            display: none;
+        }
+
+        .nav__actions {
+            gap: 0.5rem;
+        }
+
+        .search-bar__container {
+            padding: 0.75rem;
+        }
+
+        .search-result-item {
+            padding: 0.75rem;
+        }
+
+        .search-result-item__image {
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    /* Dark Theme Support */
+    .dark-theme .header {
+        background: var(--container-color-dark);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .dark-theme .search-bar {
+        background: var(--container-color-dark);
+    }
+
+    .dark-theme .search-results {
+        background: var(--container-color-dark);
+        border-top-color: var(--border-color-dark);
+    }
+
+    .dark-theme .search-result-item {
+        border-bottom-color: var(--border-color-dark);
+    }
+
+    .dark-theme .search-result-item:hover {
+        background: var(--body-color-dark);
+    }
+</style>
+
 <script>
-class HeaderManager {
-    constructor() {
-        this.selectors = {
-            searchToggle: '#searchToggle',
-            searchDropdown: '#searchDropdown',
-            searchForm: '#searchForm',
-            headerSearch: '#headerSearch',
-            searchResults: '#searchResults',
-            accountToggle: '#accountToggle',
-            accountDropdown: '#accountDropdown',
-            mobileMenuToggle: '#mobileMenuToggle',
-            mobileNav: '#mobileNav',
-            mobileNavClose: '#mobileNavClose',
-            searchOverlay: '#searchOverlay',
-            searchOverlayClose: '#searchOverlayClose',
-            searchOverlayForm: '#searchOverlayForm',
-            overlaySearch: '#overlaySearch',
-            searchOverlayResults: '#searchOverlayResults',
-            cartCount: '#cartCount',
-            mobileCartCount: '#mobileCartCount'
-        };
+    // Header Component Script
+    class HeaderComponent {
+        constructor() {
+            this.currentPage = this.getCurrentPage();
+            this.init();
+        }
 
-        this.state = {
-            isSearchOpen: false,
-            isAccountOpen: false,
-            isMobileNavOpen: false,
-            isSearchOverlayOpen: false,
-            recentSearches: JSON.parse(localStorage.getItem('nidoBenditoRecentSearches') || '[]')
-        };
+        init() {
+            this.setActiveLink();
+            this.setupEventListeners();
+            this.updateCartCounter();
+            this.updateWishlistCounter();
+        }
 
-        this.init();
-    }
+        getCurrentPage() {
+            const path = window.location.pathname;
+            const page = path.split('/').pop() || 'index.html';
+            return page.replace('.html', '');
+        }
 
-    init() {
-        this.setupEventListeners();
-        this.updateCartCount();
-        this.loadRecentSearches();
-    }
+        setActiveLink() {
+            const links = document.querySelectorAll('.nav__link[data-page]');
+            links.forEach(link => {
+                if (link.dataset.page === this.currentPage) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
 
-    setupEventListeners() {
-        // Search functionality
-        document.querySelector(this.selectors.searchToggle)?.addEventListener('click', () => this.toggleSearch());
-        document.querySelector(this.selectors.searchForm)?.addEventListener('submit', (e) => this.handleSearch(e));
-        document.querySelector(this.selectors.headerSearch)?.addEventListener('input', (e) => this.handleSearchInput(e));
+        setupEventListeners() {
+            // Mobile menu toggle
+            const navToggle = document.getElementById('nav-toggle');
+            const navClose = document.getElementById('nav-close');
+            const navMenu = document.getElementById('nav-menu');
+            const mobileOverlay = document.getElementById('mobile-overlay');
 
-        // Account dropdown
-        document.querySelector(this.selectors.accountToggle)?.addEventListener('click', () => this.toggleAccount());
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.add('active');
+                    mobileOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
 
-        // Mobile navigation
-        document.querySelector(this.selectors.mobileMenuToggle)?.addEventListener('click', () => this.toggleMobileNav());
-        document.querySelector(this.selectors.mobileNavClose)?.addEventListener('click', () => this.closeMobileNav());
+            if (navClose && navMenu) {
+                navClose.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
 
-        // Search overlay
-        document.querySelector(this.selectors.searchToggle)?.addEventListener('click', () => this.openSearchOverlay());
-        document.querySelector(this.selectors.searchOverlayClose)?.addEventListener('click', () => this.closeSearchOverlay());
-        document.querySelector(this.selectors.searchOverlayForm)?.addEventListener('submit', (e) => this.handleOverlaySearch(e));
-        document.querySelector(this.selectors.overlaySearch)?.addEventListener('input', (e) => this.handleOverlaySearchInput(e));
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            }
 
-        // Close dropdowns when clicking outside
-        document.addEventListener('click', (e) => this.handleClickOutside(e));
-
-        // Category filter links
-        this.setupCategoryFilters();
-
-        // Suggestion tags
-        this.setupSuggestionTags();
-    }
-
-    toggleSearch() {
-        this.state.isSearchOpen = !this.state.isSearchOpen;
-        const dropdown = document.querySelector(this.selectors.searchDropdown);
-        
-        if (dropdown) {
-            dropdown.classList.toggle('active', this.state.isSearchOpen);
+            // Search functionality
+            this.setupSearch();
             
-            if (this.state.isSearchOpen) {
-                document.querySelector(this.selectors.headerSearch)?.focus();
+            // Theme toggle
+            this.setupThemeToggle();
+
+            // Scroll effect
+            this.setupScrollEffect();
+        }
+
+        setupSearch() {
+            const searchToggle = document.getElementById('search-toggle');
+            const searchClose = document.getElementById('search-close');
+            const searchBar = document.getElementById('search-bar');
+            const searchInput = document.getElementById('search-input');
+            const searchForm = document.getElementById('search-form');
+            const searchResults = document.getElementById('search-results');
+            const searchResultsContent = document.getElementById('search-results-content');
+
+            if (searchToggle && searchBar) {
+                searchToggle.addEventListener('click', () => {
+                    searchBar.classList.toggle('active');
+                    if (searchBar.classList.contains('active')) {
+                        searchInput.focus();
+                    }
+                });
+            }
+
+            if (searchClose && searchBar) {
+                searchClose.addEventListener('click', () => {
+                    searchBar.classList.remove('active');
+                    searchResults.classList.remove('active');
+                });
+            }
+
+            // Search input handling
+            if (searchInput) {
+                let searchTimeout;
+                searchInput.addEventListener('input', (e) => {
+                    clearTimeout(searchTimeout);
+                    searchTimeout = setTimeout(() => {
+                        this.handleSearch(e.target.value);
+                    }, 300);
+                });
+
+                searchInput.addEventListener('focus', () => {
+                    if (searchInput.value) {
+                        this.handleSearch(searchInput.value);
+                    }
+                });
+            }
+
+            // Search form submission
+            if (searchForm) {
+                searchForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const query = searchInput.value.trim();
+                    if (query) {
+                        window.location.href = `tienda.html?search=${encodeURIComponent(query)}`;
+                    }
+                });
+            }
+
+            // Close search when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!searchBar.contains(e.target) && !searchToggle.contains(e.target)) {
+                    searchBar.classList.remove('active');
+                    searchResults.classList.remove('active');
+                }
+            });
+        }
+
+        async handleSearch(query) {
+            const searchResults = document.getElementById('search-results');
+            const searchResultsContent = document.getElementById('search-results-content');
+
+            if (!query.trim()) {
+                searchResults.classList.remove('active');
+                return;
+            }
+
+            if (window.productsLoader) {
+                const results = window.productsLoader.filterProducts({ search: query });
+                this.displaySearchResults(results.slice(0, 5));
+            } else {
+                // Fallback si productsLoader no está disponible
+                searchResultsContent.innerHTML = `
+                    <div class="search-results__empty">
+                        <i class="fas fa-search"></i>
+                        <p>Buscando productos...</p>
+                    </div>
+                `;
+                searchResults.classList.add('active');
+            }
+        }
+
+        displaySearchResults(products) {
+            const searchResults = document.getElementById('search-results');
+            const searchResultsContent = document.getElementById('search-results-content');
+
+            if (products.length === 0) {
+                searchResultsContent.innerHTML = `
+                    <div class="search-results__empty">
+                        <i class="fas fa-search"></i>
+                        <p>No se encontraron productos</p>
+                    </div>
+                `;
+            } else {
+                const resultsHTML = products.map(product => `
+                    <div class="search-result-item" onclick="window.location.href='../pages/producto/${product.id}.html'">
+                        <div class="search-result-item__image">
+                            <img src="${product.images?.[0] || '../assets/images/placeholder.jpg'}" 
+                                 alt="${product.name}"
+                                 onerror="this.src='../assets/images/placeholder.jpg'">
+                        </div>
+                        <div class="search-result-item__content">
+                            <div class="search-result-item__name">${product.name}</div>
+                            <div class="search-result-item__price">$${product.price.toFixed(2)}</div>
+                        </div>
+                    </div>
+                `).join('');
+
+                searchResultsContent.innerHTML = resultsHTML;
+            }
+
+            searchResults.classList.add('active');
+        }
+
+        setupThemeToggle() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle?.querySelector('i');
+
+            // Check for saved theme preference or respect OS preference
+            const savedTheme = localStorage.getItem('theme') || 
+                              (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            
+            this.setTheme(savedTheme);
+
+            if (themeToggle && themeIcon) {
+                themeToggle.addEventListener('click', () => {
+                    const currentTheme = document.body.classList.contains('dark-theme') ? 'dark' : 'light';
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    this.setTheme(newTheme);
+                });
+            }
+        }
+
+        setTheme(theme) {
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle?.querySelector('i');
+
+            if (theme === 'dark') {
+                document.body.classList.add('dark-theme');
+                if (themeIcon) {
+                    themeIcon.className = 'fas fa-sun';
+                }
+            } else {
+                document.body.classList.remove('dark-theme');
+                if (themeIcon) {
+                    themeIcon.className = 'fas fa-moon';
+                }
+            }
+
+            localStorage.setItem('theme', theme);
+        }
+
+        setupScrollEffect() {
+            const header = document.getElementById('header');
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                lastScrollY = window.scrollY;
+            });
+        }
+
+        updateCartCounter() {
+            const cartCount = document.getElementById('cart-count');
+            if (cartCount) {
+                const cart = JSON.parse(localStorage.getItem('nidoBenditoCart') || '[]');
+                const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+                cartCount.textContent = totalItems;
+                cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
+            }
+        }
+
+        updateWishlistCounter() {
+            const wishlistCount = document.getElementById('wishlist-count');
+            if (wishlistCount) {
+                const wishlist = JSON.parse(localStorage.getItem('nidoBenditoWishlist') || '[]');
+                wishlistCount.textContent = wishlist.length;
+                wishlistCount.style.display = wishlist.length > 0 ? 'flex' : 'none';
             }
         }
     }
 
-    toggleAccount() {
-        this.state.isAccountOpen = !this.state.isAccountOpen;
-        const dropdown = document.querySelector(this.selectors.accountDropdown);
-        
-        if (dropdown) {
-            dropdown.classList.toggle('active', this.state.isAccountOpen);
-        }
+    // Initialize header when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        window.headerComponent = new HeaderComponent();
+    });
+
+    // Export for use in other modules
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = HeaderComponent;
     }
-
-    toggleMobileNav() {
-        this.state.isMobileNavOpen = !this.state.isMobileNavOpen;
-        const mobileNav = document.querySelector(this.selectors.mobileNav);
-        const toggle = document.querySelector(this.selectors.mobileMenuToggle);
-        
-        if (mobileNav && toggle) {
-            mobileNav.classList.toggle('active', this.state.isMobileNavOpen);
-            toggle.setAttribute('aria-expanded', this.state.isMobileNavOpen);
-            document.body.style.overflow = this.state.isMobileNavOpen ? 'hidden' : '';
-        }
-    }
-
-    closeMobileNav() {
-        this.state.isMobileNavOpen = false;
-        const mobileNav = document.querySelector(this.selectors.mobileNav);
-        const toggle = document.querySelector(this.selectors.mobileMenuToggle);
-        
-        if (mobileNav && toggle) {
-            mobileNav.classList.remove('active');
-            toggle.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-        }
-    }
-
-    openSearchOverlay() {
-        this.state.isSearchOverlayOpen = true;
-        const overlay = document.querySelector(this.selectors.searchOverlay);
-        
-        if (overlay) {
-            overlay.classList.add('active');
-            document.querySelector(this.selectors.overlaySearch)?.focus();
-            document.body.style.overflow = 'hidden';
-        }
-    }
-
-    closeSearchOverlay() {
-        this.state.isSearchOverlayOpen = false;
-        const overlay = document.querySelector(this.selectors.searchOverlay);
-        
-        if (overlay) {
-            overlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    }
-
-    handleSearch(e) {
-        e.preventDefault();
-        const searchTerm = document.querySelector(this.selectors.headerSearch)?.value.trim();
-        
-        if (searchTerm) {
-            this.performSearch(searchTerm);
-            this.addToRecentSearches(searchTerm);
-        }
-    }
-
-    handleOverlaySearch(e) {
-        e.preventDefault();
-        const searchTerm = document.querySelector(this.selectors.overlaySearch)?.value.trim();
-        
-        if (searchTerm) {
-            this.performSearch(searchTerm);
-            this.addToRecentSearches(searchTerm);
-            this.closeSearchOverlay();
-        }
-    }
-
-    handleSearchInput(e) {
-        const searchTerm = e.target.value.trim();
-        
-        if (searchTerm.length > 2) {
-            this.showSearchSuggestions(searchTerm);
-        } else {
-            this.hideSearchResults();
-        }
-    }
-
-    handleOverlaySearchInput(e) {
-        const searchTerm = e.target.value.trim();
-        
-        if (searchTerm.length > 2) {
-            this.showOverlaySearchResults(searchTerm);
-        } else {
-            this.showSearchSuggestions();
-        }
-    }
-
-    performSearch(searchTerm) {
-        // Redirigir a la página de tienda con el término de búsqueda
-        window.location.href = `../pages/tienda.html?busqueda=${encodeURIComponent(searchTerm)}`;
-    }
-
-    showSearchSuggestions(searchTerm = '') {
-        if (!searchTerm) {
-            this.showDefaultSuggestions();
-            return;
-        }
-
-        // Integrar con ProductsLoader si está disponible
-        if (window.productsLoader) {
-            const results = window.productsLoader.searchProducts(searchTerm).slice(0, 5);
-            this.displaySearchResults(results, searchTerm);
-        }
-    }
-
-    showOverlaySearchResults(searchTerm) {
-        if (window.productsLoader) {
-            const results = window.productsLoader.searchProducts(searchTerm).slice(0, 8);
-            this.displayOverlayResults(results, searchTerm);
-        }
-    }
-
-    displaySearchResults(products, searchTerm) {
-        const resultsContainer = document.querySelector(this.selectors.searchResults);
-        
-        if (!resultsContainer) return;
-
-        if (products.length === 0) {
-            resultsContainer.innerHTML = `
-                <div class="search-no-results">
-                    <p>No se encontraron productos para "${searchTerm}"</p>
-                </div>
-            `;
-        } else {
-            resultsContainer.innerHTML = products.map(product => `
-                <a href="../pages/producto/detalle.html?product=${product.slug}" class="search-result-item">
-                    <img src="${product.images?.[0]?.url || '../assets/images/placeholder-product.jpg'}" alt="${product.name}">
-                    <div class="search-result-info">
-                        <h4>${product.name}</h4>
-                        <p class="search-result-price">Q${product.price}</p>
-                    </div>
-                </a>
-            `).join('');
-        }
-
-        resultsContainer.classList.add('active');
-    }
-
-    displayOverlayResults(products, searchTerm) {
-        const resultsContainer = document.querySelector(this.selectors.searchOverlayResults);
-        
-        if (!resultsContainer) return;
-
-        if (products.length === 0) {
-            resultsContainer.innerHTML = `
-                <div class="search-overlay-no-results">
-                    <i class="fas fa-search"></i>
-                    <h3>No se encontraron resultados</h3>
-                    <p>Intenta con otras palabras clave</p>
-                </div>
-            `;
-        } else {
-            resultsContainer.innerHTML = `
-                <div class="search-overlay-results-list">
-                    <h4>Resultados para "${searchTerm}"</h4>
-                    ${products.map(product => `
-                        <a href="../pages/producto/detalle.html?product=${product.slug}" class="search-overlay-result-item">
-                            <img src="${product.images?.[0]?.url || '../assets/images/placeholder-product.jpg'}" alt="${product.name}">
-                            <div class="search-overlay-result-info">
-                                <h5>${product.name}</h5>
-                                <p class="search-overlay-result-price">Q${product.price}</p>
-                                <p class="search-overlay-result-category">${window.productsLoader?.getCategoryName(product.category) || ''}</p>
-                            </div>
-                        </a>
-                    `).join('')}
-                </div>
-            `;
-        }
-    }
-
-    showDefaultSuggestions() {
-        const resultsContainer = document.querySelector(this.selectors.searchOverlayResults);
-        
-        if (resultsContainer) {
-            resultsContainer.innerHTML = `
-                <div class="search-suggestions">
-                    <h4>Sugerencias populares</h4>
-                    <div class="suggestion-tags">
-                        <button class="suggestion-tag" data-search="vela">Velas aromáticas</button>
-                        <button class="suggestion-tag" data-search="jarrón">Jarrones</button>
-                        <button class="suggestion-tag" data-search="cojín">Cojines</button>
-                        <button class="suggestion-tag" data-search="espejo">Espejos</button>
-                    </div>
-                </div>
-                <div class="recent-searches">
-                    <h4>Búsquedas recientes</h4>
-                    <div class="recent-searches-list" id="recentSearchesList">
-                        ${this.state.recentSearches.map(search => `
-                            <button class="recent-search-item" data-search="${search}">
-                                <i class="fas fa-clock"></i>
-                                ${search}
-                            </button>
-                        `).join('')}
-                    </div>
-                </div>
-            `;
-        }
-    }
-
-    hideSearchResults() {
-        const resultsContainer = document.querySelector(this.selectors.searchResults);
-        if (resultsContainer) {
-            resultsContainer.classList.remove('active');
-        }
-    }
-
-    setupCategoryFilters() {
-        // Filtros de categoría en desktop
-        const categoryLinks = document.querySelectorAll('.category-filter-link');
-        categoryLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const category = link.dataset.category;
-                this.handleCategoryFilter(category);
-            });
-        });
-
-        // Filtros de categoría en móvil
-        const mobileCategoryLinks = document.querySelectorAll('.mobile-nav-link[data-category]');
-        mobileCategoryLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                const category = link.dataset.category;
-                this.handleCategoryFilter(category);
-                this.closeMobileNav();
-            });
-        });
-    }
-
-    handleCategoryFilter(categoryId) {
-        // Actualizar enlaces activos
-        document.querySelectorAll('.category-filter-link').forEach(link => {
-            link.classList.toggle('active', link.dataset.category === categoryId);
-        });
-
-        document.querySelectorAll('.mobile-nav-link[data-category]').forEach(link => {
-            link.classList.toggle('active', link.dataset.category === categoryId);
-        });
-
-        // Redirigir a la tienda con el filtro aplicado
-        if (categoryId === 'all') {
-            window.location.href = '../pages/tienda.html';
-        } else {
-            window.location.href = `../pages/tienda.html?categoria=${categoryId}`;
-        }
-    }
-
-    setupSuggestionTags() {
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('suggestion-tag') || e.target.classList.contains('recent-search-item')) {
-                const searchTerm = e.target.dataset.search;
-                document.querySelector(this.selectors.overlaySearch).value = searchTerm;
-                this.handleOverlaySearch(new Event('submit'));
-            }
-        });
-    }
-
-    addToRecentSearches(searchTerm) {
-        // Evitar duplicados
-        this.state.recentSearches = this.state.recentSearches.filter(s => s !== searchTerm);
-        
-        // Agregar al inicio
-        this.state.recentSearches.unshift(searchTerm);
-        
-        // Mantener solo las últimas 5 búsquedas
-        this.state.recentSearches = this.state.recentSearches.slice(0, 5);
-        
-        // Guardar en localStorage
-        localStorage.setItem('nidoBenditoRecentSearches', JSON.stringify(this.state.recentSearches));
-        
-        // Actualizar la UI
-        this.loadRecentSearches();
-    }
-
-    loadRecentSearches() {
-        const recentSearchesList = document.getElementById('recentSearchesList');
-        if (recentSearchesList && this.state.recentSearches.length > 0) {
-            recentSearchesList.innerHTML = this.state.recentSearches.map(search => `
-                <button class="recent-search-item" data-search="${search}">
-                    <i class="fas fa-clock"></i>
-                    ${search}
-                </button>
-            `).join('');
-        }
-    }
-
-    updateCartCount() {
-        // Integrar con el sistema de carrito cuando esté disponible
-        const cartCount = localStorage.getItem('nidoBenditoCartCount') || '0';
-        
-        document.querySelectorAll(this.selectors.cartCount).forEach(el => {
-            el.textContent = cartCount;
-        });
-        
-        document.querySelectorAll(this.selectors.mobileCartCount).forEach(el => {
-            el.textContent = cartCount;
-        });
-    }
-
-    handleClickOutside(e) {
-        // Cerrar dropdowns cuando se hace clic fuera
-        if (!e.target.closest('.search-container') && this.state.isSearchOpen) {
-            this.state.isSearchOpen = false;
-            document.querySelector(this.selectors.searchDropdown)?.classList.remove('active');
-        }
-
-        if (!e.target.closest('.account-container') && this.state.isAccountOpen) {
-            this.state.isAccountOpen = false;
-            document.querySelector(this.selectors.accountDropdown)?.classList.remove('active');
-        }
-    }
-}
-
-// Inicializar el header cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    window.headerManager = new HeaderManager();
-});
 </script>

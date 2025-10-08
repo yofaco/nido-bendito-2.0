@@ -1,813 +1,643 @@
 <!-- templates/footer.html -->
-<footer class="main-footer" id="main-footer">
-    <div class="container">
-        <!-- Contenido principal del footer -->
-        <div class="footer-content">
-            <!-- Columna 1: Información de la empresa -->
-            <div class="footer-column footer-info">
-                <h3>Nido Bendito</h3>
-                <p>Creando espacios acogedores con productos artesanales guatemaltecos. Transformamos tu hogar en un refugio lleno de calidez y estilo.</p>
-                
-                <div class="footer-contact">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:hola@nidobendito.com">hola@nidobendito.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:+50212345678">+502 1234-5678</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Ciudad de Guatemala, Guatemala</span>
-                    </div>
-                </div>
+<footer class="footer section">
+    <div class="footer__container container grid">
+        <!-- Company Info -->
+        <div class="footer__content">
+            <a href="index.html" class="footer__logo">
+                <i class="fas fa-feather"></i>
+                Nido Bendito
+            </a>
+            <p class="footer__description">
+                Creando espacios especiales con productos <br>
+                artesanales desde 2024.
+            </p>
+            
+            <div class="footer__social">
+                <a href="https://facebook.com/nidobendito" target="_blank" class="footer__social-link" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com/nidobendito" target="_blank" class="footer__social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://pinterest.com/nidobendito" target="_blank" class="footer__social-link" aria-label="Pinterest">
+                    <i class="fab fa-pinterest-p"></i>
+                </a>
+                <a href="https://tiktok.com/@nidobendito" target="_blank" class="footer__social-link" aria-label="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                </a>
             </div>
 
-            <!-- Columna 2: Enlaces rápidos -->
-            <div class="footer-column">
-                <h4>Navegación</h4>
-                <ul class="footer-links">
-                    <li><a href="../pages/index.html">Inicio</a></li>
-                    <li><a href="../pages/tienda.html">Tienda</a></li>
-                    <li><a href="../pages/nosotros.html">Nosotros</a></li>
-                    <li><a href="../pages/historias.html">Historias</a></li>
-                    <li><a href="../pages/envio.html">Envío & Devoluciones</a></li>
-                </ul>
-            </div>
-
-            <!-- Columna 3: Categorías -->
-            <div class="footer-column">
-                <h4>Categorías</h4>
-                <ul class="footer-links">
-                    <li><a href="../pages/tienda.html?categoria=living-room">Living Room</a></li>
-                    <li><a href="../pages/tienda.html?categoria=dining-kitchen">Dining & Kitchen</a></li>
-                    <li><a href="../pages/tienda.html?categoria=wall-decor">Wall Decor</a></li>
-                    <li><a href="../pages/tienda.html?categoria=bedroom">Bedroom</a></li>
-                    <li><a href="../pages/tienda.html?categoria=pillows-decor">Pillows & Decor</a></li>
-                    <li><a href="../pages/tienda.html?categoria=lighting">Lighting</a></li>
-                </ul>
-            </div>
-
-            <!-- Columna 4: Newsletter y redes -->
-            <div class="footer-column footer-newsletter">
-                <h4>Únete a Nido Bendito</h4>
-                <p>Recibe novedades, promociones exclusivas e inspiración para tu hogar.</p>
-                
-                <form class="newsletter-form" id="footerNewsletterForm">
-                    <div class="input-group">
-                        <input 
-                            type="email" 
-                            placeholder="Tu correo electrónico" 
-                            class="newsletter-input"
-                            required
-                            aria-label="Suscribirse al newsletter"
-                        >
-                        <button type="submit" class="newsletter-btn" aria-label="Suscribirse">
+            <!-- Newsletter Subscription -->
+            <div class="footer__newsletter">
+                <h4 class="footer__newsletter-title">Newsletter</h4>
+                <p class="footer__newsletter-description">
+                    Suscríbete para recibir novedades y promociones
+                </p>
+                <form class="footer__newsletter-form" id="footer-newsletter-form">
+                    <div class="footer__newsletter-input-group">
+                        <input type="email" 
+                               placeholder="Tu correo electrónico" 
+                               class="footer__newsletter-input"
+                               required>
+                        <button type="submit" class="footer__newsletter-button">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
-                    <div class="newsletter-message" id="newsletterMessage"></div>
                 </form>
-
-                <!-- Redes sociales -->
-                <div class="social-links">
-                    <a href="https://instagram.com/nidobendito" 
-                       class="social-link" 
-                       aria-label="Síguenos en Instagram"
-                       target="_blank"
-                       rel="noopener">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://facebook.com/nidobendito" 
-                       class="social-link" 
-                       aria-label="Síguenos en Facebook"
-                       target="_blank"
-                       rel="noopener">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://pinterest.com/nidobendito" 
-                       class="social-link" 
-                       aria-label="Síguenos en Pinterest"
-                       target="_blank"
-                       rel="noopener">
-                        <i class="fab fa-pinterest-p"></i>
-                    </a>
-                    <a href="https://wa.me/50212345678" 
-                       class="social-link" 
-                       aria-label="Escríbenos por WhatsApp"
-                       target="_blank"
-                       rel="noopener">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
-                </div>
             </div>
         </div>
 
-        <!-- Línea separadora -->
-        <div class="footer-divider"></div>
+        <!-- Quick Links -->
+        <div class="footer__content">
+            <h3 class="footer__title">Explorar</h3>
+            
+            <ul class="footer__links">
+                <li><a href="tienda.html" class="footer__link">Tienda</a></li>
+                <li><a href="tienda.html?category=living-room" class="footer__link">Living Room</a></li>
+                <li><a href="tienda.html?category=bedroom" class="footer__link">Bedroom</a></li>
+                <li><a href="tienda.html?category=dining-kitchen" class="footer__link">Dining & Kitchen</a></li>
+                <li><a href="tienda.html?category=wall-decor" class="footer__link">Wall Decor</a></li>
+            </ul>
+        </div>
 
-        <!-- Información adicional -->
-        <div class="footer-additional">
-            <!-- Métodos de pago -->
-            <div class="payment-methods">
-                <h5>Métodos de pago aceptados</h5>
-                <div class="payment-icons">
-                    <i class="fab fa-cc-visa" title="Visa"></i>
-                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                    <i class="fab fa-cc-amex" title="American Express"></i>
-                    <i class="fab fa-cc-paypal" title="PayPal"></i>
-                    <i class="fas fa-money-bill-wave" title="Efectivo"></i>
-                    <i class="fas fa-university" title="Transferencia bancaria"></i>
-                </div>
-            </div>
+        <!-- Support -->
+        <div class="footer__content">
+            <h3 class="footer__title">Soporte</h3>
+            
+            <ul class="footer__links">
+                <li><a href="envio.html" class="footer__link">Envíos y Entregas</a></li>
+                <li><a href="devoluciones.html" class="footer__link">Devoluciones</a></li>
+                <li><a href="faq.html" class="footer__link">Preguntas Frecuentes</a></li>
+                <li><a href="contacto.html" class="footer__link">Contacto</a></li>
+                <li><a href="terminos.html" class="footer__link">Términos y Condiciones</a></li>
+            </ul>
+        </div>
 
-            <!-- Certificaciones y garantías -->
-            <div class="footer-badges">
-                <div class="badge">
-                    <i class="fas fa-shipping-fast"></i>
-                    <span>Envío gratis desde Q500</span>
-                </div>
-                <div class="badge">
+        <!-- Contact & Business Info -->
+        <div class="footer__content">
+            <h3 class="footer__title">Contacto</h3>
+            
+            <ul class="footer__contact">
+                <li class="footer__contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <span class="footer__contact-label">Email</span>
+                        <a href="mailto:hola@nidobendito.com" class="footer__contact-value">hola@nidobendito.com</a>
+                    </div>
+                </li>
+                <li class="footer__contact-info">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <span class="footer__contact-label">Teléfono</span>
+                        <a href="tel:+525512345678" class="footer__contact-value">+52 55 1234 5678</a>
+                    </div>
+                </li>
+                <li class="footer__contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <span class="footer__contact-label">Ubicación</span>
+                        <span class="footer__contact-value">CDMX, México</span>
+                    </div>
+                </li>
+                <li class="footer__contact-info">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <span class="footer__contact-label">Horario</span>
+                        <span class="footer__contact-value">Lun-Vie: 9:00-18:00</span>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- Trust Badges -->
+            <div class="footer__trust-badges">
+                <div class="trust-badge">
                     <i class="fas fa-shield-alt"></i>
-                    <span>Compra segura</span>
+                    <span>Compra Segura</span>
                 </div>
-                <div class="badge">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <span>Productos artesanales</span>
+                <div class="trust-badge">
+                    <i class="fas fa-truck"></i>
+                    <span>Envío Rápido</span>
                 </div>
-            </div>
-        </div>
-
-        <!-- Footer inferior -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-content">
-                <div class="copyright">
-                    <p>&copy; 2024 Nido Bendito. Todos los derechos reservados.</p>
-                </div>
-                
-                <div class="footer-legal">
-                    <a href="../pages/privacidad.html">Política de Privacidad</a>
-                    <span class="separator">|</span>
-                    <a href="../pages/terminos.html">Términos de Servicio</a>
-                    <span class="separator">|</span>
-                    <a href="../pages/devoluciones.html">Política de Devoluciones</a>
+                <div class="trust-badge">
+                    <i class="fas fa-undo"></i>
+                    <span>Devoluciones</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Botón de volver arriba -->
-    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <!-- Footer Bottom -->
+    <div class="footer__bottom">
+        <div class="footer__bottom-container container">
+            <div class="footer__copy">
+                <p>&#169; 2024 Nido Bendito. Todos los derechos reservados.</p>
+                <p class="footer__legal-links">
+                    <a href="privacidad.html">Política de Privacidad</a> • 
+                    <a href="cookies.html">Cookies</a> • 
+                    <a href="aviso-legal.html">Aviso Legal</a>
+                </p>
+            </div>
+            
+            <div class="footer__payment-methods">
+                <span class="footer__payment-label">Métodos de pago:</span>
+                <div class="footer__payment-icons">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                    <i class="fas fa-money-bill-wave" title="Efectivo"></i>
+                </div>
+            </div>
+
+            <!-- Back to Top -->
+            <button class="footer__back-to-top" id="back-to-top" aria-label="Volver al inicio">
+                <i class="fas fa-chevron-up"></i>
+            </button>
+        </div>
+    </div>
 </footer>
 
-<!-- CSS para el footer -->
 <style>
-/* Variables CSS consistentes con el tema */
-:root {
-    --primary-color: #E0A06B;
-    --primary-dark: #c98a5a;
-    --dark-brown: #332B25;
-    --medium-brown: #8B817A;
-    --light-beige: #FCFBF7;
-    --white: #FFFFFF;
-    --light-gray: #E8E8E8;
-    --success-color: #27AE60;
-    --whatsapp-green: #25D366;
-    --instagram-purple: #E4405F;
-    --facebook-blue: #1877F2;
-    --pinterest-red: #BD081C;
-}
-
-/* Footer principal */
-.main-footer {
-    background: var(--dark-brown);
-    color: var(--white);
-    padding: 60px 0 0 0;
-    margin-top: 80px;
-    position: relative;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-.footer-column h3,
-.footer-column h4 {
-    color: var(--white);
-    margin-bottom: 20px;
-    font-family: 'Playfair Display', serif;
-}
-
-.footer-column h3 {
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-
-.footer-column h4 {
-    font-size: 1.1em;
-    font-weight: 600;
-}
-
-/* Información de la empresa */
-.footer-info p {
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-    margin-bottom: 25px;
-    font-size: 0.95em;
-}
-
-.footer-contact {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.contact-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9em;
-}
-
-.contact-item i {
-    color: var(--primary-color);
-    width: 16px;
-    text-align: center;
-}
-
-.contact-item a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.contact-item a:hover {
-    color: var(--primary-color);
-}
-
-/* Enlaces del footer */
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 0.9em;
-    display: block;
-    padding: 4px 0;
-}
-
-.footer-links a:hover {
-    color: var(--primary-color);
-    transform: translateX(5px);
-}
-
-/* Newsletter */
-.footer-newsletter p {
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 20px;
-    font-size: 0.9em;
-    line-height: 1.5;
-}
-
-.newsletter-form {
-    margin-bottom: 25px;
-}
-
-.input-group {
-    display: flex;
-    background: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.newsletter-input {
-    flex: 1;
-    padding: 12px 16px;
-    border: none;
-    background: transparent;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9em;
-    color: var(--dark-brown);
-}
-
-.newsletter-input:focus {
-    outline: none;
-}
-
-.newsletter-input::placeholder {
-    color: var(--medium-brown);
-}
-
-.newsletter-btn {
-    background: var(--primary-color);
-    color: var(--white);
-    border: none;
-    padding: 12px 20px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.newsletter-btn:hover {
-    background: var(--primary-dark);
-}
-
-.newsletter-message {
-    margin-top: 8px;
-    font-size: 0.8em;
-    min-height: 20px;
-}
-
-.newsletter-message.success {
-    color: var(--success-color);
-}
-
-.newsletter-message.error {
-    color: #ff6b6b;
-}
-
-/* Redes sociales */
-.social-links {
-    display: flex;
-    gap: 12px;
-}
-
-.social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--white);
-    border-radius: 50%;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 1.1em;
-}
-
-.social-link:hover {
-    transform: translateY(-2px);
-    background: var(--primary-color);
-}
-
-.social-link[aria-label*="Instagram"]:hover {
-    background: var(--instagram-purple);
-}
-
-.social-link[aria-label*="Facebook"]:hover {
-    background: var(--facebook-blue);
-}
-
-.social-link[aria-label*="Pinterest"]:hover {
-    background: var(--pinterest-red);
-}
-
-.social-link[aria-label*="WhatsApp"]:hover {
-    background: var(--whatsapp-green);
-}
-
-/* Línea separadora */
-.footer-divider {
-    height: 1px;
-    background: rgba(255, 255, 255, 0.1);
-    margin: 30px 0;
-}
-
-/* Información adicional */
-.footer-additional {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: center;
-    margin-bottom: 30px;
-}
-
-.payment-methods h5 {
-    color: rgba(255, 255, 255, 0.9);
-    margin-bottom: 15px;
-    font-size: 0.9em;
-    font-weight: 600;
-}
-
-.payment-icons {
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
-
-.payment-icons i {
-    font-size: 1.8em;
-    color: rgba(255, 255, 255, 0.7);
-    transition: color 0.3s ease;
-}
-
-.payment-icons i:hover {
-    color: var(--primary-color);
-}
-
-/* Badges de garantías */
-.footer-badges {
-    display: flex;
-    gap: 20px;
-    justify-content: flex-end;
-    flex-wrap: wrap;
-}
-
-.badge {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.05);
-    padding: 10px 15px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.8em;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.badge i {
-    color: var(--primary-color);
-    font-size: 1.1em;
-}
-
-/* Footer inferior */
-.footer-bottom {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 25px 0;
-}
-
-.footer-bottom-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.copyright p {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.85em;
-    margin: 0;
-}
-
-.footer-legal {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.footer-legal a {
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    font-size: 0.85em;
-    transition: color 0.3s ease;
-}
-
-.footer-legal a:hover {
-    color: var(--primary-color);
-}
-
-.separator {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 0.8em;
-}
-
-/* Botón volver arriba */
-.back-to-top {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: var(--primary-color);
-    color: var(--white);
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.2em;
-    box-shadow: 0 4px 15px rgba(224, 160, 107, 0.3);
-}
-
-.back-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top:hover {
-    background: var(--primary-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(224, 160, 107, 0.4);
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px;
+    /* Footer Styles */
+    .footer {
+        background: var(--title-color);
+        color: white;
+        padding: 4rem 0 0;
     }
-    
-    .footer-additional {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .footer-badges {
-        justify-content: flex-start;
-    }
-}
 
-@media (max-width: 768px) {
-    .main-footer {
-        padding: 40px 0 0 0;
-        margin-top: 60px;
+    .footer__container {
+        gap: 3rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: center;
+
+    .footer__content {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
     }
-    
-    .footer-contact {
+
+    .footer__logo {
+        display: flex;
         align-items: center;
+        gap: 0.5rem;
+        font-weight: var(--font-semi-bold);
+        font-size: var(--h2-font-size);
+        color: white;
+        margin-bottom: 0.5rem;
     }
-    
-    .social-links {
-        justify-content: center;
-    }
-    
-    .footer-bottom-content {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-    
-    .footer-legal {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 45px;
-        height: 45px;
-    }
-}
 
-@media (max-width: 480px) {
-    .footer-additional {
-        gap: 20px;
+    .footer__logo i {
+        color: var(--secondary-color);
+        font-size: 1.75rem;
     }
-    
-    .footer-badges {
-        flex-direction: column;
+
+    .footer__description {
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .footer__social {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .footer__social-link {
+        width: 44px;
+        height: 44px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
         align-items: center;
-        gap: 10px;
-    }
-    
-    .badge {
-        width: 100%;
         justify-content: center;
+        transition: all 0.3s ease;
+        color: white;
     }
-    
-    .payment-icons {
-        justify-content: center;
+
+    .footer__social-link:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        color: white;
     }
-    
-    .footer-legal {
+
+    /* Newsletter */
+    .footer__newsletter {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer__newsletter-title {
+        color: white;
+        font-size: var(--h3-font-size);
+        margin-bottom: 0.5rem;
+    }
+
+    .footer__newsletter-description {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: var(--small-font-size);
+        margin-bottom: 1rem;
+    }
+
+    .footer__newsletter-form {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .footer__newsletter-input {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        font-size: var(--small-font-size);
+    }
+
+    .footer__newsletter-input::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .footer__newsletter-input:focus {
+        outline: none;
+        border-color: var(--secondary-color);
+        background: rgba(255, 255, 255, 0.15);
+    }
+
+    .footer__newsletter-button {
+        padding: 0.75rem;
+        background: var(--secondary-color);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .footer__newsletter-button:hover {
+        background: var(--secondary-color-dark);
+        transform: translateY(-1px);
+    }
+
+    /* Footer Titles */
+    .footer__title {
+        color: white;
+        font-size: var(--h3-font-size);
+        margin-bottom: 1.5rem;
+        position: relative;
+    }
+
+    .footer__title::after {
+        content: '';
+        position: absolute;
+        bottom: -0.5rem;
+        left: 0;
+        width: 40px;
+        height: 2px;
+        background: var(--secondary-color);
+        border-radius: 2px;
+    }
+
+    /* Footer Links */
+    .footer__links {
+        display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 0.75rem;
     }
-    
-    .separator {
-        display: none;
+
+    .footer__link {
+        color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+        padding: 0.25rem 0;
+        position: relative;
     }
-}
 
-/* Animaciones */
-.footer-links a,
-.social-link,
-.newsletter-btn,
-.back-to-top {
-    transition: all 0.3s ease;
-}
+    .footer__link:hover {
+        color: var(--secondary-color);
+        transform: translateX(5px);
+    }
 
-/* Mejoras de accesibilidad */
-.footer-links a:focus,
-.social-link:focus,
-.newsletter-btn:focus,
-.back-to-top:focus {
-    outline: 2px solid var(--primary-color);
-    outline-offset: 2px;
-}
+    /* Contact Info */
+    .footer__contact {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
 
-/* Estados de carga */
-.newsletter-form.loading .newsletter-btn {
-    pointer-events: none;
-    opacity: 0.7;
-}
+    .footer__contact-info {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+    }
 
-.newsletter-form.loading .newsletter-btn i {
-    animation: spin 1s linear infinite;
-}
+    .footer__contact-info i {
+        color: var(--secondary-color);
+        font-size: 1.25rem;
+        margin-top: 0.25rem;
+        flex-shrink: 0;
+        width: 20px;
+    }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
+    .footer__contact-label {
+        display: block;
+        font-size: var(--small-font-size);
+        color: rgba(255, 255, 255, 0.5);
+        margin-bottom: 0.25rem;
+    }
+
+    .footer__contact-value {
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: var(--font-medium);
+        transition: color 0.3s ease;
+    }
+
+    .footer__contact-value:hover {
+        color: var(--secondary-color);
+    }
+
+    /* Trust Badges */
+    .footer__trust-badges {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+    }
+
+    .trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .trust-badge i {
+        color: var(--secondary-color);
+        font-size: 1.1rem;
+        width: 20px;
+    }
+
+    .trust-badge span {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: var(--small-font-size);
+        font-weight: var(--font-medium);
+    }
+
+    /* Footer Bottom */
+    .footer__bottom {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 2rem 0;
+    }
+
+    .footer__bottom-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .footer__copy {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: var(--small-font-size);
+    }
+
+    .footer__legal-links {
+        margin-top: 0.5rem;
+    }
+
+    .footer__legal-links a {
+        color: rgba(255, 255, 255, 0.6);
+        transition: color 0.3s ease;
+    }
+
+    .footer__legal-links a:hover {
+        color: var(--secondary-color);
+    }
+
+    /* Payment Methods */
+    .footer__payment-methods {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .footer__payment-label {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: var(--small-font-size);
+    }
+
+    .footer__payment-icons {
+        display: flex;
+        gap: 0.75rem;
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .footer__payment-icons i {
+        transition: color 0.3s ease;
+    }
+
+    .footer__payment-icons i:hover {
+        color: var(--secondary-color);
+    }
+
+    /* Back to Top */
+    .footer__back-to-top {
+        width: 44px;
+        height: 44px;
+        background: var(--secondary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+    }
+
+    .footer__back-to-top:hover {
+        background: var(--secondary-color-dark);
+        transform: translateY(-2px);
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 968px) {
+        .footer__container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer__bottom-container {
+            flex-direction: column;
+            text-align: center;
+            gap: 1.5rem;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .footer__container {
+            grid-template-columns: 1fr;
+        }
+
+        .footer__content {
+            text-align: center;
+        }
+
+        .footer__social {
+            justify-content: center;
+        }
+
+        .footer__contact-info {
+            justify-content: center;
+            text-align: left;
+        }
+
+        .footer__trust-badges {
+            align-items: center;
+        }
+
+        .footer__payment-methods {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer__newsletter-form {
+            flex-direction: column;
+        }
+    }
+
+    /* Dark Theme Support */
+    .dark-theme .footer {
+        background: var(--container-color-dark);
+    }
+
+    .dark-theme .footer__bottom {
+        background: rgba(0, 0, 0, 0.3);
+    }
 </style>
 
-<!-- JavaScript para el footer -->
 <script>
-class FooterManager {
-    constructor() {
-        this.selectors = {
-            backToTop: '#backToTop',
-            newsletterForm: '#footerNewsletterForm',
-            newsletterInput: '.newsletter-input',
-            newsletterMessage: '#newsletterMessage'
-        };
-        
-        this.init();
-    }
-    
-    init() {
-        this.setupEventListeners();
-        this.setupScrollToTop();
-        this.setupNewsletter();
-    }
-    
-    setupEventListeners() {
-        // Botón volver arriba
-        const backToTop = document.querySelector(this.selectors.backToTop);
-        if (backToTop) {
-            backToTop.addEventListener('click', () => this.scrollToTop());
+    // Footer Component Script
+    class FooterComponent {
+        constructor() {
+            this.init();
         }
-        
-        // Newsletter
-        const newsletterForm = document.querySelector(this.selectors.newsletterForm);
-        if (newsletterForm) {
-            newsletterForm.addEventListener('submit', (e) => this.handleNewsletterSubmit(e));
+
+        init() {
+            this.setupEventListeners();
+            this.setupNewsletter();
         }
-    }
-    
-    setupScrollToTop() {
-        const backToTop = document.querySelector(this.selectors.backToTop);
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-    }
-    
-    scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-    
-    setupNewsletter() {
-        // Cargar email guardado si existe
-        const savedEmail = localStorage.getItem('nidoBenditoNewsletterEmail');
-        if (savedEmail) {
-            const input = document.querySelector(this.selectors.newsletterInput);
-            if (input) {
-                input.value = savedEmail;
+
+        setupEventListeners() {
+            // Back to top button
+            const backToTop = document.getElementById('back-to-top');
+            if (backToTop) {
+                backToTop.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+
+                // Show/hide based on scroll position
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 500) {
+                        backToTop.style.opacity = '1';
+                        backToTop.style.visibility = 'visible';
+                    } else {
+                        backToTop.style.opacity = '0';
+                        backToTop.style.visibility = 'hidden';
+                    }
+                });
             }
         }
-    }
-    
-    async handleNewsletterSubmit(e) {
-        e.preventDefault();
-        
-        const form = e.target;
-        const input = form.querySelector(this.selectors.newsletterInput);
-        const message = document.querySelector(this.selectors.newsletterMessage);
-        const email = input.value.trim();
-        
-        // Validación básica
-        if (!this.isValidEmail(email)) {
-            this.showMessage(message, 'Por favor ingresa un email válido.', 'error');
-            return;
+
+        setupNewsletter() {
+            const newsletterForm = document.getElementById('footer-newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    await this.handleNewsletterSubmit(e.target);
+                });
+            }
         }
-        
-        // Mostrar estado de carga
-        form.classList.add('loading');
-        
-        try {
-            // Simular envío a API (en producción conectarías con tu backend)
-            await this.subscribeToNewsletter(email);
+
+        async handleNewsletterSubmit(form) {
+            const emailInput = form.querySelector('input[type="email"]');
+            const submitButton = form.querySelector('button[type="submit"]');
             
-            // Éxito
-            this.showMessage(message, '¡Gracias por suscribirte! Te hemos enviado un email de confirmación.', 'success');
-            input.value = '';
+            const email = emailInput.value.trim();
             
-            // Guardar en localStorage
-            localStorage.setItem('nidoBenditoNewsletterEmail', email);
-            localStorage.setItem('nidoBenditoNewsletterSubscribed', 'true');
-            
-            // Tracking
-            this.trackNewsletterSubscription(email);
-            
-        } catch (error) {
-            this.showMessage(message, 'Error al suscribirse. Por favor intenta nuevamente.', 'error');
-        } finally {
-            form.classList.remove('loading');
+            if (!this.isValidEmail(email)) {
+                this.showNotification('Por favor ingresa un email válido', 'error');
+                return;
+            }
+
+            // Disable button during submission
+            const originalText = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+            try {
+                // Simulate API call (replace with real API in production)
+                await this.subscribeToNewsletter(email);
+                
+                this.showNotification('¡Gracias por suscribirte!', 'success');
+                form.reset();
+                
+            } catch (error) {
+                console.error('Error suscribiendo al newsletter:', error);
+                this.showNotification('Error al suscribirse. Intenta nuevamente.', 'error');
+            } finally {
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalText;
+            }
         }
-    }
-    
-    isValidEmail(email) {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(email);
-    }
-    
-    async subscribeToNewsletter(email) {
-        // Simular llamada a API
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                // Simular éxito (en producción, manejar errores reales)
-                if (email) {
+
+        isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        async subscribeToNewsletter(email) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    // Save to localStorage for demo
+                    const subscribers = JSON.parse(localStorage.getItem('newsletterSubscribers') || '[]');
+                    if (!subscribers.includes(email)) {
+                        subscribers.push(email);
+                        localStorage.setItem('newsletterSubscribers', JSON.stringify(subscribers));
+                    }
                     resolve({ success: true });
-                } else {
-                    reject(new Error('Email inválido'));
-                }
-            }, 1500);
-        });
-    }
-    
-    showMessage(messageElement, text, type) {
-        messageElement.textContent = text;
-        messageElement.className = 'newsletter-message ' + type;
-        
-        // Auto-ocultar después de 5 segundos
-        setTimeout(() => {
-            messageElement.textContent = '';
-            messageElement.className = 'newsletter-message';
-        }, 5000);
-    }
-    
-    trackNewsletterSubscription(email) {
-        // Integración con analytics
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'newsletter_subscription', {
-                'event_category': 'engagement',
-                'event_label': 'footer_newsletter'
+                }, 1000);
             });
         }
-        
-        console.log('📧 Newsletter subscription:', email);
-    }
-    
-    // Métodos públicos
-    scrollToSection(sectionId) {
-        const section = document.getElementById(sectionId);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+
+        showNotification(message, type = 'info') {
+            // Reuse notification system from products-loader
+            if (window.productsLoader && window.productsLoader.showNotification) {
+                window.productsLoader.showNotification(message, type);
+            } else {
+                // Fallback notification
+                alert(message);
+            }
         }
     }
-    
-    getSubscriptionStatus() {
-        return localStorage.getItem('nidoBenditoNewsletterSubscribed') === 'true';
+
+    // Initialize footer when DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+        window.footerComponent = new FooterComponent();
+    });
+
+    // Export for use in other modules
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = FooterComponent;
     }
-}
-
-// Inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', () => {
-    window.footerManager = new FooterManager();
-});
-
-// Para uso desde otros scripts
-window.FooterManager = FooterManager;
-
-console.log('🦶 Footer Manager inicializado correctamente');
 </script>

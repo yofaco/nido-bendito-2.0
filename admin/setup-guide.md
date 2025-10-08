@@ -1,124 +1,171 @@
-# 🚀 Guía de Instalación - Sistema de Administración Nido Bendito
+# Guía de Instalación - Panel de Administración Nido Bendito
 
-## 📋 Descripción General
+## 📋 Requisitos Previos
 
-Este sistema te permite gestionar todos los productos y categorías de Nido Bendito de forma visual y sencilla, con auto-subida a GitHub para despliegue automático en Netlify.
+- Navegador web moderno (Chrome, Firefox, Safari, Edge)
+- Acceso a los archivos del sitio web
+- Editor de texto (opcional, para ediciones manuales)
 
----
+## 🚀 Instalación Rápida
 
-## 🎯 Requisitos Previos
-
-### Software Necesario:
-- ✅ **GitHub Desktop** - Para subir cambios al repositorio
-- ✅ **Navegador Web Moderno** - Chrome, Firefox, Safari o Edge
-- ✅ **Conexión a Internet** - Para despliegue automático
-
-### Conocimientos Necesarios:
-- ✅ **Básico** - Saber usar un navegador web
-- ✅ **Básico** - Saber hacer clic y arrastrar archivos
-- ⚠️ **No se requiere** conocimiento de programación
-
----
-
-## 📥 PASO 1: Instalar GitHub Desktop
-
-### 1.1 Descargar GitHub Desktop
-Ve a: **[https://desktop.github.com/](https://desktop.github.com/)**
-
-1. Haz clic en **"Download for Windows"** (o Mac)
-2. Ejecuta el archivo descargado
-3. Sigue el asistente de instalación
-
-### 1.2 Configurar Cuenta
-1. Abre **GitHub Desktop**
-2. Inicia sesión con tu cuenta de GitHub
-3. Si no tienes cuenta, créala gratis en [github.com](https://github.com)
-
-### 1.3 Clonar tu Repositorio
-1. En GitHub Desktop, haz clic en **"Clone a Repository"**
-2. Selecciona tu repositorio de **"nido-bendito"**
-3. Elige una carpeta local (ej: `C:\Users\TuNombre\Documents\nido-bendito`)
-4. Haz clic en **"Clone"**
-
----
-
-## 📁 PASO 2: Configurar la Estructura de Carpetas
-
-### 2.1 Verificar Estructura Actual
-Tu repositorio debe tener esta estructura:
+### Paso 1: Estructura de Carpetas
+Asegúrate de tener esta estructura de carpetas:
 nido-bendito/
-├── 🎨 assets/
-│ ├── css/
-│ ├── js/
-│ └── images/
-├── 📄 pages/
-├── 🛠️ admin/ ← Aquí va el sistema nuevo
-├── 📊 data/
-└── 📦 templates/
+├── 📁 admin/
+│ └── admin.html
+├── 📁 assets/
+│ ├── 📁 css/
+│ │ └── admin.css
+│ └── 📁 js/
+│ ├── admin.js
+│ ├── products-manager.js
+│ ├── categories-manager.js
+│ └── image-uploader.js
+└── 📁 data/
+├── products.json
+├── categories.json
+└── config.json
 
 text
 
-### 2.2 Copiar Archivos del Sistema
-1. Descarga todos los archivos del sistema administrativo
-2. Copia la carpeta `admin/` completa a tu repositorio
-3. Asegúrate de que los archivos queden así:
-nido-bendito/
-├── 🛠️ admin/
-│ ├── 📄 admin.html ← Interfaz principal
-│ ├── 🎨 admin.css ← Estilos
-│ ├── ⚙️ admin.js ← Lógica
-│ ├── 🔄 auto-upload.js ← Auto-subida
-│ └── 📖 setup-guide.md ← Esta guía
+### Paso 2: Configuración Inicial
+1. Abre `admin/admin.html` en tu navegador
+2. El sistema cargará automáticamente los datos existentes
+3. Revisa la configuración en `Configuración del Sitio`
 
-text
+## 🛠️ Funcionalidades Principales
 
----
+### Gestión de Productos
+- **Agregar Producto**: Click en "Nuevo Producto"
+- **Editar Producto**: Click en el ícono de edición (lápiz)
+- **Eliminar Producto**: Click en el ícono de eliminar (basura)
+- **Filtrar Productos**: Usa la barra de búsqueda y filtros
 
-## 🔧 PASO 3: Configurar Archivos de Datos
+### Gestión de Categorías
+- **Crear Categoría**: Click en "Nueva Categoría"
+- **Editar Categoría**: Click en "Editar" en la tarjeta de categoría
+- **Eliminar Categoría**: Solo disponible si no tiene productos
 
-### 3.1 Crear Carpeta de Datos
-En tu repositorio, crea la carpeta:
-nido-bendito/data/
+### Subida de Imágenes
+- **Arrastrar y Soltar**: Arrastra imágenes al área designada
+- **Selección Manual**: Click en "Seleccionar Imágenes"
+- **Optimización Automática**: Las imágenes se optimizan automáticamente
+- **Múltiples Imágenes**: Puedes subir varias imágenes por producto
 
-text
+## 📊 Estructura de Datos
 
-### 3.2 Archivos de Datos Iniciales
-Crea estos archivos en la carpeta `data/`:
-
-#### `data/categories.json`
+### Productos (products.json)
 ```json
 {
-  "categories": [
-    {
-      "id": "living-room",
-      "name": "Living Room",
-      "slug": "living-room",
-      "description": "Productos para transformar tu sala en un espacio acogedor",
-      "display_order": 1,
-      "product_count": 0
-    },
-    {
-      "id": "dining-kitchen", 
-      "name": "Dining & Kitchen",
-      "slug": "dining-kitchen",
-      "description": "Elementos decorativos para tu comedor y cocina",
-      "display_order": 2,
-      "product_count": 0
-    }
-  ],
-  "metadata": {
-    "version": "1.0",
-    "last_updated": "2025-01-15"
-  }
+  "id": 1,
+  "name": "Nombre del Producto",
+  "category": "categoria-slug",
+  "price": 99.99,
+  "description": "Descripción detallada...",
+  "images": ["ruta/imagen1.jpg", "ruta/imagen2.jpg"],
+  "specifications": {
+    "Material": "Madera",
+    "Dimensiones": "20x30cm"
+  },
+  "featured": true,
+  "published": true
 }
-data/products.json
+Categorías (categories.json)
 json
 {
-  "products": [],
-  "metadata": {
-    "version": "1.0", 
-    "last_updated": "2025-01-15",
-    "total_products": 0,
-    "total_categories": 0
-  }
+  "id": "living-room",
+  "name": "Living Room",
+  "slug": "living-room",
+  "description": "Productos para sala de estar",
+  "image": "ruta/imagen-categoria.jpg",
+  "productCount": 5
 }
+🔧 Configuración Avanzada
+Personalización de Colores
+Edita las variables CSS en admin.css:
+
+css
+:root {
+    --primary-color: #4a6572;
+    --secondary-color: #f9aa33;
+    /* ... más variables */
+}
+Límites de Archivos
+Modifica en config.json:
+
+json
+"images": {
+    "maxFileSize": 5242880,
+    "maxWidth": 1200,
+    "maxHeight": 1200
+}
+🚨 Solución de Problemas
+Los productos no se cargan
+Verifica que data/products.json exista y tenga formato JSON válido
+
+Revisa la consola del navegador (F12) para errores
+
+Las imágenes no se muestran
+Asegúrate de que las rutas de las imágenes sean correctas
+
+Verifica que los archivos de imagen existan
+
+No se pueden guardar cambios
+Verifica los permisos de escritura en las carpetas
+
+Revisa que no haya errores de validación en los formularios
+
+Problemas de rendimiento
+Reduce el tamaño de las imágenes antes de subirlas
+
+Limita el número de productos por página en la configuración
+
+💡 Consejos de Uso
+Para Actualizaciones Diarias
+Usa la función de "Guardar Todo" frecuentemente
+
+Exporta respaldos regularmente
+
+Mantén las imágenes optimizadas
+
+Organización de Productos
+Usa categorías consistentes
+
+Completa todas las especificaciones
+
+Sube múltiples imágenes por producto
+
+Marca productos destacados estratégicamente
+
+Optimización de Imágenes
+Usa formato WebP cuando sea posible
+
+Mantén las imágenes por debajo de 1MB
+
+Usa nombres descriptivos para los archivos
+
+🔄 Actualizaciones
+Actualizar el Sistema
+Descarga la nueva versión
+
+Haz respaldo de tus datos actuales
+
+Reemplaza los archivos (excepto data/)
+
+Verifica que todo funcione correctamente
+
+Migración de Datos
+Exporta tus datos actuales
+
+Importa en el nuevo sistema
+
+Verifica que todos los productos y categorías se carguen
+
+📞 Soporte
+Si encuentras problemas:
+
+Revisa esta guía
+
+Verifica la consola del navegador (F12)
+
+Contacta al desarrollador con los detalles del error

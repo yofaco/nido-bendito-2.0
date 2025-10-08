@@ -4,159 +4,46 @@
       "id": "living-room",
       "name": "Living Room",
       "slug": "living-room",
-      "description": "Transforma tu sala en un espacio acogedor y elegante con nuestra selección de productos para living room. Encuentra velas aromáticas, jarrones decorativos y elementos que crean ambientes perfectos para relajarte y recibir visitas.",
-      "image": "assets/images/categories/living-room.jpg",
-      "product_count": 2,
-      "display_order": 1,
-      "seo": {
-        "meta_title": "Decoración Living Room | Nido Bendito - Sala y Espacios Sociales",
-        "meta_description": "Decora tu living room con productos seleccionados de Nido Bendito. Velas aromáticas, jarrones y decoración para crear espacios acogedores. Envío gratis en Guatemala.",
-        "keywords": ["living room", "decoración sala", "velas aromáticas", "jarrones decorativos", "decoración hogar", "espacios sociales"]
-      },
-      "status": "active",
-      "created_at": "2024-01-15",
-      "updated_at": "2025-01-15"
+      "description": "Productos para decorar y ambientar tu sala de estar",
+      "image": "../assets/images/categories/living-room.jpg",
+      "productCount": 5,
+      "featured": true
     },
     {
       "id": "dining-kitchen",
       "name": "Dining & Kitchen",
       "slug": "dining-kitchen",
-      "description": "Crea momentos especiales en tu comedor y cocina con nuestra colección de productos para dining & kitchen. Desde juegos de jarrones hasta elementos decorativos que hacen de cada comida una experiencia única.",
-      "image": "assets/images/categories/dining-kitchen.jpg",
-      "product_count": 0,
-      "display_order": 2,
-      "seo": {
-        "meta_title": "Decoración Dining & Kitchen | Nido Bendito - Comedor y Cocina",
-        "meta_description": "Decora tu comedor y cocina con productos exclusivos de Nido Bendito. Juegos de jarrones, centros de mesa y más para espacios funcionales y hermosos.",
-        "keywords": ["dining room", "decoración comedor", "cocina", "jarrones cristal", "centros mesa", "decoración dining"]
-      },
-      "status": "active",
-      "created_at": "2024-01-15",
-      "updated_at": "2025-01-15"
-    },
-    {
-      "id": "wall-decor",
-      "name": "Wall Decor",
-      "slug": "wall-decor",
-      "description": "Da vida a tus paredes con nuestra selección de wall decor. Espejos, cuadros y elementos decorativos que transforman espacios vacíos en puntos focales llenos de personalidad y estilo.",
-      "image": "assets/images/categories/wall-decor.jpg",
-      "product_count": 0,
-      "display_order": 3,
-      "seo": {
-        "meta_title": "Wall Decor y Decoración de Paredes | Nido Bendito Guatemala",
-        "meta_description": "Decora tus paredes con nuestra colección de wall decor. Espejos, arte y elementos decorativos para transformar cualquier espacio. Envío gratis.",
-        "keywords": ["wall decor", "decoración paredes", "espejos decorativos", "arte pared", "decoración vertical", "accent walls"]
-      },
-      "status": "active",
-      "created_at": "2024-01-15",
-      "updated_at": "2025-01-15"
+      "description": "Artículos para tu comedor y cocina",
+      "image": "../assets/images/categories/dining-kitchen.jpg",
+      "productCount": 3,
+      "featured": true
     },
     {
       "id": "bedroom",
       "name": "Bedroom",
       "slug": "bedroom",
-      "description": "Convierte tu dormitorio en un santuario personal con nuestra colección bedroom. Productos diseñados para crear ambientes de descanso, tranquilidad y confort donde puedas recargar energías.",
-      "image": "assets/images/categories/bedroom.jpg",
-      "product_count": 0,
-      "display_order": 4,
-      "seo": {
-        "meta_title": "Decoración Bedroom | Nido Bendito - Dormitorio y Descanso",
-        "meta_description": "Transforma tu dormitorio con nuestra colección de decoración bedroom. Productos para crear espacios de descanso y tranquilidad. Calidad y diseño.",
-        "keywords": ["bedroom", "decoración dormitorio", "habitación", "descanso", "dormitorio moderno", "santuario personal"]
-      },
-      "status": "active",
-      "created_at": "2024-01-15",
-      "updated_at": "2025-01-15"
+      "description": "Decoración y accesorios para tu dormitorio",
+      "image": "../assets/images/categories/bedroom.jpg",
+      "productCount": 4,
+      "featured": true
     },
     {
-      "id": "pillows-decor",
-      "name": "Pillows & Decor",
-      "slug": "pillows-decor",
-      "description": "Añade confort y estilo con nuestra colección de pillows & decor. Cojines decorativos y elementos textiles que transforman cualquier espacio, añadiendo color, textura y personalidad a tu hogar.",
-      "image": "assets/images/categories/pillows-decor.jpg",
-      "product_count": 1,
-      "display_order": 5,
-      "seo": {
-        "meta_title": "Pillows & Decor | Cojines Decorativos | Nido Bendito Guatemala",
-        "meta_description": "Encuentra cojines decorativos y elementos textiles en Nido Bendito. Añade confort y estilo a tu hogar con nuestra colección pillows & decor.",
-        "keywords": ["pillows", "cojines decorativos", "decoración textil", "cojines sofa", "decoración pillows", "textiles hogar"]
-      },
-      "status": "active",
-      "created_at": "2024-01-15",
-      "updated_at": "2025-01-15"
+      "id": "wall-decor",
+      "name": "Wall Decor",
+      "slug": "wall-decor",
+      "description": "Arte y decoración para tus paredes",
+      "image": "../assets/images/categories/wall-decor.jpg",
+      "productCount": 2,
+      "featured": false
     },
     {
-      "id": "lighting",
-      "name": "Lighting",
-      "slug": "lighting",
-      "description": "Ilumina y transforma ambientes con nuestra selección de lighting. Lámparas y sistemas de iluminación que no solo iluminan, sino que crean atmósferas únicas y acogedoras en cada rincón de tu hogar.",
-      "image": "assets/images/categories/lighting.jpg",
-      "product_count": 0,
-      "display_order": 6,
-      "seo": {
-        "meta_title": "Lighting e Iluminación | Nido Bendito - Lámparas Decorativas",
-        "meta_description": "Ilumina tu hogar con nuestra colección de lighting. Lámparas decorativas y sistemas de iluminación para crear ambientes acogedores. Diseño y calidad.",
-        "keywords": ["lighting", "iluminación", "lámparas decorativas", "iluminación hogar", "lámparas mesa", "iluminación ambiental"]
-      },
-      "status": "active",
-      "created_at": "2024-01-15",
-      "updated_at": "2025-01-15"
-    },
-    {
-      "id": "new-arrivals",
-      "name": "New Arrivals",
-      "slug": "new-arrivals",
-      "description": "Descubre lo último en decoración para el hogar. Nuestra colección new arrivals presenta productos recién llegados, tendencias actuales y piezas exclusivas que harán de tu espacio algo único.",
-      "image": "assets/images/categories/new-arrivals.jpg",
-      "product_count": 1,
-      "display_order": 7,
-      "seo": {
-        "meta_title": "New Arrivals | Novedades Decoración | Nido Bendito",
-        "meta_description": "Descubre las novedades en decoración de Nido Bendito. Productos nuevos, tendencias y piezas exclusivas para tu hogar. Envío gratis en Guatemala.",
-        "keywords": ["new arrivals", "novedades", "productos nuevos", "últimas tendencias", "decoración nueva", "lanzamientos"]
-      },
-      "status": "active",
-      "created_at": "2024-01-15",
-      "updated_at": "2025-01-15"
-    },
-    {
-      "id": "best-sellers",
-      "name": "Best Sellers",
-      "slug": "best-sellers",
-      "description": "Los productos favoritos de nuestros clientes. Nuestra colección best sellers reúne los artículos más amados y recomendados, probados y aprobados por la comunidad Nido Bendito.",
-      "image": "assets/images/categories/best-sellers.jpg",
-      "product_count": 1,
-      "display_order": 8,
-      "seo": {
-        "meta_title": "Best Sellers | Productos Más Vendidos | Nido Bendito",
-        "meta_description": "Descubre los best sellers de Nido Bendito. Los productos más vendidos y mejor valorados por nuestra comunidad. Calidad garantizada.",
-        "keywords": ["best sellers", "más vendidos", "productos populares", "favoritos", "top ventas", "recomendados"]
-      },
-      "status": "active",
-      "created_at": "2024-01-15",
-      "updated_at": "2025-01-15"
+      "id": "bathroom",
+      "name": "Bathroom",
+      "slug": "bathroom",
+      "description": "Accesorios y decoración para baño",
+      "image": "../assets/images/categories/bathroom.jpg",
+      "productCount": 0,
+      "featured": false
     }
-  ],
-  "metadata": {
-    "version": "2.0",
-    "last_updated": "2025-01-15T10:30:00Z",
-    "total_categories": 8,
-    "active_categories": 8,
-    "total_products": 3,
-    "category_stats": {
-      "living-room": 2,
-      "pillows-decor": 1,
-      "new-arrivals": 1,
-      "best-sellers": 1,
-      "dining-kitchen": 0,
-      "wall-decor": 0,
-      "bedroom": 0,
-      "lighting": 0
-    },
-    "store_info": {
-      "name": "Nido Bendito",
-      "default_category": "living-room",
-      "featured_categories": ["living-room", "new-arrivals", "best-sellers"]
-    }
-  }
+  ]
 }
